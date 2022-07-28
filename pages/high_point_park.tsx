@@ -22,6 +22,7 @@ import Image from 'next/image';
 import logoWhite from 'public/images/High-Point-Park_LOGO_white.svg';
 import logo from 'public/images/HPPLogo.svg';
 import styles from 'styles/pages/HighPointPark.styles.module.scss';
+import { TRUE } from 'sass';
 
 function Header(): JSX.Element {
   // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
@@ -223,6 +224,13 @@ function Project(): JSX.Element {
             </div>
           </Col>
         </Row>
+      </Container>
+      <Container className={styles.projectRowVideo}>
+        <Col md="12" lg="12">
+          <video className={styles.projectVideo} poster='/videos/HPP-video_cover-industrial_strata_opportunity.png' controls>
+              <source src="/videos/HPP-industrial_strata_opportunity_in_south_burnaby.mp4" type="video/mp4" />
+          </video>
+        </Col>
       </Container>
       <Container className={styles.projectRowTwo}>
         <Image
