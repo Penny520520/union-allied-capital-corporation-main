@@ -226,7 +226,7 @@ function Project(): JSX.Element {
           </Col>
         </Row>
       </Container>
-      <Container className={styles.projectRowVideo}>
+      {/* <Container className={styles.projectRowVideo}>
         <Col md="12" lg="12">
           <ReactPlayer
             url="/videos/HPP-industrial_strata_opportunity_in_south_burnaby.mp4"
@@ -243,7 +243,7 @@ function Project(): JSX.Element {
             controls
           />
         </Col>
-      </Container>
+      </Container> */}
       <Container className={styles.projectRowTwo}>
         <Image
           src="/images/zoning.svg"
