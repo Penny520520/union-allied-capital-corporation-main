@@ -29,7 +29,7 @@ import dynamic from 'next/dynamic';
 
 const DynamicJqueryDiamonds = dynamic(
   () => import('../components/JqueryRipples/JqueryRipples.component'),
-  {  ssr: false }
+  { ssr: false }
 );
 
 function Header(): JSX.Element {
@@ -90,46 +90,50 @@ function Header(): JSX.Element {
 }
 function HeroBanner(): JSX.Element {
   return (
-    <><DynamicJqueryDiamonds /><section id="home" className={styles.hero}>
-      
-      {/* <div id="bgimg" className={styles.bgImgContainer}></div> */}
-      <div className={styles.bnrIntroContainer}>
-        <div className={styles.bnrIntro}>
-          <div className={styles.headline}>
-            <h1 className={styles.headHone}>
-              TAKE YOUR
-              <br />
-              BUSINESS TO
-              <br />
-              NEW HEIGHTS
-            </h1>
-            <div className={styles.address}>
-              8290 ROSS STREET, VANCOUVER, BC
+    <>
+      <DynamicJqueryDiamonds />
+      <section id="home" className={styles.hero}>
+        {/* <div id="bgimg" className={styles.bgImgContainer}></div> */}
+        <div className={styles.bnrIntroContainer}>
+          <div className={styles.bnrIntro}>
+            <div className={styles.headline}>
+              <h1 className={styles.headHone}>
+                TAKE YOUR
+                <br />
+                BUSINESS TO
+                <br />
+                NEW HEIGHTS
+              </h1>
+              <div className={styles.address}>
+                8290 ROSS STREET, VANCOUVER, BC
+              </div>
             </div>
+            <Link href="#opportunity">
+              <a className={styles.arrowDownContainer}>
+                <Image
+                  src="/images/arrow-down.png"
+                  width={57}
+                  height={57}
+                  className="arrowdown"
+                  alt="scroll-icon"
+                />
+              </a>
+            </Link>
+            <Link href="https://www.unionallied.ca/">
+              <a className={styles.unionalliedlogoContianer} target="_blank">
+                <Image
+                  src="/images/Union-allied-logo-grayscale.png"
+                  width={243}
+                  height={39.62}
+                  className="arrowdown"
+                  alt="scroll-icon"
+                />
+              </a>
+            </Link>
           </div>
-          <Link href="#opportunity">
-            <a className={styles.arrowDownContainer}>
-              <Image
-                src="/images/arrow-down.png"
-                width={57}
-                height={57}
-                className="arrowdown"
-                alt="scroll-icon" />
-            </a>
-          </Link>
-          <Link href="https://www.unionallied.ca/">
-            <a className={styles.unionalliedlogoContianer} target="_blank">
-              <Image
-                src="/images/Union-allied-logo-grayscale.png"
-                width={243}
-                height={39.62}
-                className="arrowdown"
-                alt="scroll-icon" />
-            </a>
-          </Link>
         </div>
-      </div>
-    </section></>
+      </section>
+    </>
   );
 }
 function Opportunity(): JSX.Element {
@@ -230,7 +234,7 @@ function Building(): JSX.Element {
   const prevIcon = (
     <span aria-hidden="false" className={styles.carouselControlPrevIcon} />
   );
-  
+
   return (
     <section id="building" className={styles.building}>
       <Image

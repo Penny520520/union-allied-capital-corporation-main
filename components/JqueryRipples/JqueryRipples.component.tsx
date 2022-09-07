@@ -7,18 +7,13 @@ import styles from './JqueryRipples.styles.module.scss';
 import $ from 'jquery';
 
 declare const window: any;
-// declare global {
-//   interface jqueryRipples {
-//     ripples(): void;
-//   }
-// }
 
 export default () => {
   useEffect(() => {
     window.jqueryRipples = require('jquery.ripples');
 
     ($('#home') as any).ripples({
-        resolution:400
+      resolution: 400,
     });
   }, []);
 
