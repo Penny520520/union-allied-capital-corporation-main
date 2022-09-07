@@ -17,7 +17,7 @@ export default () => {
   useEffect(() => {
     window.jqueryRipples = require('jquery.ripples');
 
-    ($('#home') as JQuery<HTMLElement>).ripples({
+    ($('#home') as any).ripples({
         resolution:400
     });
   }, []);
