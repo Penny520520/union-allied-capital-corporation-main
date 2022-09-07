@@ -1,8 +1,5 @@
 import React, { useEffect } from 'react';
-import { PropsWithChildren } from 'react';
-import { Typography, Accordion } from '~/components';
 /// <reference path="../DefinitelyTyped/jquery.d.ts" />
-import dynamic from 'next/dynamic';
 import styles from './JqueryRipples.styles.module.scss';
 import $ from 'jquery';
 

@@ -1,14 +1,14 @@
-import { useEffect, useState, MouseEvent } from 'react';
+import { useState } from 'react';
 import {
   Container,
   Row,
   Col,
   Navbar,
   Nav,
-  Accordion,
+  // Accordion,
   Button,
   Carousel,
-  ListGroup,
+  // ListGroup,
 } from 'react-bootstrap';
 import { fetch } from '~/packages';
 import { RenderEitherOr } from '~/utils';
@@ -20,9 +20,9 @@ import { FormEvent } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Link from 'next/link';
 import Image from 'next/image';
-import ReactPlayer from 'react-player';
+// import ReactPlayer from 'react-player';
 // import hqLogo from 'public/images/High-Point-Park_LOGO_white.svg';
-import logo from 'public/images/HPPLogo.svg';
+// import logo from 'public/images/HPPLogo.svg';
 import styles from 'styles/pages/HQ.styles.module.scss';
 /// <reference path="../DefinitelyTyped/jquery.d.ts" />
 import dynamic from 'next/dynamic';
@@ -220,6 +220,7 @@ function Location(): JSX.Element {
   );
 }
 function Building(): JSX.Element {
+  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
   const [isMouseOver, setMouseOver] = useState(false);
   function handleMouseEvent() {
     setMouseOver(!isMouseOver);
