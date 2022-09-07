@@ -374,3 +374,15 @@
   font-style: normal;
   font-display: swap;
 }
+
+/* HQ fonts */
+@font-face {
+  font-family: 'GalanoGrotesqueAltDEMO';
+  src: url('/Fonts/GalanoGrotesqueAltDEMO-Bold.otf') format('otf'),
+    url('/Fonts/PGalanoGrotesqueAltDEMO-Bold.ttf') format('truetype'),
+    url('/Fonts/GalanoGrotesqueAltDEMO-Bold.woff') format('woff'),
+    url('/Fonts/GalanoGrotesqueAltDEMO-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
