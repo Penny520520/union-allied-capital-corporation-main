@@ -1,6 +1,7 @@
 import React from 'react';
 import 'flickity/dist/flickity.min.css';
 import Flickity from 'react-flickity-component';
+import Image from 'next/image';
 
 export default () => {
   const flickityOptions = {
