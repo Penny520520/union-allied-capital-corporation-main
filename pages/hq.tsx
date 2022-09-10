@@ -1,11 +1,12 @@
-import { useState } from 'react';
+/* eslint-disable jsx-a11y/mouse-events-have-key-events */
+import { useEffect, useState, useRef } from 'react';
 import {
   Container,
   Row,
   Col,
   Navbar,
   Nav,
-  // Accordion,
+  Accordion,
   Button,
   Carousel,
   // ListGroup,
@@ -25,86 +26,159 @@ import Image from 'next/image';
 // import logo from 'public/images/HPPLogo.svg';
 import styles from 'styles/pages/HQ.styles.module.scss';
 /// <reference path="../DefinitelyTyped/jquery.d.ts" />
+import $ from 'jquery';
 import dynamic from 'next/dynamic';
+//import scrollstyles from '~/components/LocomotiveScroll/LocomotiveScroll.styles.module.scss';
+import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
+import 'locomotive-scroll/dist/locomotive-scroll.min.css';
+// import Script from 'next/script';
 
 const DynamicJqueryDiamonds = dynamic(
   () => import('../components/JqueryRipples/JqueryRipples.component'),
   { ssr: false }
 );
+// const DynamicJqueryRippleSpace = dynamic(
+//   () =>
+//     import('../components/JqueryRipplesSpacebg/JqueryRipplesSpacebg.component'),
+//   { ssr: false }
+// );
+const FlickityCarousel = dynamic(
+  () => import('../components/FlickityCarouselAmenities/flickity.component'),
+  { ssr: false }
+);
+const FlickityCarouselMap = dynamic(
+  () => import('../components/FlickityCarouselMap/flickity.component'),
+  { ssr: false }
+);
+// const LocomotiveScroll = dynamic(
+//   () => import('../components/LocomotiveScroll/LocomotiveScroll.component'),
+//   { ssr: false }
+// );
 
 function Header(): JSX.Element {
+  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
+  const [isScroll, setScroll] = useState(false);
+  const changeHeaderStyle = () => {
+    if (typeof window !== 'undefined' && window.scrollY >= 80) {
+      setScroll(true);
+    } else {
+      setScroll(false);
+    }
+  };
+  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
+  useEffect(() => {
+    window.addEventListener('scroll', changeHeaderStyle);
+    return () => window.removeEventListener('scroll', changeHeaderStyle);
+  }, []);
   return (
-    <Container className={styles.headerContainer}>
-      <Row className={styles.header}>
-        <Col xs="7">
-          <Link href="/hq" passHref>
-            <Image
-              src="/images/HQ_LOGO_V1-white--03.png"
-              alt="HQ LOGO"
-              width={141}
-              height={82.94}
-              className={styles.hqLogoWhite}
-            />
-          </Link>
-        </Col>
-        <Col xs="5">
-          <Navbar
-            collapseOnSelect
-            className={styles.navbarContainer}
-            expand="lg"
-          >
-            <Navbar.Toggle />
-            <Navbar.Collapse className={styles.navbarCollapse}>
-              <Nav className={styles.navbarDropDown}>
-                <Nav.Link href="/hq" className={styles.navBtn}>
-                  HOME
-                </Nav.Link>
-                <Nav.Link href="#location" className={styles.navBtn}>
-                  LOCATION
-                </Nav.Link>
-                <Nav.Link href="#building" className={styles.navBtn}>
-                  BUILDING
-                </Nav.Link>
-                <Nav.Link href="#amenitiesfeatures" className={styles.navBtn}>
-                  AMENITIES & FEATURES
-                </Nav.Link>
-                <Nav.Link href="#siteplan" className={styles.navBtn}>
-                  SITEPLAN
-                </Nav.Link>
-                <Nav.Link href="#floorplans" className={styles.navBtn}>
-                  FLOORPLANS
-                </Nav.Link>
-                <Nav.Link href="#team" className={styles.navBtn}>
-                  TEAM
-                </Nav.Link>
-                <Nav.Link href="#register" className={styles.registerBtn}>
-                  REGISTER
-                </Nav.Link>
-              </Nav>
-            </Navbar.Collapse>
-          </Navbar>
-        </Col>
-      </Row>
-    </Container>
+    <>
+      <Container
+        className={
+          isScroll ? styles.headerContainerActive : styles.headerContainer
+        }
+        // data-scroll
+        // data-scroll-speed="-8"
+        // data-scroll-position="top"
+        // data-scroll-target="#header"
+        // data-scroll-repeat
+      >
+        <Row className={styles.header}>
+          <Col xs="7">
+            <Link href="/hq" passHref>
+              <Image
+                src="/images/HQ_LOGO_V1-white--03.png"
+                alt="HQ LOGO"
+                width={141}
+                height={82.94}
+                className={styles.hqLogoWhite}
+              />
+            </Link>
+          </Col>
+          <Col xs="5">
+            <Navbar
+              collapseOnSelect
+              className={styles.navbarContainer}
+              expand="lg"
+            >
+              <Navbar.Toggle />
+              <Navbar.Collapse className={styles.navbarCollapse}>
+                <Nav className={styles.navbarDropDown}>
+                  <Nav.Link href="/hq" className={styles.navBtn}>
+                    HOME
+                  </Nav.Link>
+                  <Nav.Link href="#location" className={styles.navBtn}>
+                    LOCATION
+                  </Nav.Link>
+                  <Nav.Link href="#building" className={styles.navBtn}>
+                    BUILDING
+                  </Nav.Link>
+                  <Nav.Link href="#amenitiesfeatures" className={styles.navBtn}>
+                    AMENITIES & FEATURES
+                  </Nav.Link>
+                  <Nav.Link href="#siteplan" className={styles.navBtn}>
+                    SITEPLAN
+                  </Nav.Link>
+                  <Nav.Link href="#floorplans" className={styles.navBtn}>
+                    FLOORPLANS
+                  </Nav.Link>
+                  <Nav.Link href="#team" className={styles.navBtn}>
+                    TEAM
+                  </Nav.Link>
+                  <Nav.Link href="#register" className={styles.registerBtn}>
+                    REGISTER
+                  </Nav.Link>
+                </Nav>
+              </Navbar.Collapse>
+            </Navbar>
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 }
 function HeroBanner(): JSX.Element {
+  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
+  const [isScroll, setScroll] = useState(false);
+  const hideBnrIntro = () => {
+    if (
+      typeof window !== 'undefined' &&
+      window.scrollY >= window.innerHeight - 168.94
+    ) {
+      setScroll(true);
+    } else {
+      setScroll(false);
+    }
+  };
+  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
+  useEffect(() => {
+    window.addEventListener('scroll', hideBnrIntro);
+    return () => window.removeEventListener('scroll', hideBnrIntro);
+  }, []);
   return (
     <>
-      <DynamicJqueryDiamonds />
-      <section id="home" className={styles.hero}>
+      <div id="" className={styles.bnr}>
         {/* <div id="bgimg" className={styles.bgImgContainer}></div> */}
         <div className={styles.bnrIntroContainer}>
-          <div className={styles.bnrIntro}>
+          <div className={isScroll ? styles.bnrIntroActive : styles.bnrIntro}>
             <div className={styles.headline}>
-              <h1 className={styles.headHone}>
-                TAKE YOUR
+              <h1
+                className={styles.headHone}
+                data-scroll
+                data-scroll-speed="3"
+                data-scroll-position="top"
+              >
+                <span className={styles.cHeaderTitleLine}>TAKE YOUR</span>
                 <br />
-                BUSINESS TO
+                <span className={styles.cHeaderTitleLine}>BUSINESS TO</span>
                 <br />
-                NEW HEIGHTS
+                <span className={styles.cHeaderTitleLine}>NEW HEIGHTS</span>
               </h1>
-              <div className={styles.address}>
+              <div
+                className={styles.address}
+                data-scroll
+                data-scroll-speed="1"
+                data-scroll-position="top"
+              >
                 8290 ROSS STREET, VANCOUVER, BC
               </div>
             </div>
@@ -116,6 +190,7 @@ function HeroBanner(): JSX.Element {
                   height={57}
                   className="arrowdown"
                   alt="scroll-icon"
+                  data-scroll
                 />
               </a>
             </Link>
@@ -127,20 +202,55 @@ function HeroBanner(): JSX.Element {
                   height={39.62}
                   className="arrowdown"
                   alt="scroll-icon"
+                  data-scroll
                 />
               </a>
             </Link>
           </div>
         </div>
-      </section>
+      </div>
+      <DynamicJqueryDiamonds />
+      {/* <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.addEventListener('DOMContentLoaded', () => {
+              setTimeout(() => {
+                ($('.cHeaderTitleLine') as any).css({
+                  opacity: '1',
+                  transform: 'none',
+                  'transition-delay': '0.8s',
+                });
+              }, 200);
+            });
+    `,
+        }}
+      ></script> */}
     </>
   );
 }
 function Opportunity(): JSX.Element {
+  // // const { scroll } = useLocomotiveScroll()
+
   return (
-    <section id="opportunity" className={styles.opportunity}>
-      <Container className={styles.opportunityContainer}>
-        <Row className={styles.header}>
+    //      <LocomotiveScrollProvider
+    //       options={{
+    //         smooth: true,
+    //       }}
+    //       containeRef={containerRef}
+    //     >
+    <section id="opportunity" className={styles.opportunity} data-scroll>
+      <Container
+        className={styles.opportunityContainer}
+        // data-scroll-container
+      >
+        {/* <LocomotiveScroll/> */}
+        <Row
+          className={styles.header}
+          // data-scroll
+          data-scroll
+          data-scroll-speed="2"
+          // data-scroll-direction="vertical"
+        >
           <Col xs="6">
             <h2 className={styles.headHtwo}>OPPORTUNITY</h2>
           </Col>
@@ -165,9 +275,14 @@ function Opportunity(): JSX.Element {
           height={1016}
           layout="responsive"
           alt="OPPORTUNITY"
-          className={styles.hqStrataUnits}
+          // className={styles.hqStrataUnits}
+          data-scroll
         />
-        <Row className={styles.opportunityDetail}>
+        <Row
+          className={styles.opportunityDetail}
+          data-scroll
+          data-scroll-speed="2"
+        >
           <Col xs="4">
             <h4 className={styles.headH4}>
               HQ is south vancouver’s newest industrial development, featuring a
@@ -189,21 +304,36 @@ function Opportunity(): JSX.Element {
         </Row>
       </Container>
     </section>
+    // </LocomotiveScrollProvider>
   );
 }
 function Location(): JSX.Element {
   return (
-    <section id="location" className={styles.location}>
+    <section id="location" className={styles.hqLocation} data-scroll>
       <Container className={styles.locationContainer}>
         <Row className={styles.locationRow}>
           <Col xs="6">
-            <h2 className={styles.headHtwo}>LOCATION</h2>
+            <h2
+              className={styles.headHtwo}
+              data-scroll
+              data-scroll-delay="0.2"
+              data-scroll-speed="2"
+              data-scroll-repeat
+            >
+              LOCATION
+            </h2>
           </Col>
-          <Col xs="6">
-            <h3 className={styles.headHthree}>
+          <Col
+            xs="6"
+            data-scroll
+            data-scroll-delay="0.2"
+            data-scroll-speed="1"
+            data-scroll-repeat
+          >
+            <h3 className={styles.headHthree} data-scroll data-scroll-speed="2">
               8290 ROSS STREEET, VANCOUVER, BC
             </h3>
-            <p className={styles.paragraph}>
+            <p className={styles.paragraph} data-scroll data-scroll-speed="2">
               Step away from SE Marine Drive and Knight Street, HQ is centrally
               located on the corner of Ross Street and East Kent Avenue North in
               East Vancouver’s industrial area. Located along one of East
@@ -221,13 +351,22 @@ function Location(): JSX.Element {
 }
 function Building(): JSX.Element {
   // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
-  const [isMouseOver, setMouseOver] = useState(false);
-  function handleMouseEvent() {
-    setMouseOver(!isMouseOver);
-  }
-  function handleMouseEventLeave() {
-    setMouseOver(isMouseOver);
-  }
+  // const [isMouseOver, setMouseOver] = useState(false);
+  // function handleMouseEvent(this: any) {
+  //   // $("#listItemContainer")
+  //   $('.headH5Con').on('mouseover', function(e) {
+  //     e.preventDefault();
+  //   if($(this).hasClass('headH5)){
+  //     $(this).removeClass('listItemsAcitve');
+  //   } else {
+  //     $(this).addClass('listItemsAcitve');
+  //     $(this).removeClass('headH5');
+  //   }
+  //   }
+  // }
+  // function handleMouseEventLeave() {
+  //   setMouseOver(isMouseOver);
+  // }
 
   const nextIcon = (
     <span aria-hidden="true" className={styles.carouselControlNextIcon} />
@@ -236,8 +375,29 @@ function Building(): JSX.Element {
     <span aria-hidden="false" className={styles.carouselControlPrevIcon} />
   );
 
+  //eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
+  // useEffect(() => {
+  //   // $('.headH5Con').on('mouseenter', function(e) {
+  //   //   e.preventDefault();
+  //   // if($(this).hasClass('headH5)){
+  //   //   $(this).removeClass('listItemsAcitve');
+  //   // } else {
+  //   //   $(this).addClass('listItemsAcitve');
+  //   // }
+
+  //   ($('.headH5Con') as any).addEventListener('mouseover', () =>
+  //     $(this).removeClass('headH5Con');
+  //     $(this).addClass('listItemsAcitve');
+  //   );
+  //   ($('.listItemsAcitve') as any).addEventListener('mouseleft', () =>
+  //     $(this).removeClass('listItemsAcitve');
+  //     $(this).addClass('headH5Con');
+  //   );
+
+  // }, []);
+
   return (
-    <section id="building" className={styles.building}>
+    <section id="building" className={styles.building} data-scroll>
       <Image
         src="/images/HQ_MAP.jpg"
         width={1920}
@@ -250,13 +410,17 @@ function Building(): JSX.Element {
         <Row className={styles.sidebarContainer}>
           <Col xs="3" className={styles.headH5Con}>
             <h5 className={styles.headH5}>RESTAURANT</h5>
+            <div className={styles.listItemsContainer}>
+              <ul className={styles.listItems}>
+                <li className={styles.item}>1. Northern Cafe</li>
+                <li className={styles.item}>2. Flamingo Chinese Restaurant</li>
+                <li className={styles.item}>3. Dosa Corner</li>
+                <li className={styles.item}>4. Subway</li>
+                <li className={styles.item}>5. Tandoori Raj Restaurant</li>
+              </ul>
+            </div>
           </Col>
-          <Col
-            xs="3"
-            className={isMouseOver ? styles.listItemsAcitve : styles.headH5Con}
-            onMouseOver={handleMouseEvent}
-            onMouseLeave={handleMouseEventLeave}
-          >
+          <Col xs="3" className={styles.headH5Con}>
             <h5 className={styles.headH5}>SHOPPING & SERVICES</h5>
             <div className={styles.listItemsContainer}>
               <ul className={styles.listItems}>
@@ -276,376 +440,823 @@ function Building(): JSX.Element {
           </Col>
         </Row>
       </Container>
-      <Carousel
-        className={styles.carouselContainer}
-        nextIcon={nextIcon}
-        prevIcon={prevIcon}
-        indicators={false}
-      >
-        <Carousel.Item>
-          <Image
-            src="/images/Aerial View.jpg"
-            width={1920}
-            height={900}
-            layout="responsive"
-            alt="Aerial View"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <Image
-            src="/images/Dollhouse-1.jpg"
-            width={1920}
-            height={900}
-            layout="responsive"
-            alt="Dollhouse-1"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <Image
-            src="/images/Dollhouse-2.jpg"
-            width={1920}
-            height={900}
-            layout="responsive"
-            alt="Dollhouse-2"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <Image
-            src="/images/Street View.jpg"
-            width={1920}
-            height={900}
-            layout="responsive"
-            alt="Street View"
-          />
-        </Carousel.Item>
-      </Carousel>
+      {/* flickity */}
+      <Container className={styles.amenitiesItems}>
+        <FlickityCarouselMap />
+      </Container>
+      <div className={styles.hasapcebg}>
+        <Container className={styles.hqspace}>
+          <h2 className={styles.headHtwo}>THE SPACES</h2>
+          <Carousel
+            className={styles.spaceCarouselContainer}
+            nextIcon={nextIcon}
+            prevIcon={prevIcon}
+            indicators={false}
+          >
+            <Carousel.Item>
+              <Image
+                src="/images/hq-spaces-1-l.jpg"
+                width={1673}
+                height={950}
+                layout="responsive"
+                alt="Aerial View"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <Image
+                src="/images/hq-spaces-2-l.jpg"
+                width={1673}
+                height={950}
+                layout="responsive"
+                alt="Dollhouse-1"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <Image
+                src="/images/hq-spaces-3-l.jpg"
+                width={1673}
+                height={950}
+                layout="responsive"
+                alt="Dollhouse-2"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <Image
+                src="/images/hq-spaces-4-l.jpg"
+                width={1673}
+                height={950}
+                layout="responsive"
+                alt="Street View"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <Image
+                src="/images/hq-spaces-5-l.jpg"
+                width={1673}
+                height={950}
+                layout="responsive"
+                alt="Street View"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <Image
+                src="/images/hq-spaces-6-l.jpg"
+                width={1673}
+                height={950}
+                layout="responsive"
+                alt="Street View"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <Image
+                src="/images/hq-spaces-7-l.jpg"
+                width={1673}
+                height={950}
+                layout="responsive"
+                alt="Street View"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <Image
+                src="/images/hq-spaces-8-l.jpg"
+                width={1673}
+                height={950}
+                layout="responsive"
+                alt="Street View"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <Image
+                src="/images/hq-spaces-9-l.jpg"
+                width={1673}
+                height={950}
+                layout="responsive"
+                alt="Street View"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <Image
+                src="/images/hq-spaces-10-l.jpg"
+                width={1673}
+                height={950}
+                layout="responsive"
+                alt="Street View"
+              />
+            </Carousel.Item>
+          </Carousel>
+        </Container>
+        {/* <DynamicJqueryRippleSpace /> */}
+      </div>
     </section>
   );
 }
-
-function Feature(): JSX.Element {
+function Amenities(): JSX.Element {
+  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
+  const [isMouseOver, setMouseOver] = useState(false);
+  function handleMouseEvent() {
+    setMouseOver(!isMouseOver);
+  }
+  function handleMouseEventLeave() {
+    setMouseOver(isMouseOver);
+  }
   return (
-    <section id="features" className={styles.featureContainer}>
+    <section id="amenities" className={styles.hqAmenities} data-scroll>
+      <h2 className={styles.headHtwo} data-scroll data-scroll-speed="2">
+        AMENITIES
+      </h2>
       <Image
-        src="/images/UNIT FEATURES.svg"
-        width={1621}
-        height={197}
+        src="/images/hq-amenities-view.jpg"
+        width={1920}
+        height={1080}
         layout="responsive"
-        alt="feature"
+        alt="AMENITIES VIEW"
+        className={styles.hqMap}
+        data-scroll
+        data-scroll-speed="2"
+        // eslint-disable-next-line react/jsx-no-comment-textnodes
       />
-
-      <Container className={styles.featureList}>
-        <Row>
+      <div
+        className={
+          isMouseOver ? styles.hqCalloutBtnAction : styles.hqCalloutBtn
+        }
+        onMouseOver={handleMouseEvent}
+        onFocus={() => void 0}
+        onMouseLeave={handleMouseEventLeave}
+        onBlur={() => void 0}
+      >
+        <Image
+          src="/images/hq-callout-btn.png"
+          width={57}
+          height={57}
+          alt="AMENITIES VIEW"
+          className={styles.calloutIcon}
+        />
+        <div className={styles.calloutItem}>
+          <p className={styles.paragraph}>
+            Rooftop amenity deck with an outdoor kitchen, BBQ, and lounge areas
+            for entertaining
+          </p>
+        </div>
+      </div>
+      <div className={styles.hqCalloutBtn}>
+        <Image
+          src="/images/hq-callout-btn.png"
+          width={57}
+          height={57}
+          alt="AMENITIES VIEW"
+          className={styles.calloutIcon}
+        />
+        <div className={styles.calloutItem}>
+          <p className={styles.paragraph}>Generous common cooridor</p>
+        </div>
+      </div>
+      <div className={styles.hqCalloutBtn}>
+        <Image
+          src="/images/hq-callout-btn.png"
+          width={57}
+          height={57}
+          alt="AMENITIES VIEW"
+          className={styles.calloutIcon}
+        />
+        <div className={styles.calloutItem}>
+          <p className={styles.paragraph}>
+            Secured parkade & Convenient end-of-trip facilities
+          </p>
+        </div>
+      </div>
+      {/* flickity */}
+      <Container
+        className={styles.amenitiesItems}
+        data-scroll
+        data-scroll-speed="2"
+      >
+        <FlickityCarousel />
+      </Container>
+    </section>
+  );
+}
+function Feature(): JSX.Element {
+  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
+  const [isFoodClick, setFoodClick] = useState(false);
+  function foodClickHandler() {
+    setFoodClick(!isFoodClick);
+  }
+  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
+  const [isShopClick, setShopClick] = useState(false);
+  function shopClickHandler() {
+    setShopClick(!isShopClick);
+  }
+  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
+  const [isBusClick, setBusClick] = useState(false);
+  function busClickHandler() {
+    setBusClick(!isBusClick);
+  }
+  return (
+    <section id="features" className={styles.featureContainer} data-scroll>
+      <h2 className={styles.headHtwo} data-scroll data-scroll-speed="1">
+        UNIT FEATURES
+      </h2>
+      <Container
+        className={styles.featureList}
+        data-scroll
+        data-scroll-speed="1"
+      >
+        <Row className={styles.featureRow}>
           <Col xs="12" md="6">
             <div className={styles.featureBox}>
-              <Image
-                src="/images/parking.svg"
-                width={46}
-                height={46}
-                layout="fixed"
-                alt="parking"
-              />
+              <div className={styles.featureIconBg}>
+                <Image
+                  src="/images/hq-parking-white.png"
+                  width={88}
+                  height={88}
+                  layout="fixed"
+                  alt="parking"
+                  className={styles.featureIcon}
+                />
+              </div>
               <div className={styles.featureTextBox}>
                 <div className={styles.featureTextOne}>PARKING</div>
                 <div className={styles.featureTextTwo}>
-                  2 parking stalls per unit
+                  2 parking stalls with every unit with an opportunity to
+                  purchase 2 more stalls per unit. (*Secured underground parkade
+                  100 spots)
                 </div>
               </div>
             </div>
             <div className={styles.featureBox}>
-              <Image
-                src="/images/electric-power.svg"
-                width={46}
-                height={46}
-                layout="fixed"
-                alt="electric-power"
-              />
-              <div className={styles.featureTextBox}>
-                <div className={styles.featureTextOne}>ELECTRICAL SERVICE</div>
-                <div className={styles.featureTextTwo}>
-                  100 amp, 600 volt, 3 phase with potential upgrade up to 200
-                  amp
-                </div>
+              <div className={styles.featureIconBg}>
+                <Image
+                  src="/images/hq-warehouse.png"
+                  width={88}
+                  height={88}
+                  layout="fixed"
+                  alt="parking"
+                  className={styles.featureIcon}
+                />
               </div>
-            </div>
-            <div className={styles.featureBox}>
-              <Image
-                src="/images/warehouse.svg"
-                width={46}
-                height={46}
-                layout="fixed"
-                alt="warehouse"
-              />
               <div className={styles.featureTextBox}>
                 <div className={styles.featureTextOne}>LOADING DOOR</div>
                 <div className={styles.featureTextTwo}>
-                  Grade level loading per unit (10’x14’)
+                  Grade level loading per unit
                 </div>
               </div>
             </div>
             <div className={styles.featureBox}>
-              <Image
-                src="/images/pipe.svg"
-                width={46}
-                height={46}
-                layout="fixed"
-                alt="pipe"
-              />
+              <div className={styles.featureIconBg}>
+                <Image
+                  src="/images/hq-ladder-white.png"
+                  width={88}
+                  height={88}
+                  layout="fixed"
+                  alt="parking"
+                  className={styles.featureIcon}
+                />
+              </div>
               <div className={styles.featureTextBox}>
-                <div className={styles.featureTextOne}>DRAINAGE</div>
+                <div className={styles.featureTextOne}>CEILING HEIGHT</div>
                 <div className={styles.featureTextTwo}>
-                  *contact Listing Agents for details
+                  • 14’ ceiling clear heights under mezzanine <br /> • 9’
+                  ceiling clear
+                  <br />
+                  heights in warehouse <br /> • 24’ ceiling clear double heights
+                  warehouse
                 </div>
               </div>
             </div>
             <div className={styles.featureBox}>
-              <Image
-                src="/images/ladder.svg"
-                width={46}
-                height={46}
-                layout="fixed"
-                alt="ladder"
-              />
+              <div className={styles.featureIconBg}>
+                <Image
+                  src="/images/hq-trolley.png"
+                  width={88}
+                  height={88}
+                  layout="fixed"
+                  alt="parking"
+                  className={styles.featureIcon}
+                />
+              </div>
               <div className={styles.featureTextBox}>
-                <div className={styles.featureTextOne}>CEILING HEIGHTS</div>
+                <div className={styles.featureTextOne}>FLOOR LOAD</div>
                 <div className={styles.featureTextTwo}>
-                  • 30’ clear heights in warehouse
+                  Heavy floor load capacity:
+                  <br />
+                  • 350 lbs/sf main floor
+                  <br />• 100 lbs/sf mezzanine
                 </div>
+              </div>
+            </div>
+            <div className={styles.featureBox}>
+              <div className={styles.featureIconBg}>
+                <Image
+                  src="/images/hq-washroom-white.png"
+                  width={88}
+                  height={88}
+                  layout="fixed"
+                  alt="parking"
+                  className={styles.featureIcon}
+                />
+              </div>
+              <div className={styles.featureTextBox}>
+                <div className={styles.featureTextOne}>WASHROOM</div>
                 <div className={styles.featureTextTwo}>
-                  • 18’ clear heights under mezzanine
-                </div>
-                <div className={styles.featureTextTwo}>
-                  • 11’ clear heights in mezzanine
+                  Fully finished accessible washroom
                 </div>
               </div>
             </div>
           </Col>
           <Col xs="12" md="6">
             <div className={styles.featureBox}>
-              <Image
-                src="/images/spotlight.svg"
-                width={46}
-                height={46}
-                layout="fixed"
-                alt="spotlight"
-              />
+              <div className={styles.featureIconBg}>
+                <Image
+                  src="/images/hq-electric-power.png"
+                  width={88}
+                  height={88}
+                  layout="fixed"
+                  alt="parking"
+                  className={styles.featureIcon}
+                />
+              </div>
               <div className={styles.featureTextBox}>
-                <div className={styles.featureTextOne}>LIGHTING</div>
+                <div className={styles.featureTextOne}>ELECTRICAL SERVICE</div>
                 <div className={styles.featureTextTwo}>
-                  High efficiency LED lighting
+                  600 volt, 100 amp per unit
                 </div>
               </div>
             </div>
             <div className={styles.featureBox}>
-              <Image
-                src="/images/sprinkler.svg"
-                width={46}
-                height={46}
-                layout="fixed"
-                alt="sprinkler"
-              />
-              <div className={styles.featureTextBox}>
-                <div className={styles.featureTextOne}>SPRINKLERS</div>
-                <div className={styles.featureTextTwo}>ESFR Sprinklers</div>
+              <div className={styles.featureIconBg}>
+                <Image
+                  src="/images/hq-metal-whiteline.png"
+                  width={88}
+                  height={88}
+                  layout="fixed"
+                  alt="parking"
+                  className={styles.featureIcon}
+                />
               </div>
-            </div>
-            <div className={styles.featureBox}>
-              <Image
-                src="/images/lamp.svg"
-                width={46}
-                height={46}
-                layout="fixed"
-                alt="lamp"
-              />
-              <div className={styles.featureTextBox}>
-                <div className={styles.featureTextOne}>SKYLIGHTS</div>
-                <div className={styles.featureTextTwo}>
-                  3 skylights per unit
-                </div>
-              </div>
-            </div>
-            <div className={styles.featureBox}>
-              <Image
-                src="/images/brick-wall.svg"
-                width={46}
-                height={46}
-                layout="fixed"
-                alt="brick-wall"
-              />
               <div className={styles.featureTextBox}>
                 <div className={styles.featureTextOne}>CONSTRUCTION</div>
-                <div className={styles.featureTextTwo}>Concrete tilt up</div>
+                <div className={styles.featureTextTwo}>
+                  Composite structure of steel and concrete
+                </div>
               </div>
             </div>
             <div className={styles.featureBox}>
-              <Image
-                src="/images/push-cart.svg"
-                width={46}
-                height={46}
-                layout="fixed"
-                alt="push-cart"
-              />
+              <div className={styles.featureIconBg}>
+                <Image
+                  src="/images/hq-elevator-copy-white.png"
+                  width={88}
+                  height={88}
+                  layout="fixed"
+                  alt="parking"
+                  className={styles.featureIcon}
+                />
+              </div>
               <div className={styles.featureTextBox}>
-                <div className={styles.featureTextOne}>FLOOR LOAD</div>
+                <div className={styles.featureTextOne}>ELEVATOR</div>
                 <div className={styles.featureTextTwo}>
-                  Heavy floor load capacity
+                  Elevator access to all floors
                 </div>
+              </div>
+            </div>
+            <div className={styles.featureBox}>
+              <div className={styles.featureIconBg}>
+                <Image
+                  src="/images/hq-sprinkler.png"
+                  width={88}
+                  height={88}
+                  layout="fixed"
+                  alt="parking"
+                  className={styles.featureIcon}
+                />
+              </div>
+              <div className={styles.featureTextBox}>
+                <div className={styles.featureTextOne}>SPRINKLERS</div>
                 <div className={styles.featureTextTwo}>
-                  • 350 lbs/sf main floor
+                  Fully sprinklered for base building
                 </div>
+              </div>
+            </div>
+            <div className={styles.featureBox}>
+              <div className={styles.featureIconBg}>
+                <Image
+                  src="/images/hq-garage-white.png"
+                  width={88}
+                  height={88}
+                  layout="fixed"
+                  alt="parking"
+                  className={styles.featureIcon}
+                />
+              </div>
+              <div className={styles.featureTextBox}>
+                <div className={styles.featureTextOne}>DRIVEWAY</div>
                 <div className={styles.featureTextTwo}>
-                  • 100 lbs/sf mezzanine
+                  Drive directly up to all units
                 </div>
               </div>
             </div>
           </Col>
         </Row>
       </Container>
-
-      {/* <section id="siteplan" className={styles.floorContainer}>
-        <Image
-          src="/images/SITEPLAN.svg"
-          width={1695}
-          height={216}
-          layout="responsive"
-          alt="floor"
-        />
-        <div
-          style={{
-            paddingTop: '69px',
-            display: 'flex',
-            justifyContent: 'center',
-          }}
-        >
-          <Image
-            src="/images/Siteplan-overview-V4.svg"
-            width={1520}
-            height={800}
-            // layout="intrinsic"
-            alt="floorPlan"
-            className={styles.floorPlan}
-          />
-        </div>
-        <div className={styles.floorBtnBox}>
-          <Button className={styles.floorBtn}>
-            <a
-              style={{
-                textDecoration: 'none',
-                color: 'inherit',
-              }}
-              target="_blank"
-              href="/images/A211108_UAC_High-Point-Park_SITEPLAN_V4.pdf"
-            >
-              DOWNLOAD ALL PLANS
-            </a>
-          </Button>
-        </div>
-      </section> */}
-    </section>
-  );
-}
-
-function Gallery(): JSX.Element {
-  const nextIcon = (
-    <span aria-hidden="true" className={styles.carouselControlNextIcon} />
-  );
-  const prevIcon = (
-    <span aria-hidden="false" className={styles.carouselControlPrevIcon} />
-  );
-  return (
-    <section>
-      <div className={styles.galleryContainer}>
-        <Container className={styles.projectRowOne}>
-          <Image
-            src="/images/OVERVIEW.svg"
-            width={1656}
-            height={216}
-            layout="responsive"
-            alt="gallery"
-          />
-          <Row className={styles.projectRowOneText}>
-            <Col md="12" lg="6">
-              <div className={styles.projectHeadingBox}>
-                <div className={styles.projectArrow}>
-                  <Image
-                    src="/images/arrow.svg"
-                    width={47}
-                    height={20}
-                    layout="fixed"
-                    alt="arrow"
-                  />
-                </div>
-                <div className={styles.projectHeading}>
-                  METRO VANCOUVER AND BURNABY AREA INDUSTRIAL OVERVIEW &
-                  STATISTICS, Q4 2021
-                </div>
-              </div>
-            </Col>
-            <Col md="12" lg="6" className={styles.projectTextBox}>
-              <div className={styles.projectText}>
-                <p>
-                  As of Q4 2021, Metro Vancouver remains to be North America’s
-                  tightest industrial market for six consecutive quarters.
-                  Availability of space, land use issues, increased e-commerce
-                  demand due to the ongoing pandemic, and labour proximity have
-                  all been contributing factors in the rapid price appreciation
-                  of industrial assets and land. With the lowest vacancy rate in
-                  North America at 0.5%, the region’s average rental rate has
-                  increased by 97% in the past seven years and industrial
-                  investment has reached record highs in the same time frame,
-                  reaching $2.3B in 2021.
-                </p>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </div>
-      <Carousel
-        className={styles.carouselContainer}
-        nextIcon={nextIcon}
-        prevIcon={prevIcon}
-        indicators={false}
+      <Row
+        className={styles.zoningText}
+        data-scroll
+        data-scroll-delay="0.06"
+        data-scroll-speed="2"
+        data-scroll-repeat
       >
-        <Carousel.Item>
-          <Image
-            src="/images/Aerial View.jpg"
-            width={1920}
-            height={900}
-            layout="responsive"
-            alt="Aerial View"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <Image
-            src="/images/Dollhouse-1.jpg"
-            width={1920}
-            height={900}
-            layout="responsive"
-            alt="Dollhouse-1"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <Image
-            src="/images/Dollhouse-2.jpg"
-            width={1920}
-            height={900}
-            layout="responsive"
-            alt="Dollhouse-2"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <Image
-            src="/images/Street View.jpg"
-            width={1920}
-            height={900}
-            layout="responsive"
-            alt="Street View"
-          />
-        </Carousel.Item>
-      </Carousel>
+        <Col xs="5">
+          <h2 className={styles.headHtwo}>ZONING</h2>
+        </Col>
+        <Col xs="5">
+          <h3 className={styles.headHthree}>
+            I2 ZONING LIGHT INDUSTRIAL / <br />
+            COMMERCIAL USES
+          </h3>
+        </Col>
+      </Row>
+      <Container
+        className={styles.featureList}
+        data-scroll
+        data-scroll-delay="0.1"
+        data-scroll-speed="1"
+        data-scroll-repeat
+      >
+        <Row className={styles.zoningfeatureList}>
+          <Col xs="12" md="5">
+            <div className={styles.featureBox}>
+              <div className={styles.featureTextBox}>
+                <div className={styles.featureTextTwo}>
+                  Warehouse / Cold Storage (*Bylaw conditional uses)
+                </div>
+              </div>
+            </div>
+            <div className={styles.featureBox}>
+              <div className={styles.featureTextBox}>
+                <div className={styles.featureTextTwo}>Wholesale (Class A)</div>
+              </div>
+            </div>
+            <div className={styles.featureBox}>
+              <div className={styles.featureTextBox}>
+                <div className={styles.featureTextTwo}>Manufacturing</div>
+              </div>
+            </div>
+            <div className={styles.featureBox}>
+              <div className={styles.featureTextBox}>
+                <div className={styles.featureTextTwo}>Trade School</div>
+              </div>
+            </div>
+          </Col>
+          <Col xs="12" md="5" className={styles.zoningfeatureColright}>
+            <div className={styles.featureBox}>
+              <div className={styles.featureTextBox}>
+                <div className={styles.featureTextTwo}>Laboratories</div>
+              </div>
+            </div>
+            <div className={styles.featureBox}>
+              <div className={styles.featureTextBox}>
+                <div className={styles.featureTextTwo}>
+                  Sales, Rentals & Repairs (various products)
+                </div>
+              </div>
+            </div>
+            <div className={styles.featureBox}>
+              <div className={styles.featureTextBox}>
+                <div className={styles.featureTextTwo}>Daycare</div>
+              </div>
+            </div>
+            <div className={styles.featureBox}>
+              <div className={styles.featureTextBox}>
+                <div className={styles.featureTextTwo}>
+                  Vehicle Dealership (*Bylaw conditional uses)
+                </div>
+              </div>
+            </div>
+            <div className={styles.featureBox}>
+              <div className={styles.featureTextBox}>
+                <div className={styles.featureTextTwo}>
+                  *Contact Listing Agents for full zoning schedule
+                </div>
+              </div>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+      <h2 className={styles.headHtwo}>FLOORPLANS</h2>
+      <Container id="floorplanContainer" className={styles.floorplanContainer}>
+        <Row>
+          <Col xs="12" lg="8">
+            <Image
+              src="/images/map.svg"
+              width={1145.11}
+              height={835.93}
+              layout="responsive"
+              alt="location-map"
+            />
+          </Col>
+          <Col xs="12" lg="4">
+            <Accordion
+              className={styles.accordionContainer}
+              defaultActiveKey="0"
+            >
+              <Accordion.Item eventKey="0" className={styles.accordionItem}>
+                <Accordion.Header
+                  onClick={foodClickHandler}
+                  className={
+                    isFoodClick
+                      ? styles.accordionHeaderAcitve
+                      : styles.accordionHeader
+                  }
+                >
+                  <div className={styles.locationArrow}>
+                    <Image
+                      src="/images/arrow.svg"
+                      width={47}
+                      height={20}
+                      layout="fixed"
+                      alt="arrow"
+                    />
+                  </div>{' '}
+                  FOOD & DRINK
+                </Accordion.Header>
+                <Accordion.Body className={styles.accordionBody}>
+                  <Row>
+                    <div className={styles.locationText}>1. Cactus Club</div>
+                    <div className={styles.locationText}>2. White Spot</div>
+                    <div className={styles.locationText}>3. Boston Pizza</div>
+                    <div className={styles.locationText}>4. McDonald’s</div>
+                    <div className={styles.locationText}>5. Pokerrito</div>
+                    <div className={styles.locationText}>6. Tim Hortons</div>
+                    <div className={styles.locationText}>7. Starbucks</div>
+                    <div className={styles.locationText}>
+                      8. Mucho Burrito Fresh Mexican Grill
+                    </div>
+
+                    <div className={styles.locationText}>
+                      9. Barcelos Flame Grilled Chicken
+                    </div>
+                    <div className={styles.locationText}>10. Subway</div>
+                    <div className={styles.locationText}>
+                      11. COBS Bread Bakery
+                    </div>
+                    <div className={styles.locationText}>12. Pizza Hut</div>
+                    <div className={styles.locationText}>13. Nandos</div>
+                    <div className={styles.locationText}>14. A&W</div>
+                    <div className={styles.locationText}>
+                      15. Kirin Seafood Restaurant
+                    </div>
+                  </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="1" className={styles.accordionItem}>
+                <Accordion.Header
+                  onClick={shopClickHandler}
+                  className={
+                    isShopClick
+                      ? styles.accordionHeaderAcitve
+                      : styles.accordionHeader
+                  }
+                >
+                  <div className={styles.locationArrow}>
+                    <Image
+                      src="/images/arrow.svg"
+                      width={47}
+                      height={20}
+                      layout="fixed"
+                      alt="arrow"
+                    />
+                  </div>{' '}
+                  SHOPPING & SERVICES
+                </Accordion.Header>
+                <Accordion.Body className={styles.accordionBody}>
+                  <Row>
+                    <div className={styles.locationText}>16. Vancity</div>
+                    <div className={styles.locationText}>17. TD Bank</div>
+                    <div className={styles.locationText}>18. Canadian Tire</div>
+                    <div className={styles.locationText}>19. London Drugs</div>
+                    <div className={styles.locationText}>20. Purolator</div>
+                    <div className={styles.locationText}>21. Mark’ss</div>
+                    <div className={styles.locationText}>22. Save-On-Foods</div>
+                    <div className={styles.locationText}>
+                      23. Kin’s Farm Market
+                    </div>
+
+                    <div className={styles.locationText}>
+                      24. Winners / HomeSense
+                    </div>
+                    <div className={styles.locationText}>25. PetSmart</div>
+                    <div className={styles.locationText}>26. Staples</div>
+                    <div className={styles.locationText}>
+                      27. Sungiven Foods
+                    </div>
+                    <div className={styles.locationText}>28. Shell</div>
+                    <div className={styles.locationText}>
+                      29. Riverway Golf Course
+                    </div>
+                    <div className={styles.locationText}>
+                      30. Starlight Casino
+                    </div>
+                  </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="2" className={styles.accordionItem}>
+                <Accordion.Header
+                  onClick={busClickHandler}
+                  className={
+                    isBusClick
+                      ? styles.accordionHeaderAcitve
+                      : styles.accordionHeader
+                  }
+                >
+                  <div className={styles.locationArrow}>
+                    <Image
+                      src="/images/arrow.svg"
+                      width={47}
+                      height={20}
+                      layout="fixed"
+                      alt="arrow"
+                    />
+                  </div>{' '}
+                  BUSINESS & OFFICE
+                </Accordion.Header>
+                <Accordion.Body className={styles.accordionBody}>
+                  <Row>
+                    <div className={styles.locationText}>
+                      31. Best Buy Canadian Headquarters
+                    </div>
+                    <div className={styles.locationText}>
+                      32. Ritchie Bros. Auctioneers
+                    </div>
+                    <div className={styles.locationText}>
+                      33. Amazon Fulfillment Center
+                    </div>
+                    <div className={styles.locationText}>
+                      34. Ballard Power Systems Inc
+                    </div>
+                    <div className={styles.locationText}>
+                      35. Milwaukee Factory Service Centre
+                    </div>
+                  </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
+          </Col>
+        </Row>
+      </Container>
     </section>
   );
 }
+function Ownership(): JSX.Element {
+  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
+  const [isFinancialAdClick, setFinancialAdClick] = useState(false);
+  function financialAdClickHandler() {
+    setFinancialAdClick(!isFinancialAdClick);
+  }
+  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
+  const [isFinancialCeClick, setFinancialCeClick] = useState(false);
+  function financialCeClickHandler() {
+    setFinancialCeClick(!isFinancialCeClick);
+  }
+  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
+  const [isExerciseClick, setExerciseClick] = useState(false);
+  function exerciseClickHandler() {
+    setExerciseClick(!isExerciseClick);
+  }
+  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
+  const [isRewardClick, setRewardClick] = useState(false);
+  function rewardClickHandler() {
+    setRewardClick(!isRewardClick);
+  }
+  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
+  const [isEquityClick, setEquityClick] = useState(false);
+  function equityClickHandler() {
+    setEquityClick(!isEquityClick);
+  }
+  return (
+    <section id="location" className={styles.hqLocation} data-scroll>
+      <Container className={styles.locationContainer}>
+        <Row className={styles.locationRow}>
+          <Col xs="6">
+            <h2 className={styles.headHtwo}>
+              OWNERSHIP
+              <br />
+              BENEFITS
+            </h2>
+          </Col>
+          <Col xs="6">
+            <Accordion
+              className={styles.accordionContainer}
+              defaultActiveKey="0"
+            >
+              <Accordion.Item eventKey="0" className={styles.accordionItem}>
+                <Accordion.Header
+                  onClick={financialAdClickHandler}
+                  className={
+                    isFinancialAdClick
+                      ? styles.accordionHeaderAcitve
+                      : styles.accordionHeader
+                  }
+                >
+                  <div className={styles.locationArrow}></div> REALIZE FINANCIAL
+                  ADVANTAGES
+                </Accordion.Header>
+                <Accordion.Body className={styles.accordionBody}>
+                  <Row>
+                    <div className={styles.locationText}>
+                      Capital investments bring long-term value, operating
+                      expenses and mortgage interest expenses can be written
+                      off, and capital costs allowances provide tax savings.
+                    </div>
+                  </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="1" className={styles.accordionItem}>
+                <Accordion.Header
+                  onClick={financialCeClickHandler}
+                  className={
+                    isFinancialCeClick
+                      ? styles.accordionHeaderAcitve
+                      : styles.accordionHeader
+                  }
+                >
+                  <div className={styles.locationArrow}></div> ENJOY FINANCIAL
+                  CERTAINTY
+                </Accordion.Header>
+                <Accordion.Body className={styles.accordionBody}>
+                  <Row>
+                    <div className={styles.locationText}>
+                      Fixed interest rates mean you can lock in monthly
+                      payments.
+                    </div>
+                  </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="2" className={styles.accordionItem}>
+                <Accordion.Header
+                  onClick={exerciseClickHandler}
+                  className={
+                    isExerciseClick
+                      ? styles.accordionHeaderAcitve
+                      : styles.accordionHeader
+                  }
+                >
+                  <div className={styles.locationArrow}></div> EXERCISE CONTROL
+                </Accordion.Header>
+                <Accordion.Body className={styles.accordionBody}>
+                  <Row>
+                    <div className={styles.locationText}>
+                      Avoid annual rent escalations and have a say in your
+                      operating expenses.
+                    </div>
+                  </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="3" className={styles.accordionItem}>
+                <Accordion.Header
+                  onClick={rewardClickHandler}
+                  className={
+                    isRewardClick
+                      ? styles.accordionHeaderAcitve
+                      : styles.accordionHeader
+                  }
+                >
+                  <div className={styles.locationArrow}></div> GAIN REWARDS
+                </Accordion.Header>
+                <Accordion.Body className={styles.accordionBody}>
+                  <Row>
+                    <div className={styles.locationText}>
+                      Property ownership means you have a long-term investment
+                      that can be leased or sold.
+                    </div>
+                  </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="4" className={styles.accordionItem}>
+                <Accordion.Header
+                  onClick={equityClickHandler}
+                  className={
+                    isEquityClick
+                      ? styles.accordionHeaderAcitve
+                      : styles.accordionHeader
+                  }
+                >
+                  <div className={styles.locationArrow}></div> BUILD EQUITY
+                </Accordion.Header>
+                <Accordion.Body className={styles.accordionBody}>
+                  <Row>
+                    <div className={styles.locationText}>
+                      As you pay down your principal, your equity grows.
+                    </div>
+                  </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
+          </Col>
+        </Row>
+      </Container>
+    </section>
+  );
+}
+
 function Developer(): JSX.Element {
   return (
     <section id="team" className={styles.developerContainer}>
@@ -1198,32 +1809,44 @@ function Footer(): JSX.Element {
     </section>
   );
 }
-export default function HighPointPark() {
+export default function HQ() {
+  const containerRef = useRef(null);
   return (
     <main className={styles.page}>
       <Header />
-      <HeroBanner />
-      <Opportunity />
-      <Location />
-      <Building />
-      <Feature />
-      <Gallery />
-      <Developer />
-      <div className={styles.bgContainer}>
-        <div className={styles.footerOverlay}>
-          <Image
-            // width={1920.5}
-            // height={1900}
-            layout="fill"
-            objectFit="cover"
-            src="/images/HPP-website-BG.svg"
-            alt="HPP-Bg"
-          />
+
+      <LocomotiveScrollProvider
+        options={{
+          smooth: true,
+        }}
+        containeRef={containerRef}
+      >
+        <div data-scroll-container ref={containerRef}>
+          <HeroBanner />
+          <Opportunity />
+          <Location />
+          <Building />
+          <Amenities />
+          <Feature />
+          <Ownership />
+          <Developer />
+          <div className={styles.bgContainer}>
+            <div className={styles.footerOverlay}>
+              <Image
+                // width={1920.5}
+                // height={1900}
+                layout="fill"
+                objectFit="cover"
+                src="/images/HPP-website-BG.svg"
+                alt="HPP-Bg"
+              />
+            </div>
+            <Register />
+            <Contact />
+            <Footer />
+          </div>
         </div>
-        <Register />
-        <Contact />
-        <Footer />
-      </div>
+      </LocomotiveScrollProvider>
     </main>
   );
 }
