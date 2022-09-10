@@ -26,7 +26,7 @@ import Image from 'next/image';
 // import logo from 'public/images/HPPLogo.svg';
 import styles from 'styles/pages/HQ.styles.module.scss';
 /// <reference path="../DefinitelyTyped/jquery.d.ts" />
-import $ from 'jquery';
+// import $ from 'jquery';
 import dynamic from 'next/dynamic';
 //import scrollstyles from '~/components/LocomotiveScroll/LocomotiveScroll.styles.module.scss';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
@@ -1810,6 +1810,7 @@ function Footer(): JSX.Element {
   );
 }
 export default function HQ() {
+   //eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
   const containerRef = useRef(null);
   return (
     <main className={styles.page}>

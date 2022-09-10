@@ -4,8 +4,6 @@ import { Footer } from './Footer';
 import { Header } from './Header';
 import { useRouter } from 'next/router';
 
-declare var LocomotiveScroll: any;
-
 export function Layout({
   children,
 }: PropsWithChildren<Record<string, unknown>>): JSX.Element {

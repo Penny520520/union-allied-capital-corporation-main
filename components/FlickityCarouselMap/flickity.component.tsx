@@ -6,7 +6,7 @@ export default () => {
   const flickityOptions = {
     initialIndex: 1,
     wrapAround: true,
-    autoPlay: true
+    autoPlay: true,
   };
   return (
     <Flickity
@@ -17,10 +17,11 @@ export default () => {
       reloadOnUpdate={true} // default false
       static // default false
     >
-      <img src="/images/hq-map-spots-1.jpg" />
-      <img src="/images/hq-map-spots-2.jpg" />
-      <img src="/images/hq-map-spots-3.jpg" />
-      <img src="/images/hq-map-spots-4.jpg" />
+      <Image src="/images/hq-map-spots-1.jpg" width={716} height={507} />
+      <Image src="/images/hq-map-spots-2.jpg" width={418} height={507} />
+      <Image src="/images/hq-map-spots-3.jpg" width={681} height={507} />
+      <Image src="/images/hq-map-spots-4.jpg" width={729} height={507} />
+      
     </Flickity>
   );
 };

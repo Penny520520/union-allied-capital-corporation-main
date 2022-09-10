@@ -2,8 +2,6 @@ import 'styles/global.styles.css';
 import type { AppProps } from 'next/app';
 import { Layout } from '~/components';
 import { useRouter } from 'next/router';
-/// <reference path="../DefinitelyTyped/jquery.d.ts" />
-import $ from 'jquery';
 
 
 export default function MyApp({ Component, pageProps }: AppProps) {
