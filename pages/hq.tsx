@@ -1810,7 +1810,7 @@ function Footer(): JSX.Element {
   );
 }
 export default function HQ() {
-   //eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
+  //eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
   const containerRef = useRef(null);
   return (
     <main className={styles.page}>

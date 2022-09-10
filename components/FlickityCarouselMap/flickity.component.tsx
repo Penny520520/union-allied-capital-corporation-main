@@ -18,11 +18,30 @@ export default () => {
       reloadOnUpdate={true} // default false
       static // default false
     >
-      <Image src="/images/hq-map-spots-1.jpg" width={716} height={507} />
-      <Image src="/images/hq-map-spots-2.jpg" width={418} height={507} />
-      <Image src="/images/hq-map-spots-3.jpg" width={681} height={507} />
-      <Image src="/images/hq-map-spots-4.jpg" width={729} height={507} />
-      
+      <Image
+        src="/images/hq-map-spots-1.jpg"
+        width={716}
+        height={507}
+        alt="places"
+      />
+      <Image
+        src="/images/hq-map-spots-2.jpg"
+        width={418}
+        height={507}
+        alt="places"
+      />
+      <Image
+        src="/images/hq-map-spots-3.jpg"
+        width={681}
+        height={507}
+        alt="places"
+      />
+      <Image
+        src="/images/hq-map-spots-4.jpg"
+        width={729}
+        height={507}
+        alt="places"
+      />
     </Flickity>
   );
 };

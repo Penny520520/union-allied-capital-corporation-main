@@ -3,7 +3,6 @@ import type { AppProps } from 'next/app';
 import { Layout } from '~/components';
 import { useRouter } from 'next/router';
 
-
 export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 

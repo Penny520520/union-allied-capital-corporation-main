@@ -18,12 +18,42 @@ export default () => {
       reloadOnUpdate={true} // default false
       static // default false
     >
-      <Image src="/images/hq-amenities-1.jpg" width={1096} height={610} />
-      <Image src="/images/hq-amenities-2.jpg" width={899} height={610} />
-      <Image src="/images/hq-amenities-3.jpg" width={899} height={610} />
-      <Image src="/images/hq-amenities-4.jpg" width={899} height={610} />
-      <Image src="/images/hq-amenities-5.jpg" width={899} height={610} />
-      <Image src="/images/hq-amenities-6.jpg" width={899} height={610} />
+      <Image
+        src="/images/hq-amenities-1.jpg"
+        width={1096}
+        height={610}
+        alt="amenities"
+      />
+      <Image
+        src="/images/hq-amenities-2.jpg"
+        width={899}
+        height={610}
+        alt="amenities"
+      />
+      <Image
+        src="/images/hq-amenities-3.jpg"
+        width={899}
+        height={610}
+        alt="amenities"
+      />
+      <Image
+        src="/images/hq-amenities-4.jpg"
+        width={899}
+        height={610}
+        alt="amenities"
+      />
+      <Image
+        src="/images/hq-amenities-5.jpg"
+        width={899}
+        height={610}
+        alt="amenities"
+      />
+      <Image
+        src="/images/hq-amenities-6.jpg"
+        width={899}
+        height={610}
+        alt="amenities"
+      />
     </Flickity>
   );
 };
