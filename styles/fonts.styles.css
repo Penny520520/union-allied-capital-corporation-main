@@ -378,8 +378,8 @@
 /* HQ fonts */
 @font-face {
   font-family: 'GalanoGrotesqueAltDEMO';
-  src: url('/Fonts/PGalanoGrotesqueAltDEMO-Bold.ttf') format('ttf');
-  src: url('/Fonts/GalanoGrotesqueAltDEMO-Bold.otf') format('otf');
+  src: url('/Fonts/PGalanoGrotesqueAltDEMO-Bold.otf') format('otf'),
+    url('/Fonts/GalanoGrotesqueAltDEMO-Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
