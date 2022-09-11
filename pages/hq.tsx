@@ -29,9 +29,15 @@ import styles from 'styles/pages/HQ.styles.module.scss';
 // import $ from 'jquery';
 import dynamic from 'next/dynamic';
 //import scrollstyles from '~/components/LocomotiveScroll/LocomotiveScroll.styles.module.scss';
-import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
+import {
+  LocomotiveScrollProvider,
+  useLocomotiveScroll,
+} from 'react-locomotive-scroll';
+import lomotiveScrollObject from 'react-locomotive-scroll';
 import 'locomotive-scroll/dist/locomotive-scroll.min.css';
 // import Script from 'next/script';
+import Head from 'next/head';
+import router from 'next/router';
 
 const DynamicJqueryDiamonds = dynamic(
   () => import('../components/JqueryRipples/JqueryRipples.component'),
@@ -54,34 +60,45 @@ const FlickityCarouselMap = dynamic(
 //   () => import('../components/LocomotiveScroll/LocomotiveScroll.component'),
 //   { ssr: false }
 // );
+declare const window: any;
+// declare const isScrollChild: any;
 
 function Header(): JSX.Element {
+  // const { scroll } = useLocomotiveScroll();
   // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
-  const [isScroll, setScroll] = useState(false);
-  const changeHeaderStyle = () => {
-    if (typeof window !== 'undefined' && window.scrollY >= 80) {
-      setScroll(true);
-    } else {
-      setScroll(false);
-    }
-  };
+  // const [isScroll, setScroll] = useState(false);
+  // const changeHeaderStyle = () => {
+  //   if (typeof scroll !== 'undefined' && scroll.scrollY >= 80) {
+  //     setScroll(true);
+  //   } else {
+  //     setScroll(false);
+  //   }
+  // };
   // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
-  useEffect(() => {
-    window.addEventListener('scroll', changeHeaderStyle);
-    return () => window.removeEventListener('scroll', changeHeaderStyle);
-  }, []);
+  // useEffect(() => {
+  //   // const LocomotiveScroll = new lomotiveScrollObject({
+  //   //   el: document.querySelector('data-scroll-container'),
+  //   //   smooth: true,
+  //   // });
+  //   // window.addEventListener('scroll', changeHeaderStyle);
+  //   // return () => window.removeEventListener('scroll', changeHeaderStyle);
+  //   // window.lomotiveScrollObject.on('call', () => {
+  //   //   if (typeof scroll !== 'undefined' && scrollTo >= 80) {
+  //   //     setScroll(true);
+  //   //   } else {
+  //   //     setScroll(false);
+  //   //   }
+  //   // });
+  //   // return () => scroll.on('scroll', changeHeaderStyle);
+  // }, []);
   return (
     <>
-      <Container
+      {/* <Container
         className={
-          isScroll ? styles.headerContainerActive : styles.headerContainer
+          isScrollChild ? styles.headerContainerActive : styles.headerContainer
         }
-        // data-scroll
-        // data-scroll-speed="-8"
-        // data-scroll-position="top"
-        // data-scroll-target="#header"
-        // data-scroll-repeat
-      >
+      > */}
+      <Container className={styles.headerContainer}>
         <Row className={styles.header}>
           <Col xs="7">
             <Link href="/hq" passHref>
@@ -434,9 +451,27 @@ function Building(): JSX.Element {
           </Col>
           <Col xs="3" className={styles.headH5Con}>
             <h5 className={styles.headH5}>BUSINESS & OFFICE</h5>
+            <div className={styles.listItemsContainer}>
+              <ul className={styles.listItems}>
+                <li className={styles.item}>11. Purdys Chocolatier Office</li>
+                <li className={styles.item}>12. SUBWAY Office</li>
+                <li className={styles.item}>13. White Spot Ltd. Office</li>
+                <li className={styles.item}>14. Skretting Head Office</li>
+                <li className={styles.item}>15. Intria Corporate office</li>
+              </ul>
+            </div>
           </Col>
           <Col xs="3" className={styles.headH5Con}>
             <h5 className={styles.headH5}>RECREATION</h5>
+            <div className={styles.listItemsContainer}>
+              <ul className={styles.listItems}>
+                <li className={styles.item}>16. Ross Park</li>
+                <li className={styles.item}>17. 6Pack Indoor Beach</li>
+                <li className={styles.item}>18. Badminton Vancouver</li>
+                <li className={styles.item}>19. George Park</li>
+                <li className={styles.item}>20. Moberly Park Tennis Courts</li>
+              </ul>
+            </div>
           </Col>
         </Row>
       </Container>
@@ -552,15 +587,15 @@ function Building(): JSX.Element {
 }
 function Amenities(): JSX.Element {
   // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
-  const [isMouseOver, setMouseOver] = useState(false);
-  function handleMouseEvent() {
-    setMouseOver(!isMouseOver);
-  }
-  function handleMouseEventLeave() {
-    setMouseOver(isMouseOver);
-  }
+  // const [isMouseOver, setMouseOver] = useState(false);
+  // function handleMouseEvent() {
+  //   setMouseOver(!isMouseOver);
+  // }
+  // function handleMouseEventLeave() {
+  //   setMouseOver(isMouseOver);
+  // }
   return (
-    <section id="amenities" className={styles.hqAmenities} data-scroll>
+    <section id="amenities" className={styles.hqAmenities}>
       <h2 className={styles.headHtwo} data-scroll data-scroll-speed="2">
         AMENITIES
       </h2>
@@ -571,19 +606,9 @@ function Amenities(): JSX.Element {
         layout="responsive"
         alt="AMENITIES VIEW"
         className={styles.hqMap}
-        data-scroll
-        data-scroll-speed="2"
         // eslint-disable-next-line react/jsx-no-comment-textnodes
       />
-      <div
-        className={
-          isMouseOver ? styles.hqCalloutBtnAction : styles.hqCalloutBtn
-        }
-        onMouseOver={handleMouseEvent}
-        onFocus={() => void 0}
-        onMouseLeave={handleMouseEventLeave}
-        onBlur={() => void 0}
-      >
+      <div className={styles.hqCalloutBtn}>
         <Image
           src="/images/hq-callout-btn.png"
           width={57}
@@ -1812,17 +1837,49 @@ function Footer(): JSX.Element {
 export default function HQ() {
   //eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
   const containerRef = useRef(null);
+  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
+  // const [isScroll, setScroll] = useState(false);
   return (
     <main className={styles.page}>
+      {/* <Header isScrollChild={isScroll} /> */}
       <Header />
-
       <LocomotiveScrollProvider
         options={{
           smooth: true,
         }}
+        // watch={}
+        // location={router.pathname}
         containeRef={containerRef}
+        // onLocationChange={(scroll: {
+        //   on: (arg0: string, arg1: () => void) => any;
+        // }) =>
+        //   scroll.on(
+        //     'scroll',
+        //     (args: { currentElements: { [x: string]: { progress: any } } }) => {
+        //       const progress = args.currentElements['datascroll'].progress;
+        //       if (typeof scroll !== 'undefined' && progress >= 80) {
+        //         setScroll(true);
+        //       } else {
+        //         setScroll(false);
+        //       }
+        //       console.log('t1');
+        //     }
+        //   )
+        // }
+        // onLocationChange={scroll =>scroll.on(
+        //       const progress = currentElements['datascroll'].progress;
+        //       if (typeof scroll !== 'undefined' && progress >= 80) {
+        //         setScroll(true);
+        //       } else {
+        //         setScroll(false);
+        //       }
+        // ) }
       >
-        <div data-scroll-container ref={containerRef}>
+        <div
+          data-scroll-container
+          ref={containerRef}
+          data-scroll-id="datascroll"
+        >
           <HeroBanner />
           <Opportunity />
           <Location />

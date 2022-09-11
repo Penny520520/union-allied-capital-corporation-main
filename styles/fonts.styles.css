@@ -376,20 +376,19 @@
 }
 
 /* HQ fonts */
-/* @font-face {
+@font-face {
   font-family: 'GalanoGrotesqueAltDEMO';
-  src: url('/Fonts/PGalanoGrotesqueAltDEMO-Bold.ttf');
-  src: url('/Fonts/GalanoGrotesqueAltDEMO-Bold.otf') format('otf'),
-    url('/Fonts/PGalanoGrotesqueAltDEMO-Bold.ttf') format('truetype');
+  src: url('/Fonts/PGalanoGrotesqueAltDEMO-Bold.ttf') format('ttf');
+  src: url('/Fonts/GalanoGrotesqueAltDEMO-Bold.otf') format('otf');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
-} */
+}
 
-@font-face {
+/* @font-face {
   font-family: GalanoGrotesqueAltDEMO ;
-  src: url(/fonts/GalanoGrotesqueAltDEMO-Bold.otf);
+  src: url(/fonts/GalanoGrotesqueAltDEMO-Bold.ttf);
   font-weight: light;
   font-style: normal;
   font-display: swap;
-}
+} */

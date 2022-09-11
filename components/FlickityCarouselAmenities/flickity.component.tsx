@@ -1,5 +1,6 @@
 import React from 'react';
 import 'flickity/dist/flickity.min.css';
+import styles from './Flickity.styles.module.scss';
 import Flickity from 'react-flickity-component';
 import Image from 'next/image';
 
