@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/mouse-events-have-key-events */
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Container,
   Row,
@@ -36,8 +36,8 @@ import dynamic from 'next/dynamic';
 // import lomotiveScrollObject from 'react-locomotive-scroll';
 // import 'locomotive-scroll/dist/locomotive-scroll.min.css';
 // import Script from 'next/script';
-import Head from 'next/head';
-import router from 'next/router';
+// import Head from 'next/head';
+// import router from 'next/router';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -1858,6 +1858,7 @@ function Footer(): JSX.Element {
   );
 }
 export default function HQ() {
+  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
   useEffect(() => {
     AOS.init({
       offset: 200,
