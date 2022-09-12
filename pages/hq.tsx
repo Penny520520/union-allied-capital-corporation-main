@@ -69,10 +69,7 @@ function Header(): JSX.Element {
   // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
   const [isScroll, setScroll] = useState(false);
   const changeHeaderStyle = () => {
-    if (
-      typeof window !== 'undefined' &&
-      window.scrollY >= 80
-    ) {
+    if (typeof window !== 'undefined' && window.scrollY >= 80) {
       setScroll(true);
     } else {
       setScroll(false);
@@ -92,7 +89,7 @@ function Header(): JSX.Element {
       >
         <Row className={styles.header}>
           <Col xs="7">
-            <Link href="/hq" passHref >
+            <Link href="/hq" passHref>
               <Image
                 src="/images/HQ_LOGO_V1-white--03.png"
                 alt="HQ LOGO"
@@ -172,7 +169,7 @@ function HeroBanner(): JSX.Element {
               <h1
                 className={styles.headHone}
                 data-aos="fade-down"
-                 data-aos-delay="500"
+                data-aos-delay="500"
               >
                 <span className={styles.cHeaderTitleLine}>TAKE YOUR</span>
                 <br />
@@ -189,10 +186,13 @@ function HeroBanner(): JSX.Element {
               </div>
             </div>
             <Link href="#opportunity">
-              <a className={styles.arrowDownContainer} href="#" 
-                  data-aos="fade-up-right"
-                  data-aos-delay="2500"
-                  data-aos-offset="0">
+              <a
+                className={styles.arrowDownContainer}
+                href="#"
+                data-aos="fade-up-right"
+                data-aos-delay="2500"
+                data-aos-offset="0"
+              >
                 <Image
                   src="/images/arrow-down.png"
                   width={57}
@@ -203,10 +203,13 @@ function HeroBanner(): JSX.Element {
               </a>
             </Link>
             <Link href="https://www.unionallied.ca/">
-              <a className={styles.unionalliedlogoContianer} target="_blank" 
-                  data-aos="fade-up-left"
-                  data-aos-delay="2500"
-                  data-aos-offset="0">
+              <a
+                className={styles.unionalliedlogoContianer}
+                target="_blank"
+                data-aos="fade-up-left"
+                data-aos-delay="2500"
+                data-aos-offset="0"
+              >
                 <Image
                   src="/images/Union-allied-logo-grayscale.png"
                   width={243}
@@ -250,21 +253,30 @@ function Opportunity(): JSX.Element {
     //       }}
     //       containeRef={containerRef}
     //     >
-    <section id="opportunity" className={styles.opportunity} data-aos="fade-up" 
-    data-aos-delay="50">
-      <Container
-        className={styles.opportunityContainer}
-      >
+    <section
+      id="opportunity"
+      className={styles.opportunity}
+      data-aos="fade-up"
+      data-aos-delay="50"
+    >
+      <Container className={styles.opportunityContainer}>
         {/* <LocomotiveScroll/> */}
-        <Row
-          className={styles.header}
-        >
+        <Row className={styles.header}>
           <Col xs="6">
-            <h2 className={styles.headHtwo} data-aos="fade-right" 
-    data-aos-delay="500">OPPORTUNITY</h2>
+            <h2
+              className={styles.headHtwo}
+              data-aos="fade-right"
+              data-aos-delay="500"
+            >
+              OPPORTUNITY
+            </h2>
           </Col>
-          <Col xs="6" className={styles.opportunityIntro}  data-aos="fade-left" 
-    data-aos-delay="1500">
+          <Col
+            xs="6"
+            className={styles.opportunityIntro}
+            data-aos="fade-left"
+            data-aos-delay="1500"
+          >
             <Row>
               <Col xs="6">
                 <h3 className={styles.headHthree}>
@@ -286,21 +298,21 @@ function Opportunity(): JSX.Element {
           layout="responsive"
           alt="OPPORTUNITY"
           // className={styles.hqStrataUnits}
-          data-aos="fade-up" 
+          data-aos="fade-up"
           data-aos-delay="2500"
         />
-        <Row
-          className={styles.opportunityDetail}
-        >
+        <Row className={styles.opportunityDetail}>
           <Col xs="4">
-            <h4 className={styles.headH4}  data-aos="fade-right" 
-    data-aos-delay="500">
+            <h4
+              className={styles.headH4}
+              data-aos="fade-right"
+              data-aos-delay="500"
+            >
               HQ is south vancouver’s newest industrial development, featuring a
               limited opportunity of 30 light industrial strata units.
             </h4>
           </Col>
-          <Col xs="5"   data-aos="fade-left" 
-    data-aos-delay="1500">
+          <Col xs="5" data-aos="fade-left" data-aos-delay="1500">
             <p className={styles.paragraph}>
               Take the next step in your business journey with modern light
               industrial space from 2,800 SF and up, including second floor
@@ -326,23 +338,25 @@ function Location(): JSX.Element {
           <Col xs="6">
             <h2
               className={styles.headHtwo}
-              data-aos="fade-right" 
+              data-aos="fade-right"
               data-aos-delay="500"
             >
               LOCATION
             </h2>
           </Col>
-          <Col
-            xs="6"
-          >
-            <h3 className={styles.headHthree} 
-              data-aos="fade-down" 
-              data-aos-delay="1500">
+          <Col xs="6">
+            <h3
+              className={styles.headHthree}
+              data-aos="fade-down"
+              data-aos-delay="1500"
+            >
               8290 ROSS STREEET, VANCOUVER, BC
             </h3>
-            <p className={styles.paragraph} 
-              data-aos="fade-up" 
-              data-aos-delay="2500">
+            <p
+              className={styles.paragraph}
+              data-aos="fade-up"
+              data-aos-delay="2500"
+            >
               Step away from SE Marine Drive and Knight Street, HQ is centrally
               located on the corner of Ross Street and East Kent Avenue North in
               East Vancouver’s industrial area. Located along one of East
@@ -407,23 +421,25 @@ function Building(): JSX.Element {
 
   return (
     <section id="building" className={styles.building}>
-      <div >
-      <Image
-        src="/images/HQ_MAP.jpg"
-        width={1920}
-        height={1064}
-        layout="responsive"
-        alt="HQ Map"
-        className={styles.hqMap} 
-      />
-        <Container className={styles.sidebar} >
+      <div>
+        <Image
+          src="/images/HQ_MAP.jpg"
+          width={1920}
+          height={1064}
+          layout="responsive"
+          alt="HQ Map"
+          className={styles.hqMap}
+        />
+        <Container className={styles.sidebar}>
           <Row className={styles.sidebarContainer}>
             <Col xs="3" className={styles.headH5Con}>
               <h5 className={styles.headH5}>RESTAURANT</h5>
               <div className={styles.listItemsContainer}>
                 <ul className={styles.listItems}>
                   <li className={styles.item}>1. Northern Cafe</li>
-                  <li className={styles.item}>2. Flamingo Chinese Restaurant</li>
+                  <li className={styles.item}>
+                    2. Flamingo Chinese Restaurant
+                  </li>
                   <li className={styles.item}>3. Dosa Corner</li>
                   <li className={styles.item}>4. Subway</li>
                   <li className={styles.item}>5. Tandoori Raj Restaurant</li>
@@ -462,7 +478,9 @@ function Building(): JSX.Element {
                   <li className={styles.item}>17. 6Pack Indoor Beach</li>
                   <li className={styles.item}>18. Badminton Vancouver</li>
                   <li className={styles.item}>19. George Park</li>
-                  <li className={styles.item}>20. Moberly Park Tennis Courts</li>
+                  <li className={styles.item}>
+                    20. Moberly Park Tennis Courts
+                  </li>
                 </ul>
               </div>
             </Col>
@@ -470,21 +488,25 @@ function Building(): JSX.Element {
         </Container>
       </div>
       {/* flickity */}
-      <Container className={styles.amenitiesItems} >
+      <Container className={styles.amenitiesItems}>
         <FlickityCarouselMap />
       </Container>
       <div className={styles.hasapcebg}>
-        <Container className={styles.hqspace} >
-          <h2 className={styles.headHtwo} 
-                data-aos="fade-right"
-                 data-aos-delay="500" >THE SPACES</h2>
+        <Container className={styles.hqspace}>
+          <h2
+            className={styles.headHtwo}
+            data-aos="fade-right"
+            data-aos-delay="500"
+          >
+            THE SPACES
+          </h2>
           <Carousel
             className={styles.spaceCarouselContainer}
             nextIcon={nextIcon}
             prevIcon={prevIcon}
-            indicators={false} 
+            indicators={false}
             data-aos="fade-left"
-             data-aos-delay="1500"
+            data-aos-delay="1500"
           >
             <Carousel.Item>
               <Image
@@ -594,9 +616,7 @@ function Amenities(): JSX.Element {
   // }
   return (
     <section id="amenitiesfeatures" className={styles.hqAmenities}>
-      <h2 className={styles.headHtwo} 
-                data-aos="fade-down"
-                 data-aos-delay="500">
+      <h2 className={styles.headHtwo} data-aos="fade-down" data-aos-delay="500">
         AMENITIES
       </h2>
       <Image
@@ -606,14 +626,15 @@ function Amenities(): JSX.Element {
         layout="responsive"
         alt="AMENITIES VIEW"
         className={styles.hqMap}
-        
         data-aos="fade-up"
         data-aos-delay="1500"
         // eslint-disable-next-line react/jsx-no-comment-textnodes
       />
-      <div className={styles.hqCalloutBtn} 
+      <div
+        className={styles.hqCalloutBtn}
         data-aos="fade-up"
-        data-aos-delay="2000">
+        data-aos-delay="2000"
+      >
         <Image
           src="/images/hq-callout-btn.png"
           width={57}
@@ -628,9 +649,11 @@ function Amenities(): JSX.Element {
           </p>
         </div>
       </div>
-      <div className={styles.hqCalloutBtn}  
+      <div
+        className={styles.hqCalloutBtn}
         data-aos="fade-up"
-        data-aos-delay="2000">
+        data-aos-delay="2000"
+      >
         <Image
           src="/images/hq-callout-btn.png"
           width={57}
@@ -642,9 +665,11 @@ function Amenities(): JSX.Element {
           <p className={styles.paragraph}>Generous common cooridor</p>
         </div>
       </div>
-      <div className={styles.hqCalloutBtn}  
+      <div
+        className={styles.hqCalloutBtn}
         data-aos="fade-up"
-        data-aos-delay="2000">
+        data-aos-delay="2000"
+      >
         <Image
           src="/images/hq-callout-btn.png"
           width={57}
@@ -659,9 +684,7 @@ function Amenities(): JSX.Element {
         </div>
       </div>
       {/* flickity */}
-      <Container
-        className={styles.amenitiesItems}
-      >
+      <Container className={styles.amenitiesItems}>
         <FlickityCarousel />
       </Container>
     </section>
@@ -684,21 +707,22 @@ function Feature(): JSX.Element {
     setBusClick(!isBusClick);
   }
   return (
-    <section id="features" className={styles.featureContainer} 
-    data-aos="fade-up"
-     data-aos-delay="500">
-      <h2 className={styles.headHtwo}  
-                data-aos="fade-down"
-                 data-aos-delay="1500">
+    <section
+      id="features"
+      className={styles.featureContainer}
+      data-aos="fade-up"
+      data-aos-delay="500"
+    >
+      <h2
+        className={styles.headHtwo}
+        data-aos="fade-down"
+        data-aos-delay="1500"
+      >
         UNIT FEATURES
       </h2>
-      <Container
-        className={styles.featureList}
-      >
+      <Container className={styles.featureList}>
         <Row className={styles.featureRow}>
-          <Col xs="12" md="6"   
-                data-aos="fade-right"
-                 data-aos-delay="2500">
+          <Col xs="12" md="6" data-aos="fade-right" data-aos-delay="2500">
             <div className={styles.featureBox}>
               <div className={styles.featureIconBg}>
                 <Image
@@ -799,9 +823,7 @@ function Feature(): JSX.Element {
               </div>
             </div>
           </Col>
-          <Col xs="12" md="6" 
-                data-aos="fade-left"
-                 data-aos-delay="3500">
+          <Col xs="12" md="6" data-aos="fade-left" data-aos-delay="3500">
             <div className={styles.featureBox}>
               <div className={styles.featureIconBg}>
                 <Image
@@ -895,9 +917,7 @@ function Feature(): JSX.Element {
           </Col>
         </Row>
       </Container>
-      <Row
-        className={styles.zoningText}
-      >
+      <Row className={styles.zoningText}>
         <Col xs="5">
           <h2 className={styles.headHtwo}>ZONING</h2>
         </Col>
@@ -908,9 +928,7 @@ function Feature(): JSX.Element {
           </h3>
         </Col>
       </Row>
-      <Container
-        className={styles.featureList}
-      >
+      <Container className={styles.featureList}>
         <Row className={styles.zoningfeatureList}>
           <Col xs="12" md="5">
             <div className={styles.featureBox}>
@@ -1849,33 +1867,33 @@ export default function HQ() {
       debounceDelay: 550,
       once: true,
     });
-  }, [])
+  }, []);
   return (
     <main className={styles.page}>
       <Header />
-          <HeroBanner />
-          <Opportunity />
-          <Location />
-          <Building />
-          <Amenities />
-          <Feature />
-          <Ownership />
-          <Developer />
-          <div className={styles.bgContainer}>
-            <div className={styles.footerOverlay}>
-              <Image
-                // width={1920.5}
-                // height={1900}
-                layout="fill"
-                objectFit="cover"
-                src="/images/HPP-website-BG.svg"
-                alt="HPP-Bg"
-              />
-            </div>
-            <Register />
-            <Contact />
-            <Footer />
-          </div>
+      <HeroBanner />
+      <Opportunity />
+      <Location />
+      <Building />
+      <Amenities />
+      <Feature />
+      <Ownership />
+      <Developer />
+      <div className={styles.bgContainer}>
+        <div className={styles.footerOverlay}>
+          <Image
+            // width={1920.5}
+            // height={1900}
+            layout="fill"
+            objectFit="cover"
+            src="/images/HPP-website-BG.svg"
+            alt="HPP-Bg"
+          />
+        </div>
+        <Register />
+        <Contact />
+        <Footer />
+      </div>
     </main>
   );
 }
