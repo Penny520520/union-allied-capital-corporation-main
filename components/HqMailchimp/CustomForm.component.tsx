@@ -7,7 +7,7 @@ declare const status: any;
 // a basic form
 // export default () => {
 const CustomForm = ({ status, message, onValidated }: { status: any; message: any; onValidated: any; }) => {
-  let email, FNAME, LNAME, PHONE, MMERGE8, MMERGE6, MMERGE7, ANAME;
+  let email:any, FNAME: any, LNAME: any, PHONE: any, MMERGE8: any, MMERGE6: any, MMERGE7: any, ANAME: any;
   const optionsForHearaboutus = [
     { value: 'Friends and Family', label: 'Friends and Family' },
     { value: 'Realtor', label: 'Realtor' },
