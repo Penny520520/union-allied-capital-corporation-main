@@ -6,7 +6,7 @@ import Select from 'react-select';
 declare const status: any;
 // a basic form
 // export default () => {
-const CustomForm = ({ status, message, onValidated }) => {
+const CustomForm = ({ status, message, onValidated }: { status: any; message: any; onValidated: any; }) => {
   let email, FNAME, LNAME, PHONE, MMERGE8, MMERGE6, MMERGE7, ANAME;
   const optionsForHearaboutus = [
     { value: 'Friends and Family', label: 'Friends and Family' },
