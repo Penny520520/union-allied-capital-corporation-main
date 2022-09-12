@@ -9,7 +9,6 @@ export default () => {
     initialIndex: 1,
     wrapAround: true,
     autoPlay: true,
-    pageDots: false,
   };
   return (
     <Flickity

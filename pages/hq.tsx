@@ -26,7 +26,7 @@ import Image from 'next/image';
 // import logo from 'public/images/HPPLogo.svg';
 import styles from 'styles/pages/HQ.styles.module.scss';
 /// <reference path="../DefinitelyTyped/jquery.d.ts" />
-// import $ from 'jquery';
+import $ from 'jquery';
 import dynamic from 'next/dynamic';
 //import scrollstyles from '~/components/LocomotiveScroll/LocomotiveScroll.styles.module.scss';
 // import {
@@ -58,10 +58,18 @@ const FlickityCarouselMap = dynamic(
   () => import('../components/FlickityCarouselMap/flickity.component'),
   { ssr: false }
 );
+const FlickityCarouselDeveloper = dynamic(
+  () => import('../components/FlickityCarouselDeveloper/flickity.component'),
+  { ssr: false }
+);
 // const LocomotiveScroll = dynamic(
 //   () => import('../components/LocomotiveScroll/LocomotiveScroll.component'),
 //   { ssr: false }
 // );
+const MailchimpSubscribe = dynamic(
+  () => import('../components/HqMailchimp/NewsletterSubscribe.component'),
+  { ssr: false }
+);
 declare const window: any;
 // declare const isScrollChild: any;
 
@@ -169,7 +177,7 @@ function HeroBanner(): JSX.Element {
               <h1
                 className={styles.headHone}
                 data-aos="fade-down"
-                data-aos-delay="500"
+                data-aos-delay="50"
               >
                 <span className={styles.cHeaderTitleLine}>TAKE YOUR</span>
                 <br />
@@ -180,43 +188,35 @@ function HeroBanner(): JSX.Element {
               <div
                 className={styles.address}
                 data-aos="fade-up"
-                data-aos-delay="1500"
+                data-aos-delay="550"
               >
                 8290 ROSS STREET, VANCOUVER, BC
               </div>
             </div>
             <Link href="#opportunity">
-              <a
-                className={styles.arrowDownContainer}
-                href="#"
-                data-aos="fade-up-right"
-                data-aos-delay="2500"
-                data-aos-offset="0"
-              >
+              <a className={styles.arrowDownContainer} href="#">
                 <Image
                   src="/images/arrow-down.png"
                   width={57}
                   height={57}
                   className="arrowdown"
                   alt="scroll-icon"
+                  data-aos="fade-up"
+                  data-aos-delay="1550"
+                  data-aos-offset="0"
                 />
               </a>
             </Link>
             <Link href="https://www.unionallied.ca/">
-              <a
-                className={styles.unionalliedlogoContianer}
-                target="_blank"
-                data-aos="fade-up-left"
-                data-aos-delay="2500"
-                data-aos-offset="0"
-              >
+              <a className={styles.unionalliedlogoContianer} target="_blank">
                 <Image
                   src="/images/Union-allied-logo-grayscale.png"
                   width={243}
                   height={39.62}
                   className="arrowdown"
                   alt="scroll-icon"
-                  data-aos="fade-up-left"
+                  data-aos="fade-up"
+                  data-aos-delay="1550"
                   data-aos-offset="0"
                 />
               </a>
@@ -253,30 +253,14 @@ function Opportunity(): JSX.Element {
     //       }}
     //       containeRef={containerRef}
     //     >
-    <section
-      id="opportunity"
-      className={styles.opportunity}
-      data-aos="fade-up"
-      data-aos-delay="50"
-    >
+    <section id="opportunity" className={styles.opportunity}>
       <Container className={styles.opportunityContainer}>
         {/* <LocomotiveScroll/> */}
-        <Row className={styles.header}>
+        <Row className={styles.header} data-aos="fade-up" data-aos-delay="50">
           <Col xs="6">
-            <h2
-              className={styles.headHtwo}
-              data-aos="fade-right"
-              data-aos-delay="500"
-            >
-              OPPORTUNITY
-            </h2>
+            <h2 className={styles.headHtwo}>OPPORTUNITY</h2>
           </Col>
-          <Col
-            xs="6"
-            className={styles.opportunityIntro}
-            data-aos="fade-left"
-            data-aos-delay="1500"
-          >
+          <Col xs="6" className={styles.opportunityIntro}>
             <Row>
               <Col xs="6">
                 <h3 className={styles.headHthree}>
@@ -298,21 +282,21 @@ function Opportunity(): JSX.Element {
           layout="responsive"
           alt="OPPORTUNITY"
           // className={styles.hqStrataUnits}
-          data-aos="fade-up"
-          data-aos-delay="2500"
+          data-aos="fade-right"
+          data-aos-delay="100"
         />
-        <Row className={styles.opportunityDetail}>
+        <Row
+          className={styles.opportunityDetail}
+          data-aos="fade-up"
+          data-aos-delay="150"
+        >
           <Col xs="4">
-            <h4
-              className={styles.headH4}
-              data-aos="fade-right"
-              data-aos-delay="500"
-            >
+            <h4 className={styles.headH4}>
               HQ is south vancouver’s newest industrial development, featuring a
               limited opportunity of 30 light industrial strata units.
             </h4>
           </Col>
-          <Col xs="5" data-aos="fade-left" data-aos-delay="1500">
+          <Col xs="5">
             <p className={styles.paragraph}>
               Take the next step in your business journey with modern light
               industrial space from 2,800 SF and up, including second floor
@@ -339,24 +323,16 @@ function Location(): JSX.Element {
             <h2
               className={styles.headHtwo}
               data-aos="fade-right"
-              data-aos-delay="500"
+              data-aos-delay="50"
             >
               LOCATION
             </h2>
           </Col>
-          <Col xs="6">
-            <h3
-              className={styles.headHthree}
-              data-aos="fade-down"
-              data-aos-delay="1500"
-            >
+          <Col xs="6" data-aos="fade-left" data-aos-delay="50">
+            <h3 className={styles.headHthree}>
               8290 ROSS STREEET, VANCOUVER, BC
             </h3>
-            <p
-              className={styles.paragraph}
-              data-aos="fade-up"
-              data-aos-delay="2500"
-            >
+            <p className={styles.paragraph}>
               Step away from SE Marine Drive and Knight Street, HQ is centrally
               located on the corner of Ross Street and East Kent Avenue North in
               East Vancouver’s industrial area. Located along one of East
@@ -495,8 +471,8 @@ function Building(): JSX.Element {
         <Container className={styles.hqspace}>
           <h2
             className={styles.headHtwo}
-            data-aos="fade-right"
-            data-aos-delay="500"
+            data-aos="fade-down"
+            data-aos-delay="650"
           >
             THE SPACES
           </h2>
@@ -506,7 +482,7 @@ function Building(): JSX.Element {
             prevIcon={prevIcon}
             indicators={false}
             data-aos="fade-left"
-            data-aos-delay="1500"
+            data-aos-delay="700"
           >
             <Carousel.Item>
               <Image
@@ -616,7 +592,7 @@ function Amenities(): JSX.Element {
   // }
   return (
     <section id="amenitiesfeatures" className={styles.hqAmenities}>
-      <h2 className={styles.headHtwo} data-aos="fade-down" data-aos-delay="500">
+      <h2 className={styles.headHtwo} data-aos="fade-up" data-aos-delay="650">
         AMENITIES
       </h2>
       <Image
@@ -626,21 +602,19 @@ function Amenities(): JSX.Element {
         layout="responsive"
         alt="AMENITIES VIEW"
         className={styles.hqMap}
-        data-aos="fade-up"
-        data-aos-delay="1500"
+        data-aos="fade-right"
+        data-aos-delay="750"
         // eslint-disable-next-line react/jsx-no-comment-textnodes
       />
-      <div
-        className={styles.hqCalloutBtn}
-        data-aos="fade-up"
-        data-aos-delay="2000"
-      >
+      <div className={styles.hqCalloutBtn}>
         <Image
           src="/images/hq-callout-btn.png"
           width={57}
           height={57}
           alt="AMENITIES VIEW"
           className={styles.calloutIcon}
+          data-aos="fade-up"
+          data-aos-delay="1850"
         />
         <div className={styles.calloutItem}>
           <p className={styles.paragraph}>
@@ -649,33 +623,29 @@ function Amenities(): JSX.Element {
           </p>
         </div>
       </div>
-      <div
-        className={styles.hqCalloutBtn}
-        data-aos="fade-up"
-        data-aos-delay="2000"
-      >
+      <div className={styles.hqCalloutBtn}>
         <Image
           src="/images/hq-callout-btn.png"
           width={57}
           height={57}
           alt="AMENITIES VIEW"
           className={styles.calloutIcon}
+          data-aos="fade-up"
+          data-aos-delay="1750"
         />
         <div className={styles.calloutItem}>
           <p className={styles.paragraph}>Generous common cooridor</p>
         </div>
       </div>
-      <div
-        className={styles.hqCalloutBtn}
-        data-aos="fade-up"
-        data-aos-delay="2000"
-      >
+      <div className={styles.hqCalloutBtn}>
         <Image
           src="/images/hq-callout-btn.png"
           width={57}
           height={57}
           alt="AMENITIES VIEW"
           className={styles.calloutIcon}
+          data-aos="fade-up"
+          data-aos-delay="1750"
         />
         <div className={styles.calloutItem}>
           <p className={styles.paragraph}>
@@ -684,7 +654,11 @@ function Amenities(): JSX.Element {
         </div>
       </div>
       {/* flickity */}
-      <Container className={styles.amenitiesItems}>
+      <Container
+        className={styles.amenitiesItems}
+        data-aos="fade-left"
+        data-aos-delay="250"
+      >
         <FlickityCarousel />
       </Container>
     </section>
@@ -692,37 +666,145 @@ function Amenities(): JSX.Element {
 }
 function Feature(): JSX.Element {
   // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
-  const [isFoodClick, setFoodClick] = useState(false);
-  function foodClickHandler() {
-    setFoodClick(!isFoodClick);
-  }
+  const [isFirstClick, setFirstClick] = useState(true);
   // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
-  const [isShopClick, setShopClick] = useState(false);
-  function shopClickHandler() {
-    setShopClick(!isShopClick);
-  }
+  const [isSecondClick, setSecondClick] = useState(false);
   // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
-  const [isBusClick, setBusClick] = useState(false);
-  function busClickHandler() {
-    setBusClick(!isBusClick);
+  const [isThirdClick, setThirdClick] = useState(false);
+  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
+  const [isFourClick, setFourClick] = useState(false);
+  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
+  const [isFiveClick, setFiveClick] = useState(false);
+  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
+  const [isSixClick, setSixClick] = useState(false);
+  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
+  const [isSevenClick, setSevenClick] = useState(false);
+  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
+  const [isEightClick, setEightClick] = useState(false);
+  function firstHanderClick() {
+    setFirstClick(true);
+    setSecondClick(false);
+    setThirdClick(false);
+    setFourClick(false);
+    setFiveClick(false);
+    setSixClick(false);
+    setSevenClick(false);
+    setEightClick(false);
   }
+  function secondHanderClick() {
+    setFirstClick(false);
+    setSecondClick(true);
+    setThirdClick(false);
+    setFourClick(false);
+    setFiveClick(false);
+    setSixClick(false);
+    setSevenClick(false);
+    setEightClick(false);
+  }
+  function thirdHanderClick() {
+    setFirstClick(false);
+    setSecondClick(false);
+    setThirdClick(true);
+    setFourClick(false);
+    setFiveClick(false);
+    setSixClick(false);
+    setSevenClick(false);
+    setEightClick(false);
+  }
+  function fourHanderClick() {
+    setFirstClick(false);
+    setSecondClick(false);
+    setThirdClick(false);
+    setFourClick(true);
+    setFiveClick(false);
+    setSixClick(false);
+    setSevenClick(false);
+    setEightClick(false);
+  }
+  function fiveHanderClick() {
+    setFirstClick(false);
+    setSecondClick(false);
+    setThirdClick(false);
+    setFourClick(false);
+    setFiveClick(true);
+    setSixClick(false);
+    setSevenClick(false);
+    setEightClick(false);
+  }
+  function sixHanderClick() {
+    setFirstClick(false);
+    setSecondClick(false);
+    setThirdClick(false);
+    setFourClick(false);
+    setFiveClick(false);
+    setSixClick(true);
+    setSevenClick(false);
+    setEightClick(false);
+  }
+  function sevenHanderClick() {
+    setFirstClick(false);
+    setSecondClick(false);
+    setThirdClick(false);
+    setFourClick(false);
+    setFiveClick(false);
+    setSixClick(false);
+    setSevenClick(true);
+    setEightClick(false);
+  }
+  function eightHanderClick() {
+    setFirstClick(false);
+    setSecondClick(false);
+    setThirdClick(false);
+    setFourClick(false);
+    setFiveClick(false);
+    setSixClick(false);
+    setSevenClick(false);
+    setEightClick(true);
+  }
+
+  // function FBClickedHandler() {}
+
+  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
+  // useEffect(() => {
+  //   const allClickBtn = document.getElementById('#clickFPBtn1');
+  //   console.log(allClickBtn);
+
+  //   for (let i = 0; i < 2; i++) {
+  //     console.log(i);
+  //     // (allClickBtn[i] as HTMLElement).setAttribute('index', i);
+  //     // allClickBtn[i].onclick = function () {
+  //     //   const currClickBtn = allClickBtn[this.getAttribute('index')].src;
+  //     //   document.querySelector('.floorplanImg').src = currClickBtn;
+
+  //     //   for (let i = 0; i < allClickBtn.length; i++) {
+  //     //     allClickBtn[i].style.border = '2px solid white';
+  //     //   }
+  //     //   this.style.border = '2px solid black';
+  //     // };
+  //     // const FBClickedHandler = (event: React.MouseEvent<HTMLImageElement>) => {
+  //     //   event.stopPropagation();
+  //     //   const img = event.allClickBtn[this.getAttribute('index')].src;
+  //     //   document.querySelector('.floorplanImg').src = currClickBtn;
+  //     //   for (let i = 0; i < allClickBtn.length; i++) {
+  //     //     allClickBtn[i].style.border = '2px solid white';
+  //     //   }
+  //     //   this.style.border = '2px solid black';
+  //     // };
+  //   }
+  // }, []);
+
   return (
-    <section
-      id="features"
-      className={styles.featureContainer}
-      data-aos="fade-up"
-      data-aos-delay="500"
-    >
+    <section id="features" className={styles.featureContainer}>
       <h2
         className={styles.headHtwo}
         data-aos="fade-down"
-        data-aos-delay="1500"
+        data-aos-delay="1050"
       >
         UNIT FEATURES
       </h2>
       <Container className={styles.featureList}>
         <Row className={styles.featureRow}>
-          <Col xs="12" md="6" data-aos="fade-right" data-aos-delay="2500">
+          <Col xs="12" md="6" data-aos="fade-right" data-aos-delay="13500">
             <div className={styles.featureBox}>
               <div className={styles.featureIconBg}>
                 <Image
@@ -823,7 +905,7 @@ function Feature(): JSX.Element {
               </div>
             </div>
           </Col>
-          <Col xs="12" md="6" data-aos="fade-left" data-aos-delay="3500">
+          <Col xs="12" md="6" data-aos="fade-left" data-aos-delay="1350">
             <div className={styles.featureBox}>
               <div className={styles.featureIconBg}>
                 <Image
@@ -917,7 +999,11 @@ function Feature(): JSX.Element {
           </Col>
         </Row>
       </Container>
-      <Row className={styles.zoningText}>
+      <Row
+        className={styles.zoningText}
+        data-aos="fade-up"
+        data-aos-delay="1550"
+      >
         <Col xs="5">
           <h2 className={styles.headHtwo}>ZONING</h2>
         </Col>
@@ -928,7 +1014,11 @@ function Feature(): JSX.Element {
           </h3>
         </Col>
       </Row>
-      <Container className={styles.featureList}>
+      <Container
+        className={styles.featureList}
+        data-aos="fade-up"
+        data-aos-delay="1750"
+      >
         <Row className={styles.zoningfeatureList}>
           <Col xs="12" md="5">
             <div className={styles.featureBox}>
@@ -989,164 +1079,268 @@ function Feature(): JSX.Element {
           </Col>
         </Row>
       </Container>
-      <h2 className={styles.headHtwo}>FLOORPLANS</h2>
+      <h2
+        id="floorplans"
+        className={styles.headHtwo}
+        data-aos="fade-up"
+        data-aos-delay="1850"
+      >
+        FLOORPLANS
+      </h2>
       <Container id="floorplanContainer" className={styles.floorplanContainer}>
-        <Row>
-          <Col xs="12" lg="8">
-            <Image
-              src="/images/map.svg"
-              width={1145.11}
-              height={835.93}
-              layout="responsive"
-              alt="location-map"
-            />
-          </Col>
-          <Col xs="12" lg="4">
-            <Accordion
-              className={styles.accordionContainer}
-              defaultActiveKey="0"
+        <Row className={styles.floorplanRow}>
+          <Col xs="12" lg="8" data-aos="fade-right" data-aos-delay="2150">
+            <div
+              className={
+                isFirstClick ? styles.floorplanImg : styles.floorplanImgInactive
+              }
             >
-              <Accordion.Item eventKey="0" className={styles.accordionItem}>
-                <Accordion.Header
-                  onClick={foodClickHandler}
-                  className={
-                    isFoodClick
-                      ? styles.accordionHeaderAcitve
-                      : styles.accordionHeader
-                  }
-                >
-                  <div className={styles.locationArrow}>
-                    <Image
-                      src="/images/arrow.svg"
-                      width={47}
-                      height={20}
-                      layout="fixed"
-                      alt="arrow"
-                    />
-                  </div>{' '}
-                  FOOD & DRINK
-                </Accordion.Header>
-                <Accordion.Body className={styles.accordionBody}>
-                  <Row>
-                    <div className={styles.locationText}>1. Cactus Club</div>
-                    <div className={styles.locationText}>2. White Spot</div>
-                    <div className={styles.locationText}>3. Boston Pizza</div>
-                    <div className={styles.locationText}>4. McDonald’s</div>
-                    <div className={styles.locationText}>5. Pokerrito</div>
-                    <div className={styles.locationText}>6. Tim Hortons</div>
-                    <div className={styles.locationText}>7. Starbucks</div>
-                    <div className={styles.locationText}>
-                      8. Mucho Burrito Fresh Mexican Grill
-                    </div>
-
-                    <div className={styles.locationText}>
-                      9. Barcelos Flame Grilled Chicken
-                    </div>
-                    <div className={styles.locationText}>10. Subway</div>
-                    <div className={styles.locationText}>
-                      11. COBS Bread Bakery
-                    </div>
-                    <div className={styles.locationText}>12. Pizza Hut</div>
-                    <div className={styles.locationText}>13. Nandos</div>
-                    <div className={styles.locationText}>14. A&W</div>
-                    <div className={styles.locationText}>
-                      15. Kirin Seafood Restaurant
-                    </div>
-                  </Row>
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="1" className={styles.accordionItem}>
-                <Accordion.Header
-                  onClick={shopClickHandler}
-                  className={
-                    isShopClick
-                      ? styles.accordionHeaderAcitve
-                      : styles.accordionHeader
-                  }
-                >
-                  <div className={styles.locationArrow}>
-                    <Image
-                      src="/images/arrow.svg"
-                      width={47}
-                      height={20}
-                      layout="fixed"
-                      alt="arrow"
-                    />
-                  </div>{' '}
-                  SHOPPING & SERVICES
-                </Accordion.Header>
-                <Accordion.Body className={styles.accordionBody}>
-                  <Row>
-                    <div className={styles.locationText}>16. Vancity</div>
-                    <div className={styles.locationText}>17. TD Bank</div>
-                    <div className={styles.locationText}>18. Canadian Tire</div>
-                    <div className={styles.locationText}>19. London Drugs</div>
-                    <div className={styles.locationText}>20. Purolator</div>
-                    <div className={styles.locationText}>21. Mark’ss</div>
-                    <div className={styles.locationText}>22. Save-On-Foods</div>
-                    <div className={styles.locationText}>
-                      23. Kin’s Farm Market
-                    </div>
-
-                    <div className={styles.locationText}>
-                      24. Winners / HomeSense
-                    </div>
-                    <div className={styles.locationText}>25. PetSmart</div>
-                    <div className={styles.locationText}>26. Staples</div>
-                    <div className={styles.locationText}>
-                      27. Sungiven Foods
-                    </div>
-                    <div className={styles.locationText}>28. Shell</div>
-                    <div className={styles.locationText}>
-                      29. Riverway Golf Course
-                    </div>
-                    <div className={styles.locationText}>
-                      30. Starlight Casino
-                    </div>
-                  </Row>
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="2" className={styles.accordionItem}>
-                <Accordion.Header
-                  onClick={busClickHandler}
-                  className={
-                    isBusClick
-                      ? styles.accordionHeaderAcitve
-                      : styles.accordionHeader
-                  }
-                >
-                  <div className={styles.locationArrow}>
-                    <Image
-                      src="/images/arrow.svg"
-                      width={47}
-                      height={20}
-                      layout="fixed"
-                      alt="arrow"
-                    />
-                  </div>{' '}
-                  BUSINESS & OFFICE
-                </Accordion.Header>
-                <Accordion.Body className={styles.accordionBody}>
-                  <Row>
-                    <div className={styles.locationText}>
-                      31. Best Buy Canadian Headquarters
-                    </div>
-                    <div className={styles.locationText}>
-                      32. Ritchie Bros. Auctioneers
-                    </div>
-                    <div className={styles.locationText}>
-                      33. Amazon Fulfillment Center
-                    </div>
-                    <div className={styles.locationText}>
-                      34. Ballard Power Systems Inc
-                    </div>
-                    <div className={styles.locationText}>
-                      35. Milwaukee Factory Service Centre
-                    </div>
-                  </Row>
-                </Accordion.Body>
-              </Accordion.Item>
-            </Accordion>
+              <Image
+                src="/images/hq-siteplan-1.jpg"
+                width={1171.31}
+                height={1000}
+                layout="responsive"
+                alt="location-map"
+              />
+            </div>
+            <div
+              className={
+                isSecondClick
+                  ? styles.floorplanImg
+                  : styles.floorplanImgInactive
+              }
+            >
+              <Image
+                src="/images/hq-siteplan-2.jpg"
+                width={1181.31}
+                height={1000}
+                layout="responsive"
+                alt="location-map"
+              />
+            </div>
+            <div
+              className={
+                isThirdClick ? styles.floorplanImg : styles.floorplanImgInactive
+              }
+            >
+              <Image
+                src="/images/hq-siteplan-3.jpg"
+                width={1181.31}
+                height={1000}
+                layout="responsive"
+                alt="location-map"
+              />
+            </div>
+            <div
+              className={
+                isFourClick ? styles.floorplanImg : styles.floorplanImgInactive
+              }
+            >
+              <Image
+                src="/images/hq-siteplan-4.jpg"
+                width={1181.31}
+                height={1000}
+                layout="responsive"
+                alt="location-map"
+              />
+            </div>
+            <div
+              className={
+                isFiveClick ? styles.floorplanImg : styles.floorplanImgInactive
+              }
+            >
+              <Image
+                src="/images/hq-siteplan-5.jpg"
+                width={1181.31}
+                height={1000}
+                layout="responsive"
+                alt="location-map"
+              />
+            </div>
+            <div
+              className={
+                isSixClick ? styles.floorplanImg : styles.floorplanImgInactive
+              }
+            >
+              <Image
+                src="/images/hq-floorplan-6.jpg"
+                width={1181.31}
+                height={1000}
+                layout="responsive"
+                alt="location-map"
+              />
+            </div>
+            <div
+              className={
+                isSevenClick ? styles.floorplanImg : styles.floorplanImgInactive
+              }
+            >
+              <Image
+                src="/images/hq-siteplan-7.jpg"
+                width={1181.31}
+                height={1000}
+                layout="responsive"
+                alt="location-map"
+              />
+            </div>
+            <div
+              className={
+                isEightClick ? styles.floorplanImg : styles.floorplanImgInactive
+              }
+            >
+              <Image
+                src="/images/hq-floorplan-8.jpg"
+                width={1181.31}
+                height={1000}
+                layout="responsive"
+                alt="location-map"
+              />
+            </div>
+          </Col>
+          <Col
+            xs="12"
+            lg="3"
+            className={styles.fbBtnList}
+            data-aos="fade-left"
+            data-aos-delay="2150"
+          >
+            <button
+              className={
+                isFirstClick ? styles.clickFPBtnActive : styles.clickFPBtn
+              }
+              onClick={firstHanderClick}
+            >
+              <Image
+                src="/images/hq-floorplan-transparentIcon.png"
+                width={57}
+                height={57}
+                layout="fixed"
+                alt="parking"
+                className={styles.fbBtnIcon}
+              />
+              <div className={styles.featureTextOne}>LEVEL 1</div>
+            </button>
+            <button
+              className={
+                isSecondClick ? styles.clickFPBtnActive : styles.clickFPBtn
+              }
+              onClick={secondHanderClick}
+            >
+              <Image
+                src="/images/hq-floorplan-transparentIcon.png"
+                width={57}
+                height={57}
+                layout="fixed"
+                alt="parking"
+                className={styles.fbBtnIcon}
+              />
+              <div className={styles.featureTextOne}>LEVEL 2</div>
+            </button>
+            <button
+              className={
+                isThirdClick ? styles.clickFPBtnActive : styles.clickFPBtn
+              }
+              onClick={thirdHanderClick}
+            >
+              <Image
+                src="/images/hq-floorplan-transparentIcon.png"
+                width={57}
+                height={57}
+                layout="fixed"
+                alt="parking"
+                className={styles.fbBtnIcon}
+              />
+              <div className={styles.featureTextOne}>LEVEL 3</div>
+            </button>
+            <button
+              className={
+                isFourClick ? styles.clickFPBtnActive : styles.clickFPBtn
+              }
+              onClick={fourHanderClick}
+            >
+              <Image
+                src="/images/hq-floorplan-transparentIcon.png"
+                width={57}
+                height={57}
+                layout="fixed"
+                alt="parking"
+                className={styles.fbBtnIcon}
+              />
+              <div className={styles.featureTextOne}>LEVEL 4</div>
+            </button>
+            <button
+              className={
+                isFiveClick ? styles.clickFPBtnActive : styles.clickFPBtn
+              }
+              onClick={fiveHanderClick}
+            >
+              <Image
+                src="/images/hq-floorplan-transparentIcon.png"
+                width={57}
+                height={57}
+                layout="fixed"
+                alt="parking"
+                className={styles.fbBtnIcon}
+              />
+              <div className={styles.featureTextOne}>LEVEL 5</div>
+            </button>
+            <button
+              className={
+                isSixClick ? styles.clickFPBtnActive : styles.clickFPBtn
+              }
+              onClick={sixHanderClick}
+            >
+              <Image
+                src="/images/hq-floorplan-transparentIcon.png"
+                width={57}
+                height={57}
+                layout="fixed"
+                alt="parking"
+                className={styles.fbBtnIcon}
+              />
+              <div className={styles.featureTextOne}>PARKCADE</div>
+            </button>
+            <button
+              className={
+                isSevenClick ? styles.clickFPBtnActive : styles.clickFPBtn
+              }
+              onClick={sevenHanderClick}
+            >
+              <Image
+                src="/images/hq-floorplan-transparentIcon.png"
+                width={57}
+                height={57}
+                layout="fixed"
+                alt="parking"
+                className={styles.fbBtnIcon}
+              />
+              <div className={styles.featureTextOne}>FLOORPLAN A</div>
+            </button>
+            <button
+              className={
+                isEightClick ? styles.clickFPBtnActive : styles.clickFPBtn
+              }
+              onClick={eightHanderClick}
+            >
+              <Image
+                src="/images/hq-floorplan-transparentIcon.png"
+                width={57}
+                height={57}
+                layout="fixed"
+                alt="parking"
+                className={styles.fbBtnIcon}
+              />
+              <div className={styles.featureTextOne}>FLOORPLAN B</div>
+            </button>
+            <a
+              className={styles.fbDownload}
+              download={true}
+              href="/Projects/HQ_SITEPLAN_For-download.pdf"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              DOWNLOAD ALL PLANS
+            </a>
           </Col>
         </Row>
       </Container>
@@ -1180,17 +1374,21 @@ function Ownership(): JSX.Element {
     setEquityClick(!isEquityClick);
   }
   return (
-    <section id="location" className={styles.hqLocation}>
+    <section className={styles.hqLocation}>
       <Container className={styles.locationContainer}>
         <Row className={styles.locationRow}>
           <Col xs="6">
-            <h2 className={styles.headHtwo}>
+            <h2
+              className={styles.headHtwo}
+              data-aos="fade-right"
+              data-aos-delay="500"
+            >
               OWNERSHIP
               <br />
               BENEFITS
             </h2>
           </Col>
-          <Col xs="6">
+          <Col xs="6" data-aos="fade-left" data-aos-delay="500">
             <Accordion
               className={styles.accordionContainer}
               defaultActiveKey="0"
@@ -1308,552 +1506,105 @@ function Ownership(): JSX.Element {
 function Developer(): JSX.Element {
   return (
     <section id="team" className={styles.developerContainer}>
-      <Image
-        src="/images/TEAM.svg"
-        width={1675}
-        height={216}
-        layout="responsive"
-        alt="team"
-      />
       <Container className={styles.projectRowOne}>
-        <Row className={styles.developerRowOneText}>
-          <Col md="12" lg="6">
-            <div className={styles.projectHeadingBox}>
-              <div className={styles.projectArrow}>
-                <Image
-                  src="/images/arrow.svg"
-                  width={47}
-                  height={20}
-                  layout="fixed"
-                  alt="arrow"
-                />
-              </div>
-
-              <div className={styles.developerHeading}>DEVELOPER</div>
-            </div>
-            <div className={styles.developerTextBox}>
-              <Image
-                src="/images/Union-allied-logo.svg"
-                width={293.25}
-                height={47.82}
-                alt="Union-allied-logo"
-              />
-              <div className={styles.developerSubtitle}>
-                WELCOME TO A NEW WORLD OF CONCRETE, GLASS AND STEEL.
-              </div>
-              <div className={styles.developerText}>
-                <p>
-                  We are reimagining the possibilities of commercial, industrial
-                  and residential development with exellent ideas. We identify
-                  and invest in real estate in developed urban centres. By
-                  locating areas that exhibit drivers of intensification and
-                  generating real estate, we build valued properties.
-                </p>
-              </div>
-              <Link href="https://www.unionallied.ca/">
-                <a className={styles.developerLink} target="_blank">
-                  UNIONALLIED.CA
-                </a>
-              </Link>
-            </div>
+        <Row
+          className={styles.zoningText}
+          data-aos="fade-up"
+          data-aos-delay="500"
+        >
+          <Col xs="6">
+            <h2 className={styles.headHtwo}>DEVELOPER</h2>
           </Col>
-          <Col md="12" lg="6" className={styles.developerTextBoxEmpty}>
-            <div className={styles.projectHeadingBox}>
-              <div className={styles.projectArrow}>
-                <Image
-                  src="/images/arrow.svg"
-                  width={47}
-                  height={20}
-                  layout="fixed"
-                  alt="arrow"
-                />
-              </div>
-              <div className={styles.developerHeading}>SALES & MARKETING</div>
-            </div>
-            <div className={styles.developerTextBox}>
+          <Col xs="5">
+            <h3 className={styles.headHthree}>
+              WELCOME TO A NEW WORLD OF CONCRETE, <br />
+              GLASS AND STEEL.
+            </h3>
+          </Col>
+        </Row>
+        <Row
+          className={styles.zoningText}
+          data-aos="fade-left"
+          data-aos-delay="750"
+        >
+          <FlickityCarouselDeveloper />
+        </Row>
+        <Row
+          className={styles.zoningText}
+          data-aos="fade-up"
+          data-aos-delay="950"
+        >
+          <Col xs="6">
+            <a className={styles.unionLogoBottom} target="_blank">
               <Image
-                src="/images/Avison_logo.svg"
-                width={146}
-                height={103.5}
-                layout="fixed"
-                alt="Avison_logo"
+                src="/images/Union-allied-logo-grayscale.png"
+                width={452.78}
+                height={73.83}
+                className={styles.unionLogoBottom}
+                alt="scroll-icon"
+                data-aos="fade-left"
+                data-aos-delay="750"
               />
-              <div className={styles.developerText}>
-                <p>
-                  Avison Young creates real economic, social and environmental
-                  value as a global real estate advisor, powered by people. Our
-                  integrated talent realizes the full potential of real estate
-                  by using global intelligence platforms that provide clients
-                  with insights and advantage. Together, we can create healthy,
-                  productive workplaces for employees, cities that are centres
-                  for prosperity for their citizens, and built spaces and places
-                  that create a net benefit to the economy, the environment and
-                  the community.
-                </p>
-              </div>
-              <Link href="https://www.avisonyoung.ca/">
-                <a className={styles.developerLink} target="_blank">
-                  avisonyoung.ca
-                </a>
-              </Link>
-            </div>
+            </a>
+          </Col>
+          <Col xs="5">
+            <p className={styles.paragraph}>
+              We are reimagining the possibilities of commercial, industrial and
+              residential development with excellent ideas. We identify and
+              invest in real estate in developed urban centres. By locating
+              areas that exhibit drivers of intensification and generating real
+              estate, we build valued properties.
+            </p>
+            <p>UNIONALLIED.CA</p>
           </Col>
         </Row>
       </Container>
     </section>
   );
-}
-interface IContactPageFormElements extends HTMLFormControlsCollection {
-  agreeToBeContacted: HTMLInputElement;
-  companyName: HTMLInputElement;
-  email: HTMLInputElement;
-  firstName: HTMLInputElement;
-  inquiry: HTMLTextAreaElement;
-  lastName: HTMLInputElement;
-  phoneNumber: HTMLInputElement;
-  source: HTMLSelectElement;
-  areYouAgentYes: HTMLInputElement;
-  areYouAgentNo: HTMLInputElement;
-  agentName: HTMLInputElement;
-  broker: HTMLInputElement;
-  withAgent: HTMLInputElement;
-}
-interface IContactPageFormElement extends HTMLFormElement {
-  readonly elements: IContactPageFormElements;
 }
 function Register(): JSX.Element {
-  const [submitting, submittingActions] = useBoolean();
-  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
-  const [areYouAgent, setAreAgent] = useState(false);
-  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
-  const [withAgent, setWithAgent] = useState(false);
-  function areAgentHandler(event: any) {
-    if (event.target.checked) {
-      setAreAgent(true);
-    }
-  }
-  function notAgentHandler(event: any) {
-    if (event.target.checked) {
-      setAreAgent(false);
-    }
-  }
-  function withAgentHandler(event: any) {
-    if (event.target.checked) {
-      setWithAgent(true);
-    }
-  }
-  function notWithAgentHandler(event: any) {
-    if (event.target.checked) {
-      setWithAgent(false);
-    }
-  }
-  const { form, responseMessage, setResponseMessage } = useFormResponse();
-  async function formSubmitHandler(
-    event: FormEvent<IContactPageFormElement>
-  ): Promise<void> {
-    submittingActions.setTrue();
-    event.preventDefault();
-
-    const response = await fetch(`/api/contact`, {
-      body: JSON.stringify({
-        agreeToBeContacted:
-          event.currentTarget.elements.agreeToBeContacted.checked,
-        email: event.currentTarget.elements.email.value,
-        firstName: event.currentTarget.elements.firstName.value,
-        lastName: event.currentTarget.elements.lastName.value,
-        phoneNumber:
-          event.currentTarget.elements.phoneNumber.value || undefined,
-        source: event.currentTarget.elements.source.value || undefined,
-        // areYouAgent: event.currentTarget.elements.areYouAgent.value,
-        areYouAgent: areYouAgent,
-        withAgent: withAgent,
-        broker: event.currentTarget.elements.broker.value || undefined,
-        // withAgent: event.currentTarget.elements.withAgent.checked,
-        agentName: event.currentTarget.elements.agentName.value || undefined,
-      }),
-      method: `POST`,
-    });
-    const json = await response.json();
-
-    setResponseMessage(response.ok ? json.data : json.error);
-
-    submittingActions.setFalse();
-  }
   return (
-    <section id="register" className={styles.registerContainer}>
-      <Image
-        src="/images/REGISTER.svg"
-        width={1665}
-        height={216}
-        layout="responsive"
-        alt="REGISTER"
-      />
-      <Container className={styles.projectRowOne}>
-        <Row className={styles.developerRowOneText}>
-          <Col md="12" lg="6">
-            <div className={styles.projectHeadingBox}>
-              <div className={styles.projectArrow}>
-                <Image
-                  src="/images/arrow.svg"
-                  width={47}
-                  height={20}
-                  layout="fixed"
-                  alt="arrow"
-                />
-              </div>
-              <div className={styles.registerHeading}>
-                FOR EXCLUSIVE INFO AND UPDATES ON HIGH POINT PARK.
-              </div>
-            </div>
-          </Col>
-          <Col md="12" lg="6" className={styles.developerTextBoxEmpty}></Col>
-        </Row>
-        <form
-          className={styles.contactPageForm}
-          ref={form}
-          onSubmit={formSubmitHandler}
-        >
-          <fieldset
-            className={styles.contactPageFormFieldset}
-            disabled={submitting}
-          >
-            <Row className={styles.registerRowOne}>
-              <Col md="12" lg="6" className={styles.registerColLeft}>
-                <label htmlFor="firstName" className={styles.registerFormLabel}>
-                  * First Name
-                </label>
-                <input
-                  id="firstName"
-                  autoComplete="given-name"
-                  className={styles.registerFormInput}
-                  name="firstName"
-                  required={true}
-                  type="text"
-                />
-                <label htmlFor="email" className={styles.registerFormLabel}>
-                  * Email Address
-                </label>
-                <input
-                  id="email"
-                  autoComplete="email"
-                  className={styles.registerFormInput}
-                  name="email"
-                  required={true}
-                  type="email"
-                />
-                <label
-                  htmlFor="mce-source"
-                  className={styles.registerFormLabel}
-                >
-                  How did you hear about us?
-                </label>
-                {/* <Select
-                  label={strings.contactPageFormSourcePlaceholder}
-                  name="source"
-                  options={Object.values(Source).map(source => ({
-                    name: source,
-                    value: source,
-                  }))}
-                /> */}
-                <select
-                  id="mce-source"
-                  name="source"
-                  className={styles.registerSelect}
-                >
-                  <option className={styles.registerOption} value=""></option>
-                  <option
-                    className={styles.registerOption}
-                    value="Friends and Family"
-                  >
-                    Friends and Family
-                  </option>
-                  <option className={styles.registerOption} value="Realtor">
-                    Realtor
-                  </option>
-                  <option
-                    className={styles.registerOption}
-                    value="Signage / Walk by / Drive by"
-                  >
-                    Signage / Walk by / Drive by
-                  </option>
-                  <option
-                    className={styles.registerOption}
-                    value="Online Search"
-                  >
-                    Online Search
-                  </option>
-                  <option
-                    className={styles.registerOption}
-                    value="Social Media"
-                  >
-                    Social Media
-                  </option>
-                </select>
-                <label
-                  htmlFor="areYouAgentYes"
-                  className={styles.registerFormLabel}
-                >
-                  * Are you working with an Agent / Realtor?
-                </label>
-                <div className={styles.registerCheckbox}>
-                  <div style={{ paddingRight: '55px' }}>
-                    <input
-                      className={styles.registerCheckboxInput}
-                      name="areYouAgentYes"
-                      onClick={withAgentHandler}
-                      placeholder="Yes"
-                      type="checkbox"
-                    />
-                    <label
-                      className={styles.registerCheckBoxLabel}
-                      htmlFor="areYouAgentYes"
-                    >
-                      Yes
-                    </label>
-                  </div>
-                  <div>
-                    <input
-                      className={styles.registerCheckboxInput}
-                      name="areYouAgentNo"
-                      onClick={notWithAgentHandler}
-                      type="checkbox"
-                    />
-                    <label
-                      htmlFor="areYouAgentNo"
-                      className={styles.registerCheckBoxLabel}
-                    >
-                      No
-                    </label>
-                  </div>
-                </div>
-                <label htmlFor="agentName" className={styles.registerFormLabel}>
-                  Agent / Realtor Name
-                </label>
-                <input
-                  id="agentName"
-                  name="agentName"
-                  type="text"
-                  className={styles.registerFormInput}
-                />
-              </Col>
-              <Col md="12" lg="6" className={styles.registerColRight}>
-                <label htmlFor="lastName" className={styles.registerFormLabel}>
-                  * Last Name
-                </label>
-                <input
-                  autoComplete="family-name"
-                  className={styles.registerFormInput}
-                  name="lastName"
-                  required={true}
-                  type="text"
-                />
-                <label
-                  htmlFor="phoneNumber"
-                  className={styles.registerFormLabel}
-                >
-                  Phone Number
-                </label>
-                <input
-                  className={styles.registerFormInput}
-                  name="phoneNumber"
-                  required={true}
-                  type="tel"
-                />
-                <label
-                  htmlFor="areYouAgentYes"
-                  className={styles.registerFormLabel}
-                >
-                  * Are you an Agent?
-                </label>
-                <div className={styles.registerCheckbox}>
-                  <div style={{ paddingRight: '55px' }}>
-                    <input
-                      className={styles.registerCheckboxInput}
-                      name="areYouAgentYes"
-                      onClick={areAgentHandler}
-                      placeholder="Yes"
-                      type="checkbox"
-                    />
-                    <label
-                      className={styles.registerCheckBoxLabel}
-                      htmlFor="areYouAgentYes"
-                    >
-                      Yes
-                    </label>
-                  </div>
-                  <div>
-                    <input
-                      className={styles.registerCheckboxInput}
-                      name="areYouAgentNo"
-                      onClick={notAgentHandler}
-                      type="checkbox"
-                    />
-                    <label
-                      htmlFor="areYouAgentNo"
-                      className={styles.registerCheckBoxLabel}
-                    >
-                      No
-                    </label>
-                  </div>
-                </div>
-                <label htmlFor="broker" className={styles.registerFormLabel}>
-                  Employee / Broker
-                </label>
-                <input
-                  className={styles.registerFormInput}
-                  name="broker"
-                  type="text"
-                />
-                <section className={styles.registerCheckbox}>
-                  <input
-                    className={styles.registerCheckboxInput}
-                    id="checkbox"
-                    name="agreeToBeContacted"
-                    type="checkbox"
-                  />
-                  <label
-                    htmlFor="checkbox"
-                    className={styles.registerAgreeLabel}
-                  >
-                    I agree to allow Union Allied and its affiliates to contact
-                    me and send me information via email, phone, or SMS. I
-                    understand I can unsubscribe at any time.
-                  </label>
-                </section>
-                <Button
-                  className={styles.registerSubmitBtn}
-                  disabled={submitting}
-                  type="submit"
-                >
-                  SUBMIT
-                </Button>
-              </Col>
-            </Row>
-
-            <section className={styles.responseMessage}>
-              <RenderEitherOr
-                ifTrue={responseMessage}
-                thenRender={message => {
-                  return <Typography>{message}</Typography>;
-                }}
-              />
-            </section>
-          </fieldset>
-        </form>
-      </Container>
-    </section>
-  );
-}
-function Contact(): JSX.Element {
-  return (
-    <section className={styles.registerContainer}>
-      <Container className={styles.projectRowOne}>
-        <Row className={styles.contactRowOne}>
-          <Col className={styles.registerColLeft} md="12" lg="6">
-            <div className={styles.projectHeadingBox}>
-              <div className={styles.projectArrow}>
-                <Image
-                  src="/images/arrow.svg"
-                  width={47}
-                  height={20}
-                  layout="fixed"
-                  alt="arrow"
-                />
-              </div>
-              <div className={styles.registerHeading}>
-                FOR MORE INFORMATION, PLEASE CONTACT:
-              </div>
-            </div>
-          </Col>
-          <Col
-            md="12"
-            lg="6"
-            className={`${styles.registerColRight} ${styles.contactColRight}`}
-          >
-            <div>
-              <div
-                className={`${styles.contactText} ${styles.contactName} ${styles.contactTextTwo}`}
-              >
-                Kevin Kassautzki
-              </div>
-              <div
-                className={`${styles.contactText} ${styles.contactPhone} ${styles.contactTextTwo}`}
-              >
-                604 646 8393
-              </div>
-              <div className={styles.contactText}>
-                kevin.kassautzki@avisonyoung.com
-              </div>
-              <div className={styles.contactSpacer}></div>
-            </div>
-            <div>
-              <div className={styles.contactSpacerTwo}></div>
-              <div
-                className={`${styles.contactText} ${styles.contactName} ${styles.contactTextTwo}`}
-              >
-                Ryan Kerr*
-              </div>
-              <div
-                className={`${styles.contactText} ${styles.contactPhone} ${styles.contactTextTwo}`}
-              >
-                604 647 5094
-              </div>
-              <div className={styles.contactText}>
-                ryan.kerr@avisonyoung.com
-              </div>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+    <section
+      className={styles.registerForm}
+      data-aos="fade-right"
+      data-aos-delay="550"
+    >
+      <h2 className={styles.headHtwo}>REGISTER</h2>
+      <h3 className={styles.headHthree}>FOR EXCLUSIVE INFO & UPDATES ON HQ.</h3>
+      <div></div>
+      <MailchimpSubscribe data-aos="fade-right" data-aos-delay="750" />
     </section>
   );
 }
 function Footer(): JSX.Element {
   return (
-    <section className={styles.footerSecion}>
-      {/* <div>
-        <Image
-          width={1920}
-          height={428}
-          layout="responsive"
-          objectFit="cover"
-          src="/images/footerOverlay.svg"
-          alt="footerOverlay"
-        />
-      </div> */}
-      <div className={styles.footerContainer}>
-        <Image
-          width={352.53}
-          height={57.48}
-          src="/images/Union-allied-logo2.svg"
-          alt="Union-allied-logo2"
-        />
-
-        <div className={styles.footerLinkBox}>
-          <div>TERMS OF USE</div>
-          <div className={styles.footerLinkSpace}>|</div>
-          <div>PRIVACY POLICY</div>
-          <div className={styles.footerLinkSpace}>|</div>
-          <div>
-            <a
-              className={styles.footerLink}
-              href="https://www.alabcreative.ca/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              SITE BY A_LAB CREATIVE
-            </a>
-          </div>
-        </div>
-        <div className={styles.footerText}>
-          © 2022 Union Allied Capital Corporation. This is not an offering for
-          sale. Any such offering can only be made with an information summary.
-          All materials, measurements, specifications, renderings and layouts
-          are preliminary and displayed for illustrative purposes only. The
-          information contained herein is subject to change at any time without
-          notice.
-        </div>
-      </div>
+    <section className={styles.footer} data-aos="fade-up" data-aos-delay="550">
+      <Container className={styles.footercontainer}>
+        <Row className={styles.footerRow}>
+          <Col xs="3">
+            <Link href="/hq" passHref>
+              <Image
+                src="/images/HQ_LOGO_V1-white--03.png"
+                alt="HQ LOGO"
+                width={141}
+                height={82.94}
+                className={styles.hqLogoWhite}
+              />
+            </Link>
+          </Col>
+          <Col xs="8">
+            <p>SITE BY A_LAB CREATIVE</p>
+            <p>
+              © 2022 Union Allied Capital Corporation. This is not an offering
+              for sale. Any such offering can only be made with an information
+              summary. All materials, measurements, specifications, renderings
+              and layouts are preliminary and displayed for illustrative
+              purposes only. The information contained herein is subject to
+              change at any time without notice.
+            </p>
+          </Col>
+        </Row>
+      </Container>
     </section>
   );
 }
@@ -1880,7 +1631,7 @@ export default function HQ() {
       <Feature />
       <Ownership />
       <Developer />
-      <div className={styles.bgContainer}>
+      {/* <div className={styles.bgContainer}>
         <div className={styles.footerOverlay}>
           <Image
             // width={1920.5}
@@ -1890,11 +1641,10 @@ export default function HQ() {
             src="/images/HPP-website-BG.svg"
             alt="HPP-Bg"
           />
-        </div>
-        <Register />
-        <Contact />
-        <Footer />
-      </div>
+        </div> */}
+      <Register />
+      <Footer />
+      {/* </div> */}
     </main>
   );
 }

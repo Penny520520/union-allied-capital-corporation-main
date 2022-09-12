@@ -1,7 +1,7 @@
 @import '../fonts.styles.css';
-// .page {
-//   padding: 0 4vw;
-// }
+.page {
+  overflow: hidden;
+}
 // lomotive
 
 // global fonts
@@ -455,16 +455,19 @@
   margin-left: -20px;
 }
 .accordionHeader {
-  border-bottom: dashed 1px #00d1c8;
+  border-bottom: solid 1px #58595B;
   padding-top: 20.5px;
 }
 .accordionHeader > button {
-  font-family: 'ActayWide-Bold', sans-serif;
+  font-family: 'GalanoGrotesqueAltDEMO';
   font-size: 30px;
   line-height: 36px;
   letter-spacing: 0.5px;
   font-weight: bold;
   color: #21409a;
+}
+.accordion-button:not(.collapsed) {
+  background-color: transparent!important;
 }
 .locationArrow {
   padding-right: 20.5px;
@@ -909,18 +912,66 @@ padding: 10px;
  padding-top: 25px;
 }
 
-// floorplans
+// floorplans penny
+.floorContainer {
+  max-width: 1780px;
+}
+.floorplanRow {
+  justify-content: space-between;
+}
 .featureContainer .headHtwo:nth-child(5) {
   margin-top: 100px;
 }
 
-
-
-
-
-.floorContainer {
-  padding-top: 101.5px;
+.floorplanContainer .floorplanImgInactive {
+  display: none!important;
 }
+.floorplanContainer .floorplanImg {
+  display: block!important;
+
+}
+.fbBtnList {
+  display: flex;
+  flex-direction: column;
+}
+.fbBtnList .clickFPBtn,
+.fbBtnList .clickFPBtnActive{
+  display: flex;
+  align-items: center;
+  margin-bottom: 44px;
+
+}
+.clickFPBtnActive .featureTextOne{
+  color:#5597FF ;
+}
+.fbBtnIcon {
+}
+.clickFPBtnActive .fbBtnIcon {
+  background-color: #5597FF;
+  border-radius: 50%;
+}
+.floorplanContainer .featureTextOne {
+  margin-left: 15px;
+}
+.fbDownload {
+  display: inline-block;
+  padding: 13px 38px;
+  background-color: #5597FF;
+  width: 346px;
+  color: white;
+  font-size: 23px;
+  border-radius: 29px;
+  font-family: 'GalanoGrotesqueAltDEMO';
+  text-align: center;
+  width: 350px;
+  text-decoration: none;
+}
+
+
+
+// .floorContainer {
+//   padding-top: 101.5px;
+// }
 .floorPlan {
   max-width: 100%;
 }
@@ -964,8 +1015,28 @@ padding: 10px;
 // }
 .developerContainer {
   padding: 134px 4vw 160px 4vw;
-  background-color: #ffffff;
+  background: rgb(0,0,0);
+background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(84,84,84,1) 100%);
+  position: relative;
 }
+.developerContainer .projectRowOne {
+  max-width: 1710px;
+}
+.developerContainer .headHthree {
+  border-top: 1px solid #7CAFFF;
+  padding-top: 30.5px;
+}
+.unionLogoBottom {
+  position: relative;
+}
+
+
+
+
+
+
+
+
 .developerLink {
   text-decoration: none;
   color: #0c256c;
@@ -1016,99 +1087,118 @@ padding: 10px;
   background: linear-gradient(0deg, #000c6c, #00b4ad);
   // background-image: url(../../public/images/HPP-BG.svg);
 }
-.registerContainer {
-  padding: 101px 4vw 0 4vw;
+
+/*
+|------------------------------------------------------
+|  registerform
+|------------------------------------------------------
+*/
+.registerForm {
   position: relative;
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(16,42,74,1) 100%);
+  padding: 120px 150px;
 }
-.registerRowOne {
-  padding-left: 67.5px;
-  padding-top: 105px;
+.registerForm h2 {
+  color: #5597FF;
 }
-.registerHeading {
-  font-family: 'ActayWide-Bold', sans-serif;
-  font-size: 30px;
-  line-height: 36px;
-  letter-spacing: 0.5px;
-  font-weight: bold;
-  color: #ffffff;
-  padding-left: 20.5px;
-  max-width: 400px;
-}
-.registerColLeft {
-  padding-right: 70.5px;
-}
-.registerColRight {
-  padding-left: 70.5px;
-}
-.registerSelect {
-  width: 100%;
-  color: #ffffff;
-  margin-bottom: 50.5px;
-  border-bottom: dashed 1px #ffffff;
-}
-.registerCheckBoxLabel {
-  color: #ffffff;
-  font-family: 'Poppins-Medium';
-  font-size: 18px;
-  line-height: 28px;
-  letter-spacing: 0.5px;
-  font-weight: 400;
-  padding-left: 12px;
-}
-.registerOption {
-  width: 100%;
+.registerForm h3 {
   color: #ffffff;
 }
-.registerCheckbox {
-  display: flex;
-  padding-top: 38px;
-  padding-bottom: 51px;
-}
-.registerCheckboxInput {
-  height: 25px;
-  width: 25px;
-  border: 1px solid #ffffff;
-  cursor: pointer;
-  position: relative;
-  top: 7px;
-  // -webkit-appearance: none;
-}
-.registerFormInput {
-  border-bottom: dashed 1px #ffffff;
-  margin-bottom: 50.5px;
-  color: #ffffff;
-}
-.registerFormLabel {
-  color: #ffffff;
-  font-family: 'Poppins-Medium';
-  font-size: 18px;
-  line-height: 28px;
-  letter-spacing: 0.5px;
-  font-weight: 400;
-}
-.registerAgreeLabel {
-  color: #ffffff;
-  font-family: 'Poppins-Light';
-  font-size: 14px;
-  line-height: 18px;
-  letter-spacing: 0.5px;
-  font-weight: 300;
-  padding-left: 12px;
-  width: 100%;
-}
-.registerSubmitBtn {
-  border-radius: 29px;
-  padding: 14px 70px;
-  font-family: 'Poppins-Bold';
-  font-size: 18px;
-  line-height: 27px;
-  letter-spacing: 0.5px;
-  font-weight: 700;
-  color: #ffffff;
-  background: linear-gradient(180deg, #1212bf, #00d8ce);
-  border: unset;
-  margin-top: 80px;
-}
+
+// .registerContainer {
+//   padding: 101px 4vw 0 4vw;
+//   position: relative;
+// }
+// .registerRowOne {
+//   padding-left: 67.5px;
+//   padding-top: 105px;
+// }
+// .registerHeading {
+//   font-family: 'ActayWide-Bold', sans-serif;
+//   font-size: 30px;
+//   line-height: 36px;
+//   letter-spacing: 0.5px;
+//   font-weight: bold;
+//   color: #ffffff;
+//   padding-left: 20.5px;
+//   max-width: 400px;
+// }
+// .registerColLeft {
+//   padding-right: 70.5px;
+// }
+// .registerColRight {
+//   padding-left: 70.5px;
+// }
+// .registerSelect {
+//   width: 100%;
+//   color: #ffffff;
+//   margin-bottom: 50.5px;
+//   border-bottom: dashed 1px #ffffff;
+// }
+// .registerCheckBoxLabel {
+//   color: #ffffff;
+//   font-family: 'Poppins-Medium';
+//   font-size: 18px;
+//   line-height: 28px;
+//   letter-spacing: 0.5px;
+//   font-weight: 400;
+//   padding-left: 12px;
+// }
+// .registerOption {
+//   width: 100%;
+//   color: #ffffff;
+// }
+// .registerCheckbox {
+//   display: flex;
+//   padding-top: 38px;
+//   padding-bottom: 51px;
+// }
+// .registerCheckboxInput {
+//   height: 25px;
+//   width: 25px;
+//   border: 1px solid #ffffff;
+//   cursor: pointer;
+//   position: relative;
+//   top: 7px;
+//   // -webkit-appearance: none;
+// }
+// .registerFormInput {
+//   border-bottom: dashed 1px #ffffff;
+//   margin-bottom: 50.5px;
+//   color: #ffffff;
+// }
+// .registerFormLabel {
+//   color: #ffffff;
+//   font-family: 'Poppins-Medium';
+//   font-size: 18px;
+//   line-height: 28px;
+//   letter-spacing: 0.5px;
+//   font-weight: 400;
+// }
+// .registerAgreeLabel {
+//   color: #ffffff;
+//   font-family: 'Poppins-Light';
+//   font-size: 14px;
+//   line-height: 18px;
+//   letter-spacing: 0.5px;
+//   font-weight: 300;
+//   padding-left: 12px;
+//   width: 100%;
+// }
+// .registerSubmitBtn {
+//   border-radius: 29px;
+//   padding: 14px 70px;
+//   font-family: 'Poppins-Bold';
+//   font-size: 18px;
+//   line-height: 27px;
+//   letter-spacing: 0.5px;
+//   font-weight: 700;
+//   color: #ffffff;
+//   background: linear-gradient(180deg, #1212bf, #00d8ce);
+//   border: unset;
+//   margin-top: 80px;
+// }
 // .footerSecion {
 //   background: #1426b959;
 // }
@@ -1118,29 +1208,29 @@ padding: 10px;
 //   height: 100%;
 // }
 
-.contactText {
-  font-family: 'Poppins-SemiBold';
-  font-size: 20px;
-  line-height: 28px;
-  letter-spacing: 0.5px;
-  font-weight: 600;
-  color: #ffffff;
-}
-.contactName {
-  padding-bottom: 28px;
-}
-.contactSpacer {
-  border-bottom: dashed 1px #ffffff;
-  padding-top: 60.5px;
-}
-.contactSpacerTwo {
-  padding-top: 60.5px;
-}
-.footerOverlayTwo {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
+// .contactText {
+//   font-family: 'Poppins-SemiBold';
+//   font-size: 20px;
+//   line-height: 28px;
+//   letter-spacing: 0.5px;
+//   font-weight: 600;
+//   color: #ffffff;
+// }
+// .contactName {
+//   padding-bottom: 28px;
+// }
+// .contactSpacer {
+//   border-bottom: dashed 1px #ffffff;
+//   padding-top: 60.5px;
+// }
+// .contactSpacerTwo {
+//   padding-top: 60.5px;
+// }
+// .footerOverlayTwo {
+//   position: absolute;
+//   width: 100%;
+//   height: 100%;
+// }
 .footerContainer {
   // background-color: #1426b9;
   // opacity: 0.4;
@@ -1192,6 +1282,25 @@ padding: 10px;
 .contactPhone [href^='tel'] {
   text-decoration: none;
   color: inherit;
+}
+
+
+
+
+// FOOTER PENNY\
+.footer {
+  position: absolute;
+  width: 100%;
+}
+.footercontainer {
+  max-width: 1710px;
+  margin:167px;
+}
+.footerRow {
+  align-items: center;
+}
+.footercontainer p {
+  color:#ffffff;
 }
 @media (max-width: 576px) {
   .carouselControlPrevIcon {

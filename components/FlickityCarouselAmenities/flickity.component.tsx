@@ -8,7 +8,6 @@ export default () => {
   const flickityOptions = {
     initialIndex: 1,
     wrapAround: true,
-    pageDots: false,
     // autoPlay: true
   };
   return (
