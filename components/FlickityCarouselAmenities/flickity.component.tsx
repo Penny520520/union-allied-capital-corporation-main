@@ -13,7 +13,7 @@ export default () => {
   };
   return (
     <Flickity
-      className='amenitiesCarousel' // default ''
+      className="amenitiesCarousel" // default ''
       elementType={'div'} // default 'div'
       options={flickityOptions} // takes flickity options {}
       disableImagesLoaded={false} // default false
