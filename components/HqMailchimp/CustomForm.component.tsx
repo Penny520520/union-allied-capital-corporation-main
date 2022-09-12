@@ -3,6 +3,7 @@ import MailchimpSubscribe from 'react-mailchimp-subscribe';
 import styles from './CustomForm.styles.module.scss';
 import Select from 'react-select';
 
+declare const status: any;
 // a basic form
 // export default () => {
 const CustomForm = ({ status, message, onValidated }) => {
