@@ -29,15 +29,17 @@ import styles from 'styles/pages/HQ.styles.module.scss';
 // import $ from 'jquery';
 import dynamic from 'next/dynamic';
 //import scrollstyles from '~/components/LocomotiveScroll/LocomotiveScroll.styles.module.scss';
-import {
-  LocomotiveScrollProvider,
-  useLocomotiveScroll,
-} from 'react-locomotive-scroll';
-import lomotiveScrollObject from 'react-locomotive-scroll';
-import 'locomotive-scroll/dist/locomotive-scroll.min.css';
+// import {
+//   LocomotiveScrollProvider,
+//   useLocomotiveScroll,
+// } from 'react-locomotive-scroll';
+// import lomotiveScrollObject from 'react-locomotive-scroll';
+// import 'locomotive-scroll/dist/locomotive-scroll.min.css';
 // import Script from 'next/script';
 import Head from 'next/head';
 import router from 'next/router';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const DynamicJqueryDiamonds = dynamic(
   () => import('../components/JqueryRipples/JqueryRipples.component'),
@@ -64,44 +66,33 @@ declare const window: any;
 // declare const isScrollChild: any;
 
 function Header(): JSX.Element {
-  // const { scroll } = useLocomotiveScroll();
   // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
-  // const [isScroll, setScroll] = useState(false);
-  // const changeHeaderStyle = () => {
-  //   if (typeof scroll !== 'undefined' && scroll.scrollY >= 80) {
-  //     setScroll(true);
-  //   } else {
-  //     setScroll(false);
-  //   }
-  // };
+  const [isScroll, setScroll] = useState(false);
+  const changeHeaderStyle = () => {
+    if (
+      typeof window !== 'undefined' &&
+      window.scrollY >= 80
+    ) {
+      setScroll(true);
+    } else {
+      setScroll(false);
+    }
+  };
   // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
-  // useEffect(() => {
-  //   // const LocomotiveScroll = new lomotiveScrollObject({
-  //   //   el: document.querySelector('data-scroll-container'),
-  //   //   smooth: true,
-  //   // });
-  //   // window.addEventListener('scroll', changeHeaderStyle);
-  //   // return () => window.removeEventListener('scroll', changeHeaderStyle);
-  //   // window.lomotiveScrollObject.on('call', () => {
-  //   //   if (typeof scroll !== 'undefined' && scrollTo >= 80) {
-  //   //     setScroll(true);
-  //   //   } else {
-  //   //     setScroll(false);
-  //   //   }
-  //   // });
-  //   // return () => scroll.on('scroll', changeHeaderStyle);
-  // }, []);
+  useEffect(() => {
+    window.addEventListener('scroll', changeHeaderStyle);
+    return () => window.removeEventListener('scroll', changeHeaderStyle);
+  }, []);
   return (
     <>
-      {/* <Container
+      <Container
         className={
-          isScrollChild ? styles.headerContainerActive : styles.headerContainer
+          isScroll ? styles.headerContainerActive : styles.headerContainer
         }
-      > */}
-      <Container className={styles.headerContainer}>
+      >
         <Row className={styles.header}>
           <Col xs="7">
-            <Link href="/hq" passHref>
+            <Link href="/hq" passHref >
               <Image
                 src="/images/HQ_LOGO_V1-white--03.png"
                 alt="HQ LOGO"
@@ -180,9 +171,8 @@ function HeroBanner(): JSX.Element {
             <div className={styles.headline}>
               <h1
                 className={styles.headHone}
-                data-scroll
-                data-scroll-speed="3"
-                data-scroll-position="top"
+                data-aos="fade-down"
+                 data-aos-delay="500"
               >
                 <span className={styles.cHeaderTitleLine}>TAKE YOUR</span>
                 <br />
@@ -192,34 +182,39 @@ function HeroBanner(): JSX.Element {
               </h1>
               <div
                 className={styles.address}
-                data-scroll
-                data-scroll-speed="1"
-                data-scroll-position="top"
+                data-aos="fade-up"
+                data-aos-delay="1500"
               >
                 8290 ROSS STREET, VANCOUVER, BC
               </div>
             </div>
             <Link href="#opportunity">
-              <a className={styles.arrowDownContainer}>
+              <a className={styles.arrowDownContainer} href="#" 
+                  data-aos="fade-up-right"
+                  data-aos-delay="2500"
+                  data-aos-offset="0">
                 <Image
                   src="/images/arrow-down.png"
                   width={57}
                   height={57}
                   className="arrowdown"
                   alt="scroll-icon"
-                  data-scroll
                 />
               </a>
             </Link>
             <Link href="https://www.unionallied.ca/">
-              <a className={styles.unionalliedlogoContianer} target="_blank">
+              <a className={styles.unionalliedlogoContianer} target="_blank" 
+                  data-aos="fade-up-left"
+                  data-aos-delay="2500"
+                  data-aos-offset="0">
                 <Image
                   src="/images/Union-allied-logo-grayscale.png"
                   width={243}
                   height={39.62}
                   className="arrowdown"
                   alt="scroll-icon"
-                  data-scroll
+                  data-aos="fade-up-left"
+                  data-aos-offset="0"
                 />
               </a>
             </Link>
@@ -255,23 +250,21 @@ function Opportunity(): JSX.Element {
     //       }}
     //       containeRef={containerRef}
     //     >
-    <section id="opportunity" className={styles.opportunity} data-scroll>
+    <section id="opportunity" className={styles.opportunity} data-aos="fade-up" 
+    data-aos-delay="50">
       <Container
         className={styles.opportunityContainer}
-        // data-scroll-container
       >
         {/* <LocomotiveScroll/> */}
         <Row
           className={styles.header}
-          // data-scroll
-          data-scroll
-          data-scroll-speed="2"
-          // data-scroll-direction="vertical"
         >
           <Col xs="6">
-            <h2 className={styles.headHtwo}>OPPORTUNITY</h2>
+            <h2 className={styles.headHtwo} data-aos="fade-right" 
+    data-aos-delay="500">OPPORTUNITY</h2>
           </Col>
-          <Col xs="6" className={styles.opportunityIntro}>
+          <Col xs="6" className={styles.opportunityIntro}  data-aos="fade-left" 
+    data-aos-delay="1500">
             <Row>
               <Col xs="6">
                 <h3 className={styles.headHthree}>
@@ -293,20 +286,21 @@ function Opportunity(): JSX.Element {
           layout="responsive"
           alt="OPPORTUNITY"
           // className={styles.hqStrataUnits}
-          data-scroll
+          data-aos="fade-up" 
+          data-aos-delay="2500"
         />
         <Row
           className={styles.opportunityDetail}
-          data-scroll
-          data-scroll-speed="2"
         >
           <Col xs="4">
-            <h4 className={styles.headH4}>
+            <h4 className={styles.headH4}  data-aos="fade-right" 
+    data-aos-delay="500">
               HQ is south vancouver’s newest industrial development, featuring a
               limited opportunity of 30 light industrial strata units.
             </h4>
           </Col>
-          <Col xs="5">
+          <Col xs="5"   data-aos="fade-left" 
+    data-aos-delay="1500">
             <p className={styles.paragraph}>
               Take the next step in your business journey with modern light
               industrial space from 2,800 SF and up, including second floor
@@ -326,31 +320,29 @@ function Opportunity(): JSX.Element {
 }
 function Location(): JSX.Element {
   return (
-    <section id="location" className={styles.hqLocation} data-scroll>
+    <section id="location" className={styles.hqLocation}>
       <Container className={styles.locationContainer}>
         <Row className={styles.locationRow}>
           <Col xs="6">
             <h2
               className={styles.headHtwo}
-              data-scroll
-              data-scroll-delay="0.2"
-              data-scroll-speed="2"
-              data-scroll-repeat
+              data-aos="fade-right" 
+              data-aos-delay="500"
             >
               LOCATION
             </h2>
           </Col>
           <Col
             xs="6"
-            data-scroll
-            data-scroll-delay="0.2"
-            data-scroll-speed="1"
-            data-scroll-repeat
           >
-            <h3 className={styles.headHthree} data-scroll data-scroll-speed="2">
+            <h3 className={styles.headHthree} 
+              data-aos="fade-down" 
+              data-aos-delay="1500">
               8290 ROSS STREEET, VANCOUVER, BC
             </h3>
-            <p className={styles.paragraph} data-scroll data-scroll-speed="2">
+            <p className={styles.paragraph} 
+              data-aos="fade-up" 
+              data-aos-delay="2500">
               Step away from SE Marine Drive and Knight Street, HQ is centrally
               located on the corner of Ross Street and East Kent Avenue North in
               East Vancouver’s industrial area. Located along one of East
@@ -414,79 +406,85 @@ function Building(): JSX.Element {
   // }, []);
 
   return (
-    <section id="building" className={styles.building} data-scroll>
+    <section id="building" className={styles.building}>
+      <div >
       <Image
         src="/images/HQ_MAP.jpg"
         width={1920}
         height={1064}
         layout="responsive"
         alt="HQ Map"
-        className={styles.hqMap}
+        className={styles.hqMap} 
       />
-      <Container className={styles.sidebar}>
-        <Row className={styles.sidebarContainer}>
-          <Col xs="3" className={styles.headH5Con}>
-            <h5 className={styles.headH5}>RESTAURANT</h5>
-            <div className={styles.listItemsContainer}>
-              <ul className={styles.listItems}>
-                <li className={styles.item}>1. Northern Cafe</li>
-                <li className={styles.item}>2. Flamingo Chinese Restaurant</li>
-                <li className={styles.item}>3. Dosa Corner</li>
-                <li className={styles.item}>4. Subway</li>
-                <li className={styles.item}>5. Tandoori Raj Restaurant</li>
-              </ul>
-            </div>
-          </Col>
-          <Col xs="3" className={styles.headH5Con}>
-            <h5 className={styles.headH5}>SHOPPING & SERVICES</h5>
-            <div className={styles.listItemsContainer}>
-              <ul className={styles.listItems}>
-                <li className={styles.item}>6. 1010Tires.com</li>
-                <li className={styles.item}>7. U-Haul Moving & Storage</li>
-                <li className={styles.item}>8. Fabricland</li>
-                <li className={styles.item}>9. Real Canadian Superstore</li>
-                <li className={styles.item}>10. Marks Marine Pharmacy</li>
-              </ul>
-            </div>
-          </Col>
-          <Col xs="3" className={styles.headH5Con}>
-            <h5 className={styles.headH5}>BUSINESS & OFFICE</h5>
-            <div className={styles.listItemsContainer}>
-              <ul className={styles.listItems}>
-                <li className={styles.item}>11. Purdys Chocolatier Office</li>
-                <li className={styles.item}>12. SUBWAY Office</li>
-                <li className={styles.item}>13. White Spot Ltd. Office</li>
-                <li className={styles.item}>14. Skretting Head Office</li>
-                <li className={styles.item}>15. Intria Corporate office</li>
-              </ul>
-            </div>
-          </Col>
-          <Col xs="3" className={styles.headH5Con}>
-            <h5 className={styles.headH5}>RECREATION</h5>
-            <div className={styles.listItemsContainer}>
-              <ul className={styles.listItems}>
-                <li className={styles.item}>16. Ross Park</li>
-                <li className={styles.item}>17. 6Pack Indoor Beach</li>
-                <li className={styles.item}>18. Badminton Vancouver</li>
-                <li className={styles.item}>19. George Park</li>
-                <li className={styles.item}>20. Moberly Park Tennis Courts</li>
-              </ul>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+        <Container className={styles.sidebar} >
+          <Row className={styles.sidebarContainer}>
+            <Col xs="3" className={styles.headH5Con}>
+              <h5 className={styles.headH5}>RESTAURANT</h5>
+              <div className={styles.listItemsContainer}>
+                <ul className={styles.listItems}>
+                  <li className={styles.item}>1. Northern Cafe</li>
+                  <li className={styles.item}>2. Flamingo Chinese Restaurant</li>
+                  <li className={styles.item}>3. Dosa Corner</li>
+                  <li className={styles.item}>4. Subway</li>
+                  <li className={styles.item}>5. Tandoori Raj Restaurant</li>
+                </ul>
+              </div>
+            </Col>
+            <Col xs="3" className={styles.headH5Con}>
+              <h5 className={styles.headH5}>SHOPPING & SERVICES</h5>
+              <div className={styles.listItemsContainer}>
+                <ul className={styles.listItems}>
+                  <li className={styles.item}>6. 1010Tires.com</li>
+                  <li className={styles.item}>7. U-Haul Moving & Storage</li>
+                  <li className={styles.item}>8. Fabricland</li>
+                  <li className={styles.item}>9. Real Canadian Superstore</li>
+                  <li className={styles.item}>10. Marks Marine Pharmacy</li>
+                </ul>
+              </div>
+            </Col>
+            <Col xs="3" className={styles.headH5Con}>
+              <h5 className={styles.headH5}>BUSINESS & OFFICE</h5>
+              <div className={styles.listItemsContainer}>
+                <ul className={styles.listItems}>
+                  <li className={styles.item}>11. Purdys Chocolatier Office</li>
+                  <li className={styles.item}>12. SUBWAY Office</li>
+                  <li className={styles.item}>13. White Spot Ltd. Office</li>
+                  <li className={styles.item}>14. Skretting Head Office</li>
+                  <li className={styles.item}>15. Intria Corporate office</li>
+                </ul>
+              </div>
+            </Col>
+            <Col xs="3" className={styles.headH5Con}>
+              <h5 className={styles.headH5}>RECREATION</h5>
+              <div className={styles.listItemsContainer}>
+                <ul className={styles.listItems}>
+                  <li className={styles.item}>16. Ross Park</li>
+                  <li className={styles.item}>17. 6Pack Indoor Beach</li>
+                  <li className={styles.item}>18. Badminton Vancouver</li>
+                  <li className={styles.item}>19. George Park</li>
+                  <li className={styles.item}>20. Moberly Park Tennis Courts</li>
+                </ul>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
       {/* flickity */}
-      <Container className={styles.amenitiesItems}>
+      <Container className={styles.amenitiesItems} >
         <FlickityCarouselMap />
       </Container>
       <div className={styles.hasapcebg}>
-        <Container className={styles.hqspace}>
-          <h2 className={styles.headHtwo}>THE SPACES</h2>
+        <Container className={styles.hqspace} >
+          <h2 className={styles.headHtwo} 
+                data-aos="fade-right"
+                 data-aos-delay="500" >THE SPACES</h2>
           <Carousel
             className={styles.spaceCarouselContainer}
             nextIcon={nextIcon}
             prevIcon={prevIcon}
-            indicators={false}
+            indicators={false} 
+            data-aos="fade-left"
+             data-aos-delay="1500"
           >
             <Carousel.Item>
               <Image
@@ -595,8 +593,10 @@ function Amenities(): JSX.Element {
   //   setMouseOver(isMouseOver);
   // }
   return (
-    <section id="amenities" className={styles.hqAmenities}>
-      <h2 className={styles.headHtwo} data-scroll data-scroll-speed="2">
+    <section id="amenitiesfeatures" className={styles.hqAmenities}>
+      <h2 className={styles.headHtwo} 
+                data-aos="fade-down"
+                 data-aos-delay="500">
         AMENITIES
       </h2>
       <Image
@@ -606,9 +606,14 @@ function Amenities(): JSX.Element {
         layout="responsive"
         alt="AMENITIES VIEW"
         className={styles.hqMap}
+        
+        data-aos="fade-up"
+        data-aos-delay="1500"
         // eslint-disable-next-line react/jsx-no-comment-textnodes
       />
-      <div className={styles.hqCalloutBtn}>
+      <div className={styles.hqCalloutBtn} 
+        data-aos="fade-up"
+        data-aos-delay="2000">
         <Image
           src="/images/hq-callout-btn.png"
           width={57}
@@ -623,7 +628,9 @@ function Amenities(): JSX.Element {
           </p>
         </div>
       </div>
-      <div className={styles.hqCalloutBtn}>
+      <div className={styles.hqCalloutBtn}  
+        data-aos="fade-up"
+        data-aos-delay="2000">
         <Image
           src="/images/hq-callout-btn.png"
           width={57}
@@ -635,7 +642,9 @@ function Amenities(): JSX.Element {
           <p className={styles.paragraph}>Generous common cooridor</p>
         </div>
       </div>
-      <div className={styles.hqCalloutBtn}>
+      <div className={styles.hqCalloutBtn}  
+        data-aos="fade-up"
+        data-aos-delay="2000">
         <Image
           src="/images/hq-callout-btn.png"
           width={57}
@@ -652,8 +661,6 @@ function Amenities(): JSX.Element {
       {/* flickity */}
       <Container
         className={styles.amenitiesItems}
-        data-scroll
-        data-scroll-speed="2"
       >
         <FlickityCarousel />
       </Container>
@@ -677,17 +684,21 @@ function Feature(): JSX.Element {
     setBusClick(!isBusClick);
   }
   return (
-    <section id="features" className={styles.featureContainer} data-scroll>
-      <h2 className={styles.headHtwo} data-scroll data-scroll-speed="1">
+    <section id="features" className={styles.featureContainer} 
+    data-aos="fade-up"
+     data-aos-delay="500">
+      <h2 className={styles.headHtwo}  
+                data-aos="fade-down"
+                 data-aos-delay="1500">
         UNIT FEATURES
       </h2>
       <Container
         className={styles.featureList}
-        data-scroll
-        data-scroll-speed="1"
       >
         <Row className={styles.featureRow}>
-          <Col xs="12" md="6">
+          <Col xs="12" md="6"   
+                data-aos="fade-right"
+                 data-aos-delay="2500">
             <div className={styles.featureBox}>
               <div className={styles.featureIconBg}>
                 <Image
@@ -788,7 +799,9 @@ function Feature(): JSX.Element {
               </div>
             </div>
           </Col>
-          <Col xs="12" md="6">
+          <Col xs="12" md="6" 
+                data-aos="fade-left"
+                 data-aos-delay="3500">
             <div className={styles.featureBox}>
               <div className={styles.featureIconBg}>
                 <Image
@@ -884,10 +897,6 @@ function Feature(): JSX.Element {
       </Container>
       <Row
         className={styles.zoningText}
-        data-scroll
-        data-scroll-delay="0.06"
-        data-scroll-speed="2"
-        data-scroll-repeat
       >
         <Col xs="5">
           <h2 className={styles.headHtwo}>ZONING</h2>
@@ -901,10 +910,6 @@ function Feature(): JSX.Element {
       </Row>
       <Container
         className={styles.featureList}
-        data-scroll
-        data-scroll-delay="0.1"
-        data-scroll-speed="1"
-        data-scroll-repeat
       >
         <Row className={styles.zoningfeatureList}>
           <Col xs="12" md="5">
@@ -1157,7 +1162,7 @@ function Ownership(): JSX.Element {
     setEquityClick(!isEquityClick);
   }
   return (
-    <section id="location" className={styles.hqLocation} data-scroll>
+    <section id="location" className={styles.hqLocation}>
       <Container className={styles.locationContainer}>
         <Row className={styles.locationRow}>
           <Col xs="6">
@@ -1835,51 +1840,19 @@ function Footer(): JSX.Element {
   );
 }
 export default function HQ() {
-  //eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
-  const containerRef = useRef(null);
-  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
-  // const [isScroll, setScroll] = useState(false);
+  useEffect(() => {
+    AOS.init({
+      offset: 200,
+      duration: 600,
+      easing: 'ease-in-sine',
+      delay: 100,
+      debounceDelay: 550,
+      once: true,
+    });
+  }, [])
   return (
     <main className={styles.page}>
-      {/* <Header isScrollChild={isScroll} /> */}
       <Header />
-      <LocomotiveScrollProvider
-        options={{
-          smooth: true,
-        }}
-        // watch={}
-        // location={router.pathname}
-        containeRef={containerRef}
-        // onLocationChange={(scroll: {
-        //   on: (arg0: string, arg1: () => void) => any;
-        // }) =>
-        //   scroll.on(
-        //     'scroll',
-        //     (args: { currentElements: { [x: string]: { progress: any } } }) => {
-        //       const progress = args.currentElements['datascroll'].progress;
-        //       if (typeof scroll !== 'undefined' && progress >= 80) {
-        //         setScroll(true);
-        //       } else {
-        //         setScroll(false);
-        //       }
-        //       console.log('t1');
-        //     }
-        //   )
-        // }
-        // onLocationChange={scroll =>scroll.on(
-        //       const progress = currentElements['datascroll'].progress;
-        //       if (typeof scroll !== 'undefined' && progress >= 80) {
-        //         setScroll(true);
-        //       } else {
-        //         setScroll(false);
-        //       }
-        // ) }
-      >
-        <div
-          data-scroll-container
-          ref={containerRef}
-          data-scroll-id="datascroll"
-        >
           <HeroBanner />
           <Opportunity />
           <Location />
@@ -1903,8 +1876,6 @@ export default function HQ() {
             <Contact />
             <Footer />
           </div>
-        </div>
-      </LocomotiveScrollProvider>
     </main>
   );
 }

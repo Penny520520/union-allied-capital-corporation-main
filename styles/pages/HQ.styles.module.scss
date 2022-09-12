@@ -564,6 +564,9 @@
 |  building Style
 |------------------------------------------------------
 */
+.building {
+  background-color: #ffffff;
+}
 .sidebar {
   max-width: 100vw;
   position: relative;
@@ -638,16 +641,16 @@ padding: 10px;
 |------------------------------------------------------
 */
 // SPACE
-.hasapcebg {
-  background-image: url(../../public/images/HQ-TeaserWeb-landing.png)!important;
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  padding-top: 20px;
-  padding-bottom: 100px;
-}
+// .hasapcebg {
+//   background-image: url(../../public/images/HQ-TeaserWeb-landing.png)!important;
+//   width: 100%;
+//   height: 100%;
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   background-size: cover;
+//   padding-top: 20px;
+//   padding-bottom: 100px;
+// }
 // .hasapcebg #home {
 //   width: 100%!important;
 //   height: 100%!important;

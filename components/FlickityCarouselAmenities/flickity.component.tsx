@@ -8,11 +8,12 @@ export default () => {
   const flickityOptions = {
     initialIndex: 1,
     wrapAround: true,
+    pageDots:false
     // autoPlay: true
   };
   return (
     <Flickity
-      className={'carousel'} // default ''
+      className={styles.amenitiesCarousel} // default ''
       elementType={'div'} // default 'div'
       options={flickityOptions} // takes flickity options {}
       disableImagesLoaded={false} // default false

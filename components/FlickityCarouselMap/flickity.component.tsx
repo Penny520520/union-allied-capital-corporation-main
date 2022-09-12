@@ -1,5 +1,6 @@
 import React from 'react';
 import 'flickity/dist/flickity.min.css';
+import styles from './Flickity.styles.module.scss';
 import Flickity from 'react-flickity-component';
 import Image from 'next/image';
 
@@ -8,10 +9,11 @@ export default () => {
     initialIndex: 1,
     wrapAround: true,
     autoPlay: true,
+    pageDots:false
   };
   return (
     <Flickity
-      className={'carousel'} // default ''
+      className={styles.mapCarousel} // default ''
       elementType={'div'} // default 'div'
       options={flickityOptions} // takes flickity options {}
       disableImagesLoaded={false} // default false
