@@ -2,15 +2,15 @@ import React from 'react';
 import MailchimpSubscribe from 'react-mailchimp-subscribe';
 import CustomForm from './CustomForm.component';
 
-// declare module "react-mailchimp-subscribe" {
-//   type Props = {
-//     url: string;
-//     subscribe: any;
-//     status: any;
-//     message: any;
-//   };
-//   var MailchimpSubscribe: React.ComponentClass<Props>;
-// }
+declare module "react-mailchimp-subscribe" {
+  type Props = {
+    url: string;
+    subscribe: any;
+    status: any;
+    message: any;
+  };
+  var MailchimpSubscribe: React.ComponentClass<Props>;
+}
 const NewsletterSubscribe = () => {
   // export default () => {
   const MAILCHIMP_URL = process.env.NEXT_PUBLIC_MAILCHIMP_URL;
