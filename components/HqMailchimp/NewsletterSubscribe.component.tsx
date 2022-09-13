@@ -1,10 +1,10 @@
 import React from 'react';
-import {MailchimpSubscribe, Props} from 'react-mailchimp-subscribe';
+import { MailchimpSubscribe, Props } from 'react-mailchimp-subscribe';
 import CustomForm from './CustomForm.component';
 
-declare module "react-mailchimp-subscribe" {
+declare module 'react-mailchimp-subscribe' {
   type Props = {
-    url: string;
+    url: any;
     subscribe: any;
     status: any;
     message: any;
