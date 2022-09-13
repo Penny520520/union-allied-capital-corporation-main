@@ -3,3 +3,4 @@ export * from './GetNewsArticles';
 export * from './GetNewsArticleBySlug.utils';
 export * from './ImageSrcBuilder.utils';
 export * from './ImageSrcSetBuilder.utils';
+export * from './HQAddMemberToMailingList.utils';
