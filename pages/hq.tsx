@@ -66,10 +66,10 @@ const FlickityCarouselDeveloper = dynamic(
 //   () => import('../components/LocomotiveScroll/LocomotiveScroll.component'),
 //   { ssr: false }
 // );
-const MailchimpSubscribe = dynamic(
-  () => import('../components/HqMailchimp/NewsletterSubscribe.component'),
-  { ssr: false }
-);
+// const MailchimpSubscribe = dynamic(
+//   () => import('../components/HqMailchimp/NewsletterSubscribe.component'),
+//   { ssr: false }
+// );
 declare const window: any;
 // declare const isScrollChild: any;
 
