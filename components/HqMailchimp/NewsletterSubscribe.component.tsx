@@ -1,5 +1,5 @@
 import React from 'react';
-import MailchimpSubscribe from 'react-mailchimp-subscribe';
+import {MailchimpSubscribe, Props} from 'react-mailchimp-subscribe';
 import CustomForm from './CustomForm.component';
 
 declare module "react-mailchimp-subscribe" {
