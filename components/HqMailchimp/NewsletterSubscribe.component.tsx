@@ -2,8 +2,14 @@ import React from 'react';
 import MailchimpSubscribe from 'react-mailchimp-subscribe';
 import CustomForm from './CustomForm.component';
 
-// interface Props {
-//     comp: React.ElementType;
+// declare module "react-mailchimp-subscribe" {
+//   type Props = {
+//     url: string;
+//     subscribe: any;
+//     status: any;
+//     message: any;
+//   };
+//   var MailchimpSubscribe: React.ComponentClass<Props>;
 // }
 const NewsletterSubscribe = () => {
   // export default () => {
@@ -13,8 +19,8 @@ const NewsletterSubscribe = () => {
   return (
     <MailchimpSubscribe
       url={MAILCHIMP_URL}
-      render={props => {
-        const { subscribe, status, message } = props || {};
+      render={({ subscribe, status, message }) => {
+        // const { subscribe, status, message } = props || {};
         return (
           <CustomForm
             status={status}
