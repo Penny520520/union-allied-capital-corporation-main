@@ -1,12 +1,4 @@
-.bgImgContainer {
-    position: fixed;
-    background-image: url(../../public/images/HQ-TeaserWeb-landing.png)!important;
-    width: 100vw;
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    top: 0;
-    left: 0;
-    z-index: 0;
-  }
+.mapCarousel .flickity-button {
+background-color: #5597FF;
+color: red!important;
+}

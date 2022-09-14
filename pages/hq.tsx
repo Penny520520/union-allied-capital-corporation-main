@@ -99,7 +99,7 @@ function Header(): JSX.Element {
           <Col xs="7">
             <Link href="/hq" passHref>
               <Image
-                src="/images/HQ_LOGO_V1-white--03.png"
+                src="/images/HQ_LOGO_01-White.png"
                 alt="HQ LOGO"
                 width={141}
                 height={82.94}
@@ -210,7 +210,7 @@ function HeroBanner(): JSX.Element {
             <Link href="https://www.unionallied.ca/">
               <a className={styles.unionalliedlogoContianer} target="_blank">
                 <Image
-                  src="/images/Union-allied-logo-grayscale.png"
+                  src="/images/UAC-logo-WHITE-240px.png"
                   width={243}
                   height={39.62}
                   className="arrowdown"
@@ -666,9 +666,9 @@ function Amenities(): JSX.Element {
 }
 function Feature(): JSX.Element {
   // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
-  const [isFirstClick, setFirstClick] = useState(true);
+  const [isFirstClick, setFirstClick] = useState(false);
   // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
-  const [isSecondClick, setSecondClick] = useState(false);
+  const [isSecondClick, setSecondClick] = useState(true);
   // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
   const [isThirdClick, setThirdClick] = useState(false);
   // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
@@ -1089,112 +1089,132 @@ function Feature(): JSX.Element {
       </h2>
       <Container id="floorplanContainer" className={styles.floorplanContainer}>
         <Row className={styles.floorplanRow}>
-          <Col xs="12" lg="8" data-aos="fade-right" data-aos-delay="2150">
-            <div
-              className={
-                isFirstClick ? styles.floorplanImg : styles.floorplanImgInactive
-              }
-            >
-              <Image
-                src="/images/hq-siteplan-1.jpg"
-                width={1171.31}
-                height={1000}
-                layout="responsive"
-                alt="location-map"
-              />
-            </div>
-            <div
-              className={
-                isSecondClick
-                  ? styles.floorplanImg
-                  : styles.floorplanImgInactive
-              }
-            >
-              <Image
-                src="/images/hq-siteplan-2.jpg"
-                width={1181.31}
-                height={1000}
-                layout="responsive"
-                alt="location-map"
-              />
-            </div>
-            <div
-              className={
-                isThirdClick ? styles.floorplanImg : styles.floorplanImgInactive
-              }
-            >
-              <Image
-                src="/images/hq-siteplan-3.jpg"
-                width={1181.31}
-                height={1000}
-                layout="responsive"
-                alt="location-map"
-              />
-            </div>
-            <div
-              className={
-                isFourClick ? styles.floorplanImg : styles.floorplanImgInactive
-              }
-            >
-              <Image
-                src="/images/hq-siteplan-4.jpg"
-                width={1181.31}
-                height={1000}
-                layout="responsive"
-                alt="location-map"
-              />
-            </div>
-            <div
-              className={
-                isFiveClick ? styles.floorplanImg : styles.floorplanImgInactive
-              }
-            >
-              <Image
-                src="/images/hq-siteplan-5.jpg"
-                width={1181.31}
-                height={1000}
-                layout="responsive"
-                alt="location-map"
-              />
-            </div>
-            <div
-              className={
-                isSixClick ? styles.floorplanImg : styles.floorplanImgInactive
-              }
-            >
-              <Image
-                src="/images/hq-floorplan-6.jpg"
-                width={1181.31}
-                height={1000}
-                layout="responsive"
-                alt="location-map"
-              />
-            </div>
-            <div
-              className={
-                isSevenClick ? styles.floorplanImg : styles.floorplanImgInactive
-              }
-            >
-              <Image
-                src="/images/hq-siteplan-7.jpg"
-                width={1181.31}
-                height={1000}
-                layout="responsive"
-                alt="location-map"
-              />
-            </div>
-            <div
-              className={
-                isEightClick ? styles.floorplanImg : styles.floorplanImgInactive
-              }
-            >
-              <Image
-                src="/images/hq-floorplan-8.jpg"
-                width={1181.31}
-                height={1000}
-                layout="responsive"
-                alt="location-map"
-              />
+          <Col
+            xs="12"
+            lg="8"
+            data-aos="fade-right"
+            data-aos-delay="2150"
+            className={styles.floorplanLeftCol}
+          >
+            <div className={styles.floorplanLeftColContainer}>
+              <div
+                className={
+                  isFirstClick
+                    ? styles.floorplanImg
+                    : styles.floorplanImgInactive
+                }
+              >
+                <Image
+                  src="/images/hq-siteplan-1.jpg"
+                  width={1171.31}
+                  height={1000}
+                  layout="responsive"
+                  alt="location-map"
+                />
+              </div>
+              <div
+                className={
+                  isSecondClick
+                    ? styles.floorplanImg
+                    : styles.floorplanImgInactive
+                }
+              >
+                <Image
+                  src="/images/hq-siteplan-2.jpg"
+                  width={1181.31}
+                  height={1000}
+                  layout="responsive"
+                  alt="location-map"
+                />
+              </div>
+              <div
+                className={
+                  isThirdClick
+                    ? styles.floorplanImg
+                    : styles.floorplanImgInactive
+                }
+              >
+                <Image
+                  src="/images/hq-siteplan-3.jpg"
+                  width={1181.31}
+                  height={1000}
+                  layout="responsive"
+                  alt="location-map"
+                />
+              </div>
+              <div
+                className={
+                  isFourClick
+                    ? styles.floorplanImg
+                    : styles.floorplanImgInactive
+                }
+              >
+                <Image
+                  src="/images/hq-siteplan-4.jpg"
+                  width={1181.31}
+                  height={1000}
+                  layout="responsive"
+                  alt="location-map"
+                />
+              </div>
+              <div
+                className={
+                  isFiveClick
+                    ? styles.floorplanImg
+                    : styles.floorplanImgInactive
+                }
+              >
+                <Image
+                  src="/images/hq-siteplan-5.jpg"
+                  width={1181.31}
+                  height={1000}
+                  layout="responsive"
+                  alt="location-map"
+                />
+              </div>
+              <div
+                className={
+                  isSixClick ? styles.floorplanImg : styles.floorplanImgInactive
+                }
+              >
+                <Image
+                  src="/images/hq-floorplan-6.jpg"
+                  width={1181.31}
+                  height={1000}
+                  layout="responsive"
+                  alt="location-map"
+                />
+              </div>
+              <div
+                className={
+                  isSevenClick
+                    ? styles.floorplanImg
+                    : styles.floorplanImgInactive
+                }
+              >
+                <Image
+                  src="/images/hq-siteplan-7.jpg"
+                  width={1181.31}
+                  height={1000}
+                  layout="responsive"
+                  alt="location-map"
+                />
+              </div>
+              <div
+                className={
+                  isEightClick
+                    ? styles.floorplanImg
+                    : styles.floorplanImgInactive
+                }
+              >
+                <Image
+                  src="/images/hq-siteplan-8.jpg"
+                  width={1181.31}
+                  height={1000}
+                  layout="responsive"
+                  alt="location-map"
+                />
+              </div>
             </div>
           </Col>
           <Col
@@ -1381,15 +1401,15 @@ function Ownership(): JSX.Element {
             <h2
               className={styles.headHtwo}
               data-aos="fade-right"
-              data-aos-delay="500"
+              data-aos-delay="2350"
             >
               OWNERSHIP
               <br />
               BENEFITS
             </h2>
           </Col>
-          <Col xs="6" data-aos="fade-left" data-aos-delay="500">
-            <Accordion
+          <Col xs="6" data-aos="fade-left" data-aos-delay="2550">
+            {/* <Accordion
               className={styles.accordionContainer}
               defaultActiveKey="0"
             >
@@ -1495,6 +1515,52 @@ function Ownership(): JSX.Element {
                   </Row>
                 </Accordion.Body>
               </Accordion.Item>
+            </Accordion> */}
+            <Accordion defaultActiveKey="0">
+              <Accordion.Item eventKey="0" className={styles.accordionItem}>
+                <Accordion.Header className={styles.accordionHeader}>
+                  REALIZE FINANCIAL ADVANTAGES
+                </Accordion.Header>
+                <Accordion.Body className={styles.accordionBody}>
+                  Capital investments bring long-term value, operating expenses
+                  and mortgage interest expenses can be written off, and capital
+                  costs allowances provide tax savings.
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="1" className={styles.accordionItem}>
+                <Accordion.Header className={styles.accordionHeader}>
+                  ENJOY FINANCIAL CERTAINTY
+                </Accordion.Header>
+                <Accordion.Body className={styles.accordionBody}>
+                  Fixed interest rates mean you can lock in monthly payments.
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="2" className={styles.accordionItem}>
+                <Accordion.Header className={styles.accordionHeader}>
+                  EXERCISE CONTROL
+                </Accordion.Header>
+                <Accordion.Body className={styles.accordionBody}>
+                  Avoid annual rent escalations and have a say in your operating
+                  expenses..
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="3" className={styles.accordionItem}>
+                <Accordion.Header className={styles.accordionHeader}>
+                  GAIN REWARDS
+                </Accordion.Header>
+                <Accordion.Body className={styles.accordionBody}>
+                  Property ownership means you have a long-term investment that
+                  can be leased or sold.
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="4" className={styles.accordionItem}>
+                <Accordion.Header className={styles.accordionHeader}>
+                  BUILD EQUITY
+                </Accordion.Header>
+                <Accordion.Body className={styles.accordionBody}>
+                  As you pay down your principal, your equity grows.
+                </Accordion.Body>
+              </Accordion.Item>
             </Accordion>
           </Col>
         </Row>
@@ -1510,12 +1576,12 @@ function Developer(): JSX.Element {
         <Row
           className={styles.zoningText}
           data-aos="fade-up"
-          data-aos-delay="500"
+          data-aos-delay="2750"
         >
           <Col xs="6">
             <h2 className={styles.headHtwo}>DEVELOPER</h2>
           </Col>
-          <Col xs="5">
+          <Col xs="6">
             <h3 className={styles.headHthree}>
               WELCOME TO A NEW WORLD OF CONCRETE, <br />
               GLASS AND STEEL.
@@ -1525,19 +1591,19 @@ function Developer(): JSX.Element {
         <Row
           className={styles.zoningText}
           data-aos="fade-left"
-          data-aos-delay="750"
+          data-aos-delay="2950"
         >
           <FlickityCarouselDeveloper />
         </Row>
         <Row
           className={styles.zoningText}
           data-aos="fade-up"
-          data-aos-delay="950"
+          data-aos-delay="3150"
         >
           <Col xs="6">
             <a className={styles.unionLogoBottom} target="_blank">
               <Image
-                src="/images/Union-allied-logo-grayscale.png"
+                src="/images/Union-allied-logo-white-450px.png"
                 width={452.78}
                 height={73.83}
                 className={styles.unionLogoBottom}
@@ -1555,7 +1621,7 @@ function Developer(): JSX.Element {
               areas that exhibit drivers of intensification and generating real
               estate, we build valued properties.
             </p>
-            <p>UNIONALLIED.CA</p>
+            <p className={styles.unionalliedlink}>UNIONALLIED.CA</p>
           </Col>
         </Row>
       </Container>
@@ -1639,18 +1705,18 @@ function Register(): JSX.Element {
     submittingActions.setFalse();
   }
   return (
-    <section id="register" className={styles.registerContainer}>
-      <Image
-        src="/images/REGISTER.svg"
-        width={1665}
-        height={216}
-        layout="responsive"
-        alt="REGISTER"
-      />
+    <section
+      id="register"
+      className={styles.registerContainer}
+      data-aos="fade-up"
+      data-aos-delay="3350"
+    >
+      <h2 className={styles.headHtwo}>REGISTER</h2>
+      <h3 className={styles.headHthree}>FOR EXCLUSIVE INFO & UPDATES ON HQ.</h3>
       <Container className={styles.projectRowOne}>
         <Row className={styles.developerRowOneText}>
           <Col md="12" lg="6">
-            <div className={styles.projectHeadingBox}>
+            {/* <div className={styles.projectHeadingBox}>
               <div className={styles.projectArrow}>
                 <Image
                   src="/images/arrow.svg"
@@ -1663,7 +1729,7 @@ function Register(): JSX.Element {
               <div className={styles.registerHeading}>
                 FOR EXCLUSIVE INFO AND UPDATES ON HIGH POINT PARK.
               </div>
-            </div>
+            </div> */}
           </Col>
           <Col md="12" lg="6" className={styles.developerTextBoxEmpty}></Col>
         </Row>
@@ -1905,13 +1971,13 @@ function Register(): JSX.Element {
 }
 function Footer(): JSX.Element {
   return (
-    <section className={styles.footer} data-aos="fade-up" data-aos-delay="550">
+    <section className={styles.footer} data-aos="fade-up" data-aos-delay="3550">
       <Container className={styles.footercontainer}>
         <Row className={styles.footerRow}>
           <Col xs="3">
             <Link href="/hq" passHref>
               <Image
-                src="/images/HQ_LOGO_V1-white--03.png"
+                src="/images/HQ_LOGO_01-White.png"
                 alt="HQ LOGO"
                 width={141}
                 height={82.94}

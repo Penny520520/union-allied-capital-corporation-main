@@ -38,17 +38,23 @@ interface IAddMemberToMailingListSuccessResponse {
   status: MailingListStatus;
 }
 
+// `anystring:c47424e07f62f70e82e71d9b9d4174a1-us20`
+// ).toString(`base64`)}`;
+
+// const response = await fetch(
+//   `https://us20.api.mailchimp.com/3.0/lists/976d627fd9/members`,
+
 export async function hqaddMemberToMailingListAsync({
   member,
 }: IAddMemberToMailingListArgs): Promise<
   OrNull<{ error: string; status: number }>
 > {
   const Authorization = `Basic ${Buffer.from(
-    `anystring:c47424e07f62f70e82e71d9b9d4174a1-us20`
+    `anystring:${process.env.HQ_MAILCHIMP_API_KEY}`
   ).toString(`base64`)}`;
 
   const response = await fetch(
-    `https://us20.api.mailchimp.com/3.0/lists/976d627fd9/members`,
+    `https://${process.env.HQ_MAILCHIMP_SERVER_PREFIX}.api.mailchimp.com/3.0/lists/${process.env.HQ_MAILCHIMP_LIST_ID}/members`,
     {
       body: JSON.stringify({
         email_address: member.email,
