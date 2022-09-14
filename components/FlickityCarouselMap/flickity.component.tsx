@@ -12,7 +12,7 @@ export default () => {
   };
   return (
     <Flickity
-      className='mapCarousel' // default ''
+      className="mapCarousel" // default ''
       elementType={'div'} // default 'div'
       options={flickityOptions} // takes flickity options {}
       disableImagesLoaded={false} // default false
