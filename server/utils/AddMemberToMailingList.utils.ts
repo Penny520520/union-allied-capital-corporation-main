@@ -44,11 +44,11 @@ export async function addMemberToMailingListAsync({
   OrNull<{ error: string; status: number }>
 > {
   const Authorization = `Basic ${Buffer.from(
-    `anystring:c8b52bf8831fd625829689eed8b0ec1f-us17`
+    `anystring:${process.env.MAILCHIMP_API_KEY}`
   ).toString(`base64`)}`;
 
   const response = await fetch(
-    `https://us17.api.mailchimp.com/3.0/lists/1c48f0d057/members`,
+    `https://${process.env.MAILCHIMP_SERVER_PREFIX}.api.mailchimp.com/3.0/lists/${process.env.MAILCHIMP_LIST_ID}/members`,
     {
       body: JSON.stringify({
         email_address: member.email,
