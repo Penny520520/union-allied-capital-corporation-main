@@ -83,7 +83,15 @@
   justify-content: space-between;
   align-items: center;
 }
+.headerLeftCol > span {
+  width: 141px!important;
+  height: 82.94px!important;
+}
 // header nav bar
+// .hqLogoWhite {
+//   width: 141px!important;
+//   height: auto;
+// }
 .navbarContainer {
   display: flex;
   justify-content: flex-end;
@@ -1418,9 +1426,9 @@
     font-size: 16.8px;
   }
   // nav bar
-  .hqLogoWhite {
+  .headerLeftCol > span {
     width: 100px !important;
-    height: auto;
+    height: 58.85px!important;
   }
   .navbarContainer > button {
     background-color: #ffffff;
@@ -1429,6 +1437,7 @@
     width: 60%;
     padding: 10px 35px !important;
     margin-top: 10px;
+    font-size: 16.8px;
   }
   // bnr
   .headline {
@@ -1441,6 +1450,10 @@
   .arrowDownContainer {
     left:60px ;
 
+  }
+  .unionalliedlogoContianer > span {
+    width: 150px!important;
+    height: 27.44px!important;
   }
   // opportunity
   .hqStrataUnits {
@@ -1506,16 +1519,16 @@
     height: 250px;
   }
   .featureIconBg::before {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
   }
   .featureIconBg > span {
-    left: 35px;
-    top: 35px;
+    left: 27px;
+    top: 27px;
+    width: 50px!important;
+    height: 50px!important;
   }
   .featureIcon {
-    width: 50px;
-    height: 50px;
   }
   .featureTextBox {
     margin-left: 100px;

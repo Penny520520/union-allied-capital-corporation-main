@@ -96,13 +96,14 @@ function Header(): JSX.Element {
         }
       >
         <Row className={styles.header}>
-          <Col xs="7">
+          <Col xs="7" className={styles.headerLeftCol}>
             <Link href="/hq" passHref>
               <Image
                 src="/images/HQ_LOGO_01-White.png"
                 alt="HQ LOGO"
-                width={141}
+                width={181}
                 height={82.94}
+                layout="fixed"
                 className={styles.hqLogoWhite}
               />
             </Link>
@@ -213,6 +214,7 @@ function HeroBanner(): JSX.Element {
                   src="/images/UAC-logo-WHITE-240px.png"
                   width={243}
                   height={39.62}
+                  layout="fixed"
                   className="arrowdown"
                   alt="scroll-icon"
                   data-aos="fade-up"
