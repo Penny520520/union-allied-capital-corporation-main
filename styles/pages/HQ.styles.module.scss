@@ -600,7 +600,7 @@
   position: absolute;
   z-index: 1;
   background-color: #f77900;
-  opacity: 0.8!important;
+  opacity: 0.8 !important;
   left: 0;
   top: -215px;
   width: 25%;
@@ -612,12 +612,12 @@
 .headH5Con:nth-child(2) .listItemsContainer {
   left: 25%;
   background-color: #fff600;
-  opacity: 0.8!important;
+  opacity: 0.8 !important;
 }
 .headH5Con:nth-child(3) .listItemsContainer {
   left: 50%;
   background-color: #fca9ad;
-  opacity: 0.85!important;
+  opacity: 0.85 !important;
 }
 .headH5Con:nth-child(4) .listItemsContainer {
   left: 75%;
@@ -717,17 +717,17 @@
   position: relative;
 }
 .hqCalloutBtn:nth-child(3) {
-  position: absolute !important;
+  position: absolute;
   top: 31.5%;
   left: 24.5%;
 }
 .hqCalloutBtn:nth-child(4) {
-  position: absolute !important;
+  position: absolute;
   top: 37%;
   left: 55%;
 }
 .hqCalloutBtn:nth-child(5) {
-  position: absolute !important;
+  position: absolute;
   top: 50%;
   left: 47.5%;
 }
@@ -737,7 +737,7 @@
   opacity: 0;
   padding: 22px 40px;
   background-color: #5597ff;
-  opacity: 0.85!important;
+  opacity: 0.85 !important;
   position: absolute;
   width: 391px;
   left: 50%;
@@ -1151,7 +1151,7 @@
   font-family: 'Poppins-Medium';
   font-weight: bold;
   font-size: 26px;
-  color: #7CAFFF;
+  color: #7cafff;
 }
 
 .bgContainer {
@@ -1382,134 +1382,391 @@
   color: #ffffff;
 }
 @media (max-width: 576px) {
-  .carouselControlPrevIcon {
-    top: 47%;
-    left: 460%;
-    width: 41px;
-    height: 41px;
-    background-image: url(../../public/images/pre-arrow-small.svg);
+  // .header, {
+  //   max-width: 1720px;
+  // }
+  .headHone {
+    font-size: clamp(20px, 60vw,49px);
+    line-height: 0.8;
   }
-  .carouselControlNextIcon {
-    top: 47%;
-    width: 41px;
-    height: 41px;
-    background-image: url(../../public/images/next-arrow-small.svg);
+  .address {
+    font-size: 14.4px;
   }
-  .projectRowVideo {
-    padding-top: 50px;
-    padding-left: 0;
-    padding-right: 0;
+  // opportunity
+  // .opportunityContainer .header  {
+  //   flex-direction: column;
+  // }
+  .headHtwo {
+    font-size: 35px;
   }
-  .projectRowVideoCol {
-    margin-left: -4vw;
-    margin-right: -4vw;
+  .headH4 {
+    font-size: 16px;
+    line-height: 1.4;
   }
-  .footerLinkBox {
+  .headH5 {
     font-size: 10px;
+    line-height: 1.4;
   }
-}
-@media (max-width: 768px) and (min-width: 576px) {
+  .paragraph {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .opportunityContainer {
+    max-width: 88.8vw;
+  }
+  .headHthree {
+    font-size: 16.8px;
+  }
+  // nav bar
+  .hqLogoWhite {
+    width: 100px !important;
+    height: auto;
+  }
+  .navbarContainer > button {
+    background-color: #ffffff;
+  }
+  .registerBtn {
+    width: 60%;
+    padding: 10px 35px !important;
+    margin-top: 10px;
+  }
+  // bnr
+  .headline {
+    bottom: 200px;
+  }
+  .unionalliedlogoContianer {
+    right: 60px;
+  }
+  .headline,
+  .arrowDownContainer {
+    left:60px ;
+
+  }
+  // opportunity
+  .hqStrataUnits {
+    width: 100vw;
+  }
+  .opportunityDetail {
+    width: 100%;
+  }
+  // building
+  .listItemsContainer {
+    padding: 1px;
+    top: -137px;
+  }
+  .listItemsContainer .listItems {
+    padding-left: 3px;
+  }
+  .listItemsContainer .listItems .item {
+    font-size: 8px;
+  }
+  // spaces {
+    .spaceCarouselContainer {
+      width: 100%;
+    }
+  .carouselControlNextIcon,
+  .carouselControlPrevIcon{
+    // top: -19%;
+    // right: -96%;
+    position: relative;
+    left: auto;
+    top: auto;
+    right: auto;
+  }
   .carouselControlPrevIcon {
-    left: 420%;
+    // left: 668%;
   }
-  .carouselControlNextIcon {
-    right: 20%;
+  //  amenities
+  .amenitiesItems {
+    padding: 50px;
+    
   }
-}
-@media (max-width: 768px) {
+  .hqCalloutBtn {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    display: inline-flex;
+    margin-top: 40px;
+  }
+  .calloutItem {
+    visibility: visible !important;
+    opacity: 1;
+    pointer-events: none;
+    position: relative;
+    width: 100% !important;
+    left: auto !important;
+    top: auto !important;
+    padding: 4px;
+  }
+  .calloutItem .paragraph {
+    font-size: 14px;
+  }
+  // feature
+  .featureBox {
+    height: 250px;
+  }
+  .featureIconBg::before {
+    width: 150px;
+    height: 150px;
+  }
+  .featureIconBg > span {
+    left: 35px;
+    top: 35px;
+  }
+  .featureIcon {
+    width: 50px;
+    height: 50px;
+  }
   .featureTextBox {
-    width: 80%;
+    margin-left: 100px;
   }
-  .footerText {
-    font-size: 10px;
+  .featureTextOne {
+    font-size: 25px;
+    line-height: 1.4;
+  }
+  .featureTextTwo {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  // zoning
+  .zoningText .headHtwo {
+    margin-bottom: 0;
+  }
+  .zoningfeatureList .featureTextBox {
+    margin-left: 0;
+  }
+  .zoningfeatureList .featureTextOne {
+    font-size: 16.8px;
+  }
+  // floorplan
+  .fbBtnList {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+  .floorplanBtnRight {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+
+  .fbBtnIcon {
+    width: 47px!important;
+    height: 47px!important;
+  }
+  .floorplanContainer .featureTextOne {
+    font-size: 16.8px;
+  }
+  .fbDownload {
+    // width: 60%;
+    padding: 10px 35px !important;
+    margin-top: 10px;
+    font-size: 14px;
+    width: 240px;
+  }
+  // ownership
+  .ownershipLeftCol .headHtwo {
+    display: inline-flex;
+  }
+  .ownershipheadSen {
+    text-indent: 10px;
+  }
+  .accordionHeader > button {
+    font-size: 16.8px!important;
+  }
+  .accordionBody {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  // developer
+  .developerContainer .zoningText {
+    padding-top: 0;
+  }
+  .unionLogoBottom {
+    width: 70%;
+    margin-bottom: 40px;
+  }
+  .developerContainer .paragraph {
+    margin-top: 40px;
+  }
+  // footer
+  .footercontainer {
+    margin: auto;
+    max-width: 100vw;
+  }
+  .footerRow {
+    padding: 40px;
+  }
+  .footerRowLeft > span {
+    width: 57px;
+    height: 57px;
   }
 }
-@media (max-width: 992px) and (min-width: 768px) {
-  .carouselControlPrevIcon {
-    left: 470%;
+@media (max-width: 448px) { 
+  .headline,
+  .arrowDownContainer {
+    left:20px ;
+  }
+  //building
+  .listItemsContainer .listItems {
+    padding-left: 1px;
+  }
+  .listItemsContainer .listItems .item {
+    font-size: 6.5px;
+  }
+  // feature
+  .featureContainer .headHtwo {
+    margin: 0;
+  }
+  // .featureIconBg::before {
+  //   width: 100px;
+  //   height: 100px;
+  // }
+  .featureIcon {
+    width: 25px!important;
+    height: 25px!important;
+  }
+  .featureTextBox {
+    margin-left: 75px;
+    padding-top: 5px;
+  }
+  // floorplan
+  .fbDownload {
+    font-size: 12PX;
+    width: 200PX;
+    padding: 10px 28px !important;
   }
 }
 
-@media (max-width: 992px) {
-  .navbarCollapse {
-    background-color: #ffffff;
-    border: solid 1px #217672;
-    text-align: center;
-    position: absolute;
-    width: 100%;
-    top: 50px;
-    border-radius: 29px 0 29px 29px;
-  }
-  .navBtn {
-    padding: 8px !important;
-    color: #0c256c !important;
-  }
-  .navBtnActive {
-    padding: 8px !important;
-  }
-  .introContainer {
-    width: 80%;
-  }
-  .introHeading {
-    font-size: 25px;
-  }
-  .heroSubtitle {
-    margin-bottom: 8vh;
-  }
-  .projectRowOneText {
-    // margin-top: -35px;
-    margin-top: 0;
-  }
-  .projectContainer {
-    padding-top: 100px;
-  }
-  .projectTextBox {
-    padding-top: 50px;
-  }
-  .projectNote {
-    display: none;
-  }
-  .projectNoteTwo {
-    display: block;
-    font-family: 'Poppins-LightItalic';
-    font-size: 14px;
-    line-height: 28px;
-    letter-spacing: 0.5px;
-    font-weight: light;
-    color: #0c256c;
-  }
-  .featureList {
-    // margin-top: -83px;
-    margin-top: 0;
-  }
-  .developerRowOneText {
-    margin-top: 0;
-  }
-  .developerTextBoxEmpty {
-    padding-top: 50px;
-  }
-  .registerColRight {
-    padding-left: 12px;
-    padding-right: 70.5px;
-  }
-  .accordionContainer {
-    padding-top: 50px;
-  }
-  .contactColRight {
-    padding: 50px 70.5px 0 79.5px;
-  }
-  .contactText {
-    font-size: 11px;
-  }
-  .contactTextTwo {
-    font-size: 18px;
-  }
-  .contactName {
-    padding-bottom: 0;
-  }
-}
-@media (max-width: 1500px) and (min-width: 992px) {
-  .carouselControlPrevIcon {
-    left: 500%;
-  }
-}
+// @media (max-width: 576px) {
+//   .carouselControlPrevIcon {
+//     top: 47%;
+//     left: 460%;
+//     width: 41px;
+//     height: 41px;
+//     background-image: url(../../public/images/pre-arrow-small.svg);
+//   }
+//   .carouselControlNextIcon {
+//     top: 47%;
+//     width: 41px;
+//     height: 41px;
+//     background-image: url(../../public/images/next-arrow-small.svg);
+//   }
+//   .projectRowVideo {
+//     padding-top: 50px;
+//     padding-left: 0;
+//     padding-right: 0;
+//   }
+//   .projectRowVideoCol {
+//     margin-left: -4vw;
+//     margin-right: -4vw;
+//   }
+//   .footerLinkBox {
+//     font-size: 10px;
+//   }
+// }
+// @media (max-width: 768px) and (min-width: 576px) {
+//   .carouselControlPrevIcon {
+//     left: 420%;
+//   }
+//   .carouselControlNextIcon {
+//     right: 20%;
+//   }
+// }
+// @media (max-width: 768px) {
+//   .featureTextBox {
+//     width: 80%;
+//   }
+//   .footerText {
+//     font-size: 10px;
+//   }
+// }
+// @media (max-width: 992px) and (min-width: 768px) {
+//   .carouselControlPrevIcon {
+//     left: 470%;
+//   }
+// }
+
+// @media (max-width: 992px) {
+//   .navbarCollapse {
+//     background-color: #ffffff;
+//     border: solid 1px #217672;
+//     text-align: center;
+//     position: absolute;
+//     width: 100%;
+//     top: 50px;
+//     border-radius: 29px 0 29px 29px;
+//   }
+//   .navBtn {
+//     padding: 8px !important;
+//     color: #0c256c !important;
+//   }
+//   .navBtnActive {
+//     padding: 8px !important;
+//   }
+//   .introContainer {
+//     width: 80%;
+//   }
+//   .introHeading {
+//     font-size: 25px;
+//   }
+//   .heroSubtitle {
+//     margin-bottom: 8vh;
+//   }
+//   .projectRowOneText {
+//     // margin-top: -35px;
+//     margin-top: 0;
+//   }
+//   .projectContainer {
+//     padding-top: 100px;
+//   }
+//   .projectTextBox {
+//     padding-top: 50px;
+//   }
+//   .projectNote {
+//     display: none;
+//   }
+//   .projectNoteTwo {
+//     display: block;
+//     font-family: 'Poppins-LightItalic';
+//     font-size: 14px;
+//     line-height: 28px;
+//     letter-spacing: 0.5px;
+//     font-weight: light;
+//     color: #0c256c;
+//   }
+//   .featureList {
+//     // margin-top: -83px;
+//     margin-top: 0;
+//   }
+//   .developerRowOneText {
+//     margin-top: 0;
+//   }
+//   .developerTextBoxEmpty {
+//     padding-top: 50px;
+//   }
+//   .registerColRight {
+//     padding-left: 12px;
+//     padding-right: 70.5px;
+//   }
+//   .accordionContainer {
+//     padding-top: 50px;
+//   }
+//   .contactColRight {
+//     padding: 50px 70.5px 0 79.5px;
+//   }
+//   .contactText {
+//     font-size: 11px;
+//   }
+//   .contactTextTwo {
+//     font-size: 18px;
+//   }
+//   .contactName {
+//     padding-bottom: 0;
+//   }
+// }
+// @media (max-width: 1500px) and (min-width: 992px) {
+//   .carouselControlPrevIcon {
+//     left: 500%;
+//   }
+// }

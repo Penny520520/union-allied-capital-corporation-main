@@ -257,17 +257,17 @@ function Opportunity(): JSX.Element {
       <Container className={styles.opportunityContainer}>
         {/* <LocomotiveScroll/> */}
         <Row className={styles.header} data-aos="fade-up" data-aos-delay="50">
-          <Col xs="6">
+          <Col xs="12" md="6">
             <h2 className={styles.headHtwo}>OPPORTUNITY</h2>
           </Col>
-          <Col xs="6" className={styles.opportunityIntro}>
+          <Col xs="12" md="6" className={styles.opportunityIntro}>
             <Row>
-              <Col xs="6">
+              <Col xs="12" md="6">
                 <h3 className={styles.headHthree}>
                   30 LIGHT INDUSTRIAL STRATA UNITS
                 </h3>
               </Col>
-              <Col xs="6">
+              <Col xs="12" md="6">
                 <h3 className={styles.headHthree}>
                   TRUE Multi-level building TOTALLING 120,000 SQFT
                 </h3>
@@ -281,7 +281,7 @@ function Opportunity(): JSX.Element {
           height={1016}
           layout="responsive"
           alt="OPPORTUNITY"
-          // className={styles.hqStrataUnits}
+          className={styles.hqStrataUnits}
           data-aos="fade-right"
           data-aos-delay="100"
         />
@@ -290,13 +290,13 @@ function Opportunity(): JSX.Element {
           data-aos="fade-up"
           data-aos-delay="150"
         >
-          <Col xs="4">
+          <Col xs="12" md="4">
             <h4 className={styles.headH4}>
               HQ is south vancouver’s newest industrial development, featuring a
               limited opportunity of 30 light industrial strata units.
             </h4>
           </Col>
-          <Col xs="5">
+          <Col xs="12" md="5">
             <p className={styles.paragraph}>
               Take the next step in your business journey with modern light
               industrial space from 2,800 SF and up, including second floor
@@ -319,7 +319,7 @@ function Location(): JSX.Element {
     <section id="location" className={styles.hqLocation}>
       <Container className={styles.locationContainer}>
         <Row className={styles.locationRow}>
-          <Col xs="6">
+          <Col xs="12" md="6">
             <h2
               className={styles.headHtwo}
               data-aos="fade-right"
@@ -328,7 +328,7 @@ function Location(): JSX.Element {
               LOCATION
             </h2>
           </Col>
-          <Col xs="6" data-aos="fade-left" data-aos-delay="50">
+          <Col xs="12" md="6" data-aos="fade-left" data-aos-delay="50">
             <h3 className={styles.headHthree}>
               8290 ROSS STREEET, VANCOUVER, BC
             </h3>
@@ -1004,10 +1004,10 @@ function Feature(): JSX.Element {
         data-aos="fade-up"
         data-aos-delay="1550"
       >
-        <Col xs="5">
+        <Col xs="12" md="5">
           <h2 className={styles.headHtwo}>ZONING</h2>
         </Col>
-        <Col xs="5">
+        <Col xs="12" md="5">
           <h3 className={styles.headHthree}>
             I2 ZONING LIGHT INDUSTRIAL / <br />
             COMMERCIAL USES
@@ -1224,143 +1224,147 @@ function Feature(): JSX.Element {
             data-aos="fade-left"
             data-aos-delay="2150"
           >
-            <button
-              className={
-                isFirstClick ? styles.clickFPBtnActive : styles.clickFPBtn
-              }
-              onClick={firstHanderClick}
-            >
-              <Image
-                src="/images/hq-floorplan-transparentIcon.png"
-                width={57}
-                height={57}
-                layout="fixed"
-                alt="parking"
-                className={styles.fbBtnIcon}
-              />
-              <div className={styles.featureTextOne}>LEVEL 1</div>
-            </button>
-            <button
-              className={
-                isSecondClick ? styles.clickFPBtnActive : styles.clickFPBtn
-              }
-              onClick={secondHanderClick}
-            >
-              <Image
-                src="/images/hq-floorplan-transparentIcon.png"
-                width={57}
-                height={57}
-                layout="fixed"
-                alt="parking"
-                className={styles.fbBtnIcon}
-              />
-              <div className={styles.featureTextOne}>LEVEL 2</div>
-            </button>
-            <button
-              className={
-                isThirdClick ? styles.clickFPBtnActive : styles.clickFPBtn
-              }
-              onClick={thirdHanderClick}
-            >
-              <Image
-                src="/images/hq-floorplan-transparentIcon.png"
-                width={57}
-                height={57}
-                layout="fixed"
-                alt="parking"
-                className={styles.fbBtnIcon}
-              />
-              <div className={styles.featureTextOne}>LEVEL 3</div>
-            </button>
-            <button
-              className={
-                isFourClick ? styles.clickFPBtnActive : styles.clickFPBtn
-              }
-              onClick={fourHanderClick}
-            >
-              <Image
-                src="/images/hq-floorplan-transparentIcon.png"
-                width={57}
-                height={57}
-                layout="fixed"
-                alt="parking"
-                className={styles.fbBtnIcon}
-              />
-              <div className={styles.featureTextOne}>LEVEL 4</div>
-            </button>
-            <button
-              className={
-                isFiveClick ? styles.clickFPBtnActive : styles.clickFPBtn
-              }
-              onClick={fiveHanderClick}
-            >
-              <Image
-                src="/images/hq-floorplan-transparentIcon.png"
-                width={57}
-                height={57}
-                layout="fixed"
-                alt="parking"
-                className={styles.fbBtnIcon}
-              />
-              <div className={styles.featureTextOne}>LEVEL 5</div>
-            </button>
-            <button
-              className={
-                isSixClick ? styles.clickFPBtnActive : styles.clickFPBtn
-              }
-              onClick={sixHanderClick}
-            >
-              <Image
-                src="/images/hq-floorplan-transparentIcon.png"
-                width={57}
-                height={57}
-                layout="fixed"
-                alt="parking"
-                className={styles.fbBtnIcon}
-              />
-              <div className={styles.featureTextOne}>PARKCADE</div>
-            </button>
-            <button
-              className={
-                isSevenClick ? styles.clickFPBtnActive : styles.clickFPBtn
-              }
-              onClick={sevenHanderClick}
-            >
-              <Image
-                src="/images/hq-floorplan-transparentIcon.png"
-                width={57}
-                height={57}
-                layout="fixed"
-                alt="parking"
-                className={styles.fbBtnIcon}
-              />
-              <div className={styles.featureTextOne}>FLOORPLAN A</div>
-            </button>
-            <button
-              className={
-                isEightClick ? styles.clickFPBtnActive : styles.clickFPBtn
-              }
-              onClick={eightHanderClick}
-            >
-              <Image
-                src="/images/hq-floorplan-transparentIcon.png"
-                width={57}
-                height={57}
-                layout="fixed"
-                alt="parking"
-                className={styles.fbBtnIcon}
-              />
-              <div className={styles.featureTextOne}>FLOORPLAN B</div>
-            </button>
-            <a
-              className={styles.fbDownload}
-              download={true}
-              href="/Projects/HQ_SITEPLAN_For-download.pdf"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              DOWNLOAD ALL PLANS
-            </a>
+            <div>
+              <button
+                className={
+                  isFirstClick ? styles.clickFPBtnActive : styles.clickFPBtn
+                }
+                onClick={firstHanderClick}
+              >
+                <Image
+                  src="/images/hq-floorplan-transparentIcon.png"
+                  width={57}
+                  height={57}
+                  layout="fixed"
+                  alt="parking"
+                  className={styles.fbBtnIcon}
+                />
+                <div className={styles.featureTextOne}>LEVEL 1</div>
+              </button>
+              <button
+                className={
+                  isSecondClick ? styles.clickFPBtnActive : styles.clickFPBtn
+                }
+                onClick={secondHanderClick}
+              >
+                <Image
+                  src="/images/hq-floorplan-transparentIcon.png"
+                  width={57}
+                  height={57}
+                  layout="fixed"
+                  alt="parking"
+                  className={styles.fbBtnIcon}
+                />
+                <div className={styles.featureTextOne}>LEVEL 2</div>
+              </button>
+              <button
+                className={
+                  isThirdClick ? styles.clickFPBtnActive : styles.clickFPBtn
+                }
+                onClick={thirdHanderClick}
+              >
+                <Image
+                  src="/images/hq-floorplan-transparentIcon.png"
+                  width={57}
+                  height={57}
+                  layout="fixed"
+                  alt="parking"
+                  className={styles.fbBtnIcon}
+                />
+                <div className={styles.featureTextOne}>LEVEL 3</div>
+              </button>
+              <button
+                className={
+                  isFourClick ? styles.clickFPBtnActive : styles.clickFPBtn
+                }
+                onClick={fourHanderClick}
+              >
+                <Image
+                  src="/images/hq-floorplan-transparentIcon.png"
+                  width={57}
+                  height={57}
+                  layout="fixed"
+                  alt="parking"
+                  className={styles.fbBtnIcon}
+                />
+                <div className={styles.featureTextOne}>LEVEL 4</div>
+              </button>
+            </div>
+            <div className={styles.floorplanBtnRight}>
+              <button
+                className={
+                  isFiveClick ? styles.clickFPBtnActive : styles.clickFPBtn
+                }
+                onClick={fiveHanderClick}
+              >
+                <Image
+                  src="/images/hq-floorplan-transparentIcon.png"
+                  width={57}
+                  height={57}
+                  layout="fixed"
+                  alt="parking"
+                  className={styles.fbBtnIcon}
+                />
+                <div className={styles.featureTextOne}>LEVEL 5</div>
+              </button>
+              <button
+                className={
+                  isSixClick ? styles.clickFPBtnActive : styles.clickFPBtn
+                }
+                onClick={sixHanderClick}
+              >
+                <Image
+                  src="/images/hq-floorplan-transparentIcon.png"
+                  width={57}
+                  height={57}
+                  layout="fixed"
+                  alt="parking"
+                  className={styles.fbBtnIcon}
+                />
+                <div className={styles.featureTextOne}>PARKCADE</div>
+              </button>
+              <button
+                className={
+                  isSevenClick ? styles.clickFPBtnActive : styles.clickFPBtn
+                }
+                onClick={sevenHanderClick}
+              >
+                <Image
+                  src="/images/hq-floorplan-transparentIcon.png"
+                  width={57}
+                  height={57}
+                  layout="fixed"
+                  alt="parking"
+                  className={styles.fbBtnIcon}
+                />
+                <div className={styles.featureTextOne}>FLOORPLAN A</div>
+              </button>
+              <button
+                className={
+                  isEightClick ? styles.clickFPBtnActive : styles.clickFPBtn
+                }
+                onClick={eightHanderClick}
+              >
+                <Image
+                  src="/images/hq-floorplan-transparentIcon.png"
+                  width={57}
+                  height={57}
+                  layout="fixed"
+                  alt="parking"
+                  className={styles.fbBtnIcon}
+                />
+                <div className={styles.featureTextOne}>FLOORPLAN B</div>
+              </button>
+              <a
+                className={styles.fbDownload}
+                download={true}
+                href="/Projects/HQ_SITEPLAN_For-download.pdf"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                DOWNLOAD ALL PLANS
+              </a>
+            </div>
           </Col>
         </Row>
       </Container>
@@ -1397,18 +1401,24 @@ function Ownership(): JSX.Element {
     <section className={styles.hqLocation}>
       <Container className={styles.locationContainer}>
         <Row className={styles.locationRow}>
-          <Col xs="6">
+          <Col xs="12" md="6" className={styles.ownershipLeftCol}>
             <h2
               className={styles.headHtwo}
               data-aos="fade-right"
               data-aos-delay="2350"
             >
-              OWNERSHIP
+              <span>OWNERSHIP</span>
               <br />
-              BENEFITS
+              <span className={styles.ownershipheadSen}>BENEFITS</span>
             </h2>
           </Col>
-          <Col xs="6" data-aos="fade-left" data-aos-delay="2550">
+          <Col
+            xs="12"
+            md="6"
+            data-aos="fade-left"
+            data-aos-delay="2550"
+            className={styles.ownershipRightCol}
+          >
             {/* <Accordion
               className={styles.accordionContainer}
               defaultActiveKey="0"
@@ -1578,10 +1588,10 @@ function Developer(): JSX.Element {
           data-aos="fade-up"
           data-aos-delay="2750"
         >
-          <Col xs="6">
+          <Col xs="12" md="6">
             <h2 className={styles.headHtwo}>DEVELOPER</h2>
           </Col>
-          <Col xs="6">
+          <Col xs="12" md="6">
             <h3 className={styles.headHthree}>
               WELCOME TO A NEW WORLD OF CONCRETE, <br />
               GLASS AND STEEL.
@@ -1600,20 +1610,20 @@ function Developer(): JSX.Element {
           data-aos="fade-up"
           data-aos-delay="3150"
         >
-          <Col xs="6">
+          <Col xs="12" md="6">
             <a className={styles.unionLogoBottom} target="_blank">
               <Image
                 src="/images/Union-allied-logo-white-450px.png"
                 width={452.78}
                 height={73.83}
-                className={styles.unionLogoBottom}
+                // className={styles.unionLogoBottom}
                 alt="scroll-icon"
                 data-aos="fade-left"
                 data-aos-delay="750"
               />
             </a>
           </Col>
-          <Col xs="5">
+          <Col xs="12" md="5">
             <p className={styles.paragraph}>
               We are reimagining the possibilities of commercial, industrial and
               residential development with excellent ideas. We identify and
@@ -1974,7 +1984,7 @@ function Footer(): JSX.Element {
     <section className={styles.footer} data-aos="fade-up" data-aos-delay="3550">
       <Container className={styles.footercontainer}>
         <Row className={styles.footerRow}>
-          <Col xs="3">
+          <Col xs="2" md="3" className={styles.footerRowLeft}>
             <Link href="/hq" passHref>
               <Image
                 src="/images/HQ_LOGO_01-White.png"
@@ -1985,9 +1995,9 @@ function Footer(): JSX.Element {
               />
             </Link>
           </Col>
-          <Col xs="8">
-            <p>SITE BY A_LAB CREATIVE</p>
-            <p>
+          <Col xs="10" md="8">
+            <p className={styles.paragraph}>SITE BY A_LAB CREATIVE</p>
+            <p className={styles.paragraph}>
               © 2022 Union Allied Capital Corporation. This is not an offering
               for sale. Any such offering can only be made with an information
               summary. All materials, measurements, specifications, renderings
