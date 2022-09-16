@@ -11,7 +11,7 @@ export interface HQIMailingListMember {
   phoneNumber?: string;
   source?: string;
   areYouAgent?: boolean;
-  broker?: string;
+  // broker?: string;
   withAgent?: boolean;
   agentName?: string;
 }
@@ -67,7 +67,7 @@ export async function hqaddMemberToMailingListAsync({
           PHONE: member.phoneNumber,
           SOURCE: member.source,
           MMERGE8: member.areYouAgent ? `Yes` : `No`,
-          MMERGE9: member.broker,
+          // MMERGE9: member.broker,
           MMERGE10: member.withAgent ? `Yes` : `No`,
           MMERGE11: member.agentName,
         },

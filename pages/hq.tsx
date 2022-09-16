@@ -99,7 +99,7 @@ function Header(): JSX.Element {
           <Col xs="7" className={styles.headerLeftCol}>
             <Link href="/hq" passHref>
               <Image
-                src="/images/HQ_LOGO_01-White.png"
+                src="/images/A211108_UAC_RossRd_LOGO_V1-white--03.svg"
                 alt="HQ LOGO"
                 width={181}
                 height={82.94}
@@ -741,9 +741,9 @@ function Amenities(): JSX.Element {
 }
 function Feature(): JSX.Element {
   // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
-  const [isFirstClick, setFirstClick] = useState(false);
+  const [isFirstClick, setFirstClick] = useState(true);
   // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
-  const [isSecondClick, setSecondClick] = useState(true);
+  const [isSecondClick, setSecondClick] = useState(false);
   // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
   const [isThirdClick, setThirdClick] = useState(false);
   // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
@@ -1094,7 +1094,7 @@ function Feature(): JSX.Element {
               </div>
             </div>
           </Col>
-          <Col xs="12" sm="5" className={styles.zoningfeatureColright}>
+          <Col xs="12" sm="6" className={styles.zoningfeatureColright}>
             <div className={styles.featureBox}>
               <div className={styles.featureTextBox}>
                 <div className={styles.featureTextTwo}>Laboratories</div>
@@ -1599,17 +1599,19 @@ function Developer(): JSX.Element {
           data-aos-delay="3150"
         >
           <Col xs="8" md="3" xl="4">
-            <a className={styles.unionLogoBottom} target="_blank">
-              <Image
-                src="/images/Union-allied-logo-white-450px.png"
-                width={452.78}
-                height={73.83}
-                // className={styles.unionLogoBottom}
-                alt="scroll-icon"
-                data-aos="fade-left"
-                data-aos-delay="750"
-              />
-            </a>
+            <Link href="https://www.unionallied.ca/">
+              <a className={styles.unionLogoBottom} target="_blank">
+                <Image
+                  src="/images/Union-allied-logo-white-450px.png"
+                  width={452.78}
+                  height={73.83}
+                  // className={styles.unionLogoBottom}
+                  alt="scroll-icon"
+                  data-aos="fade-left"
+                  data-aos-delay="750"
+                />
+              </a>
+            </Link>
           </Col>
           <Col xs="12" md="7" xl="6">
             <p className={styles.paragraph}>
@@ -1619,7 +1621,11 @@ function Developer(): JSX.Element {
               areas that exhibit drivers of intensification and generating real
               estate, we build valued properties.
             </p>
-            <p className={styles.unionalliedlink}>UNIONALLIED.CA</p>
+            <Link href="https://www.unionallied.ca/">
+              <a className={styles.unionLogoBottom} target="_blank">
+                <p className={styles.unionalliedlink}>UNIONALLIED.CA</p>
+              </a>
+            </Link>
           </Col>
         </Row>
       </Container>
@@ -1638,18 +1644,23 @@ interface IContactPageFormElements extends HTMLFormControlsCollection {
   areYouAgentYes: HTMLInputElement;
   areYouAgentNo: HTMLInputElement;
   agentName: HTMLInputElement;
-  broker: HTMLInputElement;
+  // broker: HTMLInputElement;
   withAgent: HTMLInputElement;
 }
 interface IContactPageFormElement extends HTMLFormElement {
   readonly elements: IContactPageFormElements;
 }
 function Register(): JSX.Element {
+  // penny
+  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
+  const [isFirstName, setFirstName] = useState(false);
+  // end penny
   const [submitting, submittingActions] = useBoolean();
   // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
   const [areYouAgent, setAreAgent] = useState(false);
   // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
   const [withAgent, setWithAgent] = useState(false);
+
   function areAgentHandler(event: any) {
     if (event.target.checked) {
       setAreAgent(true);
@@ -1670,6 +1681,16 @@ function Register(): JSX.Element {
       setWithAgent(false);
     }
   }
+  // penny
+  function firstNameHandler(event: any) {
+    if (!event.target.value) {
+      setFirstName(true);
+    } else {
+      setFirstName(false);
+    }
+  }
+
+  // end penny
   const { form, responseMessage, setResponseMessage } = useFormResponse();
   async function formSubmitHandler(
     event: FormEvent<IContactPageFormElement>
@@ -1690,7 +1711,7 @@ function Register(): JSX.Element {
         // areYouAgent: event.currentTarget.elements.areYouAgent.value,
         areYouAgent: areYouAgent,
         withAgent: withAgent,
-        broker: event.currentTarget.elements.broker.value || undefined,
+        // broker: event.currentTarget.elements.broker.value || undefined,
         // withAgent: event.currentTarget.elements.withAgent.checked,
         agentName: event.currentTarget.elements.agentName.value || undefined,
       }),
@@ -1709,27 +1730,12 @@ function Register(): JSX.Element {
       data-aos="fade-up"
       data-aos-delay="3350"
     >
-      <h2 className={styles.headHtwo}>REGISTER</h2>
-      <h3 className={styles.headHthree}>FOR EXCLUSIVE INFO & UPDATES ON HQ.</h3>
-      <Container className={styles.projectRowOne}>
-        <Row className={styles.developerRowOneText}>
-          <Col md="12" lg="6">
-            {/* <div className={styles.projectHeadingBox}>
-              <div className={styles.projectArrow}>
-                <Image
-                  src="/images/arrow.svg"
-                  width={47}
-                  height={20}
-                  layout="fixed"
-                  alt="arrow"
-                />
-              </div>
-              <div className={styles.registerHeading}>
-                FOR EXCLUSIVE INFO AND UPDATES ON HIGH POINT PARK.
-              </div>
-            </div> */}
-          </Col>
-          <Col md="12" lg="6" className={styles.developerTextBoxEmpty}></Col>
+      <Container className={styles.hqprojectRowOne}>
+        <Row className={styles.registerFromHeading}>
+          <h2 className={styles.headHtwo}>REGISTER</h2>
+          <h3 className={styles.headHthree}>
+            FOR EXCLUSIVE INFO & UPDATES ON HQ.
+          </h3>
         </Row>
         <form
           className={styles.contactPageForm}
@@ -1741,21 +1747,19 @@ function Register(): JSX.Element {
             disabled={submitting}
           >
             <Row className={styles.registerRowOne}>
-              <Col md="12" lg="6" className={styles.registerColLeft}>
-                <label htmlFor="firstName" className={styles.registerFormLabel}>
-                  * First Name
-                </label>
+              <Col xs="12" lg="6" className={styles.registerColLeft}>
                 <input
                   id="firstName"
                   autoComplete="given-name"
-                  className={styles.registerFormInput}
+                  className={
+                    isFirstName ? styles.iuputActive : styles.registerFormInput
+                  }
                   name="firstName"
                   required={true}
                   type="text"
+                  placeholder="* First Name"
+                  onClick={firstNameHandler}
                 />
-                <label htmlFor="email" className={styles.registerFormLabel}>
-                  * Email Address
-                </label>
                 <input
                   id="email"
                   autoComplete="email"
@@ -1763,13 +1767,8 @@ function Register(): JSX.Element {
                   name="email"
                   required={true}
                   type="email"
+                  placeholder="* Email Address"
                 />
-                <label
-                  htmlFor="mce-source"
-                  className={styles.registerFormLabel}
-                >
-                  How did you hear about us?
-                </label>
                 {/* <Select
                   label={strings.contactPageFormSourcePlaceholder}
                   name="source"
@@ -1783,7 +1782,9 @@ function Register(): JSX.Element {
                   name="source"
                   className={styles.registerSelect}
                 >
-                  <option className={styles.registerOption} value=""></option>
+                  <option className={styles.registerOption} value="">
+                    How did you hear about us?
+                  </option>
                   <option
                     className={styles.registerOption}
                     value="Friends and Family"
@@ -1812,83 +1813,79 @@ function Register(): JSX.Element {
                     Social Media
                   </option>
                 </select>
-                <label
-                  htmlFor="areYouAgentYes"
-                  className={styles.registerFormLabel}
+                <select
+                  id="mce-source"
+                  name="source"
+                  className={styles.registerSelect}
                 >
-                  * Are you working with an Agent / Realtor?
-                </label>
-                <div className={styles.registerCheckbox}>
-                  <div style={{ paddingRight: '55px' }}>
-                    <input
-                      className={styles.registerCheckboxInput}
-                      name="areYouAgentYes"
-                      onClick={withAgentHandler}
-                      placeholder="Yes"
-                      type="checkbox"
-                    />
-                    <label
-                      className={styles.registerCheckBoxLabel}
-                      htmlFor="areYouAgentYes"
-                    >
-                      Yes
-                    </label>
-                  </div>
-                  <div>
-                    <input
-                      className={styles.registerCheckboxInput}
-                      name="areYouAgentNo"
-                      onClick={notWithAgentHandler}
-                      type="checkbox"
-                    />
-                    <label
-                      htmlFor="areYouAgentNo"
-                      className={styles.registerCheckBoxLabel}
-                    >
-                      No
-                    </label>
-                  </div>
-                </div>
-                <label htmlFor="agentName" className={styles.registerFormLabel}>
-                  Agent / Realtor Name
-                </label>
-                <input
-                  id="agentName"
-                  name="agentName"
-                  type="text"
-                  className={styles.registerFormInput}
-                />
+                  <option className={styles.registerOption} value="">
+                    Are you working with an Agent / Realtor?
+                  </option>
+                  <option
+                    className={styles.registerOption}
+                    value="Friends and Family"
+                  >
+                    yes
+                  </option>
+                  <option className={styles.registerOption} value="Realtor">
+                    Realtor
+                  </option>
+                  <option
+                    className={styles.registerOption}
+                    value="Signage / Walk by / Drive by"
+                  >
+                    no
+                  </option>
+                </select>
               </Col>
-              <Col md="12" lg="6" className={styles.registerColRight}>
-                <label htmlFor="lastName" className={styles.registerFormLabel}>
-                  * Last Name
-                </label>
+              <Col xs="12" lg="6" className={styles.registerColRight}>
                 <input
                   autoComplete="family-name"
                   className={styles.registerFormInput}
                   name="lastName"
                   required={true}
                   type="text"
+                  placeholder="* Last Name"
                 />
-                <label
-                  htmlFor="phoneNumber"
-                  className={styles.registerFormLabel}
-                >
-                  Phone Number
-                </label>
                 <input
                   className={styles.registerFormInput}
                   name="phoneNumber"
                   required={true}
                   type="tel"
+                  placeholder="* Phone Number"
                 />
-                <label
+
+                <select
+                  id="mce-source"
+                  name="source"
+                  className={styles.registerSelect}
+                >
+                  <option className={styles.registerOption} value="">
+                    Are you an Agent?
+                  </option>
+                  <option
+                    className={styles.registerOption}
+                    value="Friends and Family"
+                  >
+                    yes
+                  </option>
+                  <option className={styles.registerOption} value="Realtor">
+                    Realtor
+                  </option>
+                  <option
+                    className={styles.registerOption}
+                    value="Signage / Walk by / Drive by"
+                  >
+                    no
+                  </option>
+                </select>
+                {/* <label
                   htmlFor="areYouAgentYes"
                   className={styles.registerFormLabel}
                 >
                   * Are you an Agent?
-                </label>
-                <div className={styles.registerCheckbox}>
+                </label> */}
+                {/* <div className={styles.registerCheckbox}>
                   <div style={{ paddingRight: '55px' }}>
                     <input
                       className={styles.registerCheckboxInput}
@@ -1918,15 +1915,22 @@ function Register(): JSX.Element {
                       No
                     </label>
                   </div>
-                </div>
-                <label htmlFor="broker" className={styles.registerFormLabel}>
+                </div> */}
+                <input
+                  id="agentName"
+                  name="agentName"
+                  type="text"
+                  className={styles.registerFormInput}
+                  placeholder="Agent / Realtor Name"
+                />
+                {/* <label htmlFor="broker" className={styles.registerFormLabel}>
                   Employee / Broker
                 </label>
                 <input
                   className={styles.registerFormInput}
                   name="broker"
                   type="text"
-                />
+                /> */}
                 <section className={styles.registerCheckbox}>
                   <input
                     className={styles.registerCheckboxInput}
@@ -1984,11 +1988,6 @@ function Footer(): JSX.Element {
             </Link>
           </Col>
           <Col xs="9" md="10">
-            <Link href="https://www.alabcreative.ca/">
-              <a target="_blank" className={styles.linkALAB}>
-                <p className={styles.paragraph}>SITE BY A_LAB CREATIVE</p>
-              </a>
-            </Link>
             <p className={styles.paragraph}>
               © 2022 Union Allied Capital Corporation. This is not an offering
               for sale. Any such offering can only be made with an information
@@ -1996,6 +1995,11 @@ function Footer(): JSX.Element {
               and layouts are preliminary and displayed for illustrative
               purposes only. The information contained herein is subject to
               change at any time without notice.
+              <Link href="https://www.alabcreative.ca/">
+                <a target="_blank" className={styles.linkALAB}>
+                  &nbsp; SITE BY A_LAB CREATIVE
+                </a>
+              </Link>
             </p>
           </Col>
         </Row>
