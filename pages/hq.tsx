@@ -172,7 +172,7 @@ function HeroBanner(): JSX.Element {
     <>
       <div id="" className={styles.bnr}>
         {/* <div id="bgimg" className={styles.bgImgContainer}></div> */}
-        <div className={styles.bnrIntroContainer}>
+        <Container className={styles.bnrIntroContainer}>
           <div className={isScroll ? styles.bnrIntroActive : styles.bnrIntro}>
             <div className={styles.headline}>
               <h1
@@ -224,7 +224,7 @@ function HeroBanner(): JSX.Element {
               </a>
             </Link>
           </div>
-        </div>
+        </Container>
       </div>
       <DynamicJqueryDiamonds />
       {/* <script
@@ -259,17 +259,17 @@ function Opportunity(): JSX.Element {
       <Container className={styles.opportunityContainer}>
         {/* <LocomotiveScroll/> */}
         <Row className={styles.header} data-aos="fade-up" data-aos-delay="50">
-          <Col xs="12" md="6">
+          <Col xs="12" md="5" xl="6" className={styles.opportunityHtwo}>
             <h2 className={styles.headHtwo}>OPPORTUNITY</h2>
           </Col>
-          <Col xs="12" md="6" className={styles.opportunityIntro}>
+          <Col xs="12" md="7" xl="6" className={styles.opportunityIntro}>
             <Row>
               <Col xs="12" md="6">
                 <h3 className={styles.headHthree}>
                   30 LIGHT INDUSTRIAL STRATA UNITS
                 </h3>
               </Col>
-              <Col xs="12" md="6">
+              <Col xs="12" md="6" className={styles.opportunityHeadRightCol}>
                 <h3 className={styles.headHthree}>
                   TRUE Multi-level building TOTALLING 120,000 SQFT
                 </h3>
@@ -277,6 +277,8 @@ function Opportunity(): JSX.Element {
             </Row>
           </Col>
         </Row>
+      </Container>
+      <Container className={styles.opportunityImgContainer}>
         <Image
           src="/images/HQ-strata-units.jpg"
           width={1780}
@@ -287,18 +289,20 @@ function Opportunity(): JSX.Element {
           data-aos="fade-right"
           data-aos-delay="100"
         />
+      </Container>
+      <Container className={styles.opportunityContainer}>
         <Row
           className={styles.opportunityDetail}
           data-aos="fade-up"
           data-aos-delay="150"
         >
-          <Col xs="12" md="4">
+          <Col xs="12" md="5" xl="4">
             <h4 className={styles.headH4}>
               HQ is south vancouver’s newest industrial development, featuring a
               limited opportunity of 30 light industrial strata units.
             </h4>
           </Col>
-          <Col xs="12" md="5">
+          <Col xs="12" md="6" xl="6">
             <p className={styles.paragraph}>
               Take the next step in your business journey with modern light
               industrial space from 2,800 SF and up, including second floor
@@ -321,7 +325,7 @@ function Location(): JSX.Element {
     <section id="location" className={styles.hqLocation}>
       <Container className={styles.locationContainer}>
         <Row className={styles.locationRow}>
-          <Col xs="12" md="6">
+          <Col xs="12" md="5" xl="6">
             <h2
               className={styles.headHtwo}
               data-aos="fade-right"
@@ -330,7 +334,7 @@ function Location(): JSX.Element {
               LOCATION
             </h2>
           </Col>
-          <Col xs="12" md="6" data-aos="fade-left" data-aos-delay="50">
+          <Col xs="12" md="7" xl="6" data-aos="fade-left" data-aos-delay="50">
             <h3 className={styles.headHthree}>
               8290 ROSS STREEET, VANCOUVER, BC
             </h3>
@@ -464,122 +468,189 @@ function Building(): JSX.Element {
             </Col>
           </Row>
         </Container>
+        <Container className={styles.sidebarMobile}>
+          <Accordion
+            defaultActiveKey="3"
+            className={styles.sidebarMobileAccordion}
+          >
+            <Accordion.Item eventKey="0" className={styles.accordionItem}>
+              <Accordion.Header className={styles.accordionHeader}>
+                RESTAURANT
+              </Accordion.Header>
+              <Accordion.Body className={styles.accordionBody}>
+                <ul className={styles.listItems}>
+                  <li className={styles.item}>1. Northern Cafe</li>
+                  <li className={styles.item}>
+                    2. Flamingo Chinese Restaurant
+                  </li>
+                  <li className={styles.item}>3. Dosa Corner</li>
+                  <li className={styles.item}>4. Subway</li>
+                  <li className={styles.item}>5. Tandoori Raj Restaurant</li>
+                </ul>
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="1" className={styles.accordionItem}>
+              <Accordion.Header className={styles.accordionHeader}>
+                SHOPPING & SERVICES
+              </Accordion.Header>
+              <Accordion.Body className={styles.accordionBody}>
+                <ul className={styles.listItems}>
+                  <li className={styles.item}>6. 1010Tires.com</li>
+                  <li className={styles.item}>7. U-Haul Moving & Storage</li>
+                  <li className={styles.item}>8. Fabricland</li>
+                  <li className={styles.item}>9. Real Canadian Superstore</li>
+                  <li className={styles.item}>10. Marks Marine Pharmacy</li>
+                </ul>
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="2" className={styles.accordionItem}>
+              <Accordion.Header className={styles.accordionHeader}>
+                BUSINESS & OFFICE
+              </Accordion.Header>
+              <Accordion.Body className={styles.accordionBody}>
+                <ul className={styles.listItems}>
+                  <li className={styles.item}>11. Purdys Chocolatier Office</li>
+                  <li className={styles.item}>12. SUBWAY Office</li>
+                  <li className={styles.item}>13. White Spot Ltd. Office</li>
+                  <li className={styles.item}>14. Skretting Head Office</li>
+                  <li className={styles.item}>15. Intria Corporate office</li>
+                </ul>
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="3" className={styles.accordionItem}>
+              <Accordion.Header className={styles.accordionHeader}>
+                RECREATION
+              </Accordion.Header>
+              <Accordion.Body className={styles.accordionBody}>
+                <ul className={styles.listItems}>
+                  <li className={styles.item}>16. Ross Park</li>
+                  <li className={styles.item}>17. 6Pack Indoor Beach</li>
+                  <li className={styles.item}>18. Badminton Vancouver</li>
+                  <li className={styles.item}>19. George Park</li>
+                  <li className={styles.item}>
+                    20. Moberly Park Tennis Courts
+                  </li>
+                </ul>
+              </Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
+        </Container>
       </div>
       {/* flickity */}
-      <Container className={styles.amenitiesItems}>
+      <Container className={styles.mapItems}>
         <FlickityCarouselMap />
       </Container>
-      <div className={styles.hasapcebg}>
-        <Container className={styles.hqspace}>
-          <h2
-            className={styles.headHtwo}
-            data-aos="fade-down"
-            data-aos-delay="650"
-          >
-            THE SPACES
-          </h2>
-          <Carousel
-            className={styles.spaceCarouselContainer}
-            nextIcon={nextIcon}
-            prevIcon={prevIcon}
-            indicators={false}
-            data-aos="fade-left"
-            data-aos-delay="700"
-          >
-            <Carousel.Item>
-              <Image
-                src="/images/hq-spaces-1-l.jpg"
-                width={1673}
-                height={950}
-                layout="responsive"
-                alt="Aerial View"
-              />
-            </Carousel.Item>
-            <Carousel.Item>
-              <Image
-                src="/images/hq-spaces-2-l.jpg"
-                width={1673}
-                height={950}
-                layout="responsive"
-                alt="Dollhouse-1"
-              />
-            </Carousel.Item>
-            <Carousel.Item>
-              <Image
-                src="/images/hq-spaces-3-l.jpg"
-                width={1673}
-                height={950}
-                layout="responsive"
-                alt="Dollhouse-2"
-              />
-            </Carousel.Item>
-            <Carousel.Item>
-              <Image
-                src="/images/hq-spaces-4-l.jpg"
-                width={1673}
-                height={950}
-                layout="responsive"
-                alt="Street View"
-              />
-            </Carousel.Item>
-            <Carousel.Item>
-              <Image
-                src="/images/hq-spaces-5-l.jpg"
-                width={1673}
-                height={950}
-                layout="responsive"
-                alt="Street View"
-              />
-            </Carousel.Item>
-            <Carousel.Item>
-              <Image
-                src="/images/hq-spaces-6-l.jpg"
-                width={1673}
-                height={950}
-                layout="responsive"
-                alt="Street View"
-              />
-            </Carousel.Item>
-            <Carousel.Item>
-              <Image
-                src="/images/hq-spaces-7-l.jpg"
-                width={1673}
-                height={950}
-                layout="responsive"
-                alt="Street View"
-              />
-            </Carousel.Item>
-            <Carousel.Item>
-              <Image
-                src="/images/hq-spaces-8-l.jpg"
-                width={1673}
-                height={950}
-                layout="responsive"
-                alt="Street View"
-              />
-            </Carousel.Item>
-            <Carousel.Item>
-              <Image
-                src="/images/hq-spaces-9-l.jpg"
-                width={1673}
-                height={950}
-                layout="responsive"
-                alt="Street View"
-              />
-            </Carousel.Item>
-            <Carousel.Item>
-              <Image
-                src="/images/hq-spaces-10-l.jpg"
-                width={1673}
-                height={950}
-                layout="responsive"
-                alt="Street View"
-              />
-            </Carousel.Item>
-          </Carousel>
-        </Container>
-        {/* <DynamicJqueryRippleSpace /> */}
-      </div>
+      <Container className={styles.hqspaceHtwo}>
+        <h2
+          className={styles.headHtwo}
+          data-aos="fade-down"
+          data-aos-delay="650"
+        >
+          THE SPACES
+        </h2>
+      </Container>
+      <Container className={styles.hqspace}>
+        <Carousel
+          className={styles.spaceCarouselContainer}
+          nextIcon={nextIcon}
+          prevIcon={prevIcon}
+          indicators={false}
+          data-aos="fade-left"
+          data-aos-delay="700"
+        >
+          <Carousel.Item>
+            <Image
+              src="/images/hq-spaces-1-l.jpg"
+              width={1673}
+              height={950}
+              layout="responsive"
+              alt="Aerial View"
+            />
+          </Carousel.Item>
+          <Carousel.Item>
+            <Image
+              src="/images/hq-spaces-2-l.jpg"
+              width={1673}
+              height={950}
+              layout="responsive"
+              alt="Dollhouse-1"
+            />
+          </Carousel.Item>
+          <Carousel.Item>
+            <Image
+              src="/images/hq-spaces-3-l.jpg"
+              width={1673}
+              height={950}
+              layout="responsive"
+              alt="Dollhouse-2"
+            />
+          </Carousel.Item>
+          <Carousel.Item>
+            <Image
+              src="/images/hq-spaces-4-l.jpg"
+              width={1673}
+              height={950}
+              layout="responsive"
+              alt="Street View"
+            />
+          </Carousel.Item>
+          <Carousel.Item>
+            <Image
+              src="/images/hq-spaces-5-l.jpg"
+              width={1673}
+              height={950}
+              layout="responsive"
+              alt="Street View"
+            />
+          </Carousel.Item>
+          <Carousel.Item>
+            <Image
+              src="/images/hq-spaces-6-l.jpg"
+              width={1673}
+              height={950}
+              layout="responsive"
+              alt="Street View"
+            />
+          </Carousel.Item>
+          <Carousel.Item>
+            <Image
+              src="/images/hq-spaces-7-l.jpg"
+              width={1673}
+              height={950}
+              layout="responsive"
+              alt="Street View"
+            />
+          </Carousel.Item>
+          <Carousel.Item>
+            <Image
+              src="/images/hq-spaces-8-l.jpg"
+              width={1673}
+              height={950}
+              layout="responsive"
+              alt="Street View"
+            />
+          </Carousel.Item>
+          <Carousel.Item>
+            <Image
+              src="/images/hq-spaces-9-l.jpg"
+              width={1673}
+              height={950}
+              layout="responsive"
+              alt="Street View"
+            />
+          </Carousel.Item>
+          <Carousel.Item>
+            <Image
+              src="/images/hq-spaces-10-l.jpg"
+              width={1673}
+              height={950}
+              layout="responsive"
+              alt="Street View"
+            />
+          </Carousel.Item>
+        </Carousel>
+      </Container>
+      {/* <DynamicJqueryRippleSpace /> */}
     </section>
   );
 }
@@ -594,9 +665,11 @@ function Amenities(): JSX.Element {
   // }
   return (
     <section id="amenitiesfeatures" className={styles.hqAmenities}>
-      <h2 className={styles.headHtwo} data-aos="fade-up" data-aos-delay="650">
-        AMENITIES
-      </h2>
+      <Container className={styles.amenitiesHtwo}>
+        <h2 className={styles.headHtwo} data-aos="fade-up" data-aos-delay="650">
+          AMENITIES
+        </h2>
+      </Container>
       <Image
         src="/images/hq-amenities-view.jpg"
         width={1920}
@@ -764,49 +837,24 @@ function Feature(): JSX.Element {
     setEightClick(true);
   }
 
-  // function FBClickedHandler() {}
-
-  // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
-  // useEffect(() => {
-  //   const allClickBtn = document.getElementById('#clickFPBtn1');
-  //   console.log(allClickBtn);
-
-  //   for (let i = 0; i < 2; i++) {
-  //     console.log(i);
-  //     // (allClickBtn[i] as HTMLElement).setAttribute('index', i);
-  //     // allClickBtn[i].onclick = function () {
-  //     //   const currClickBtn = allClickBtn[this.getAttribute('index')].src;
-  //     //   document.querySelector('.floorplanImg').src = currClickBtn;
-
-  //     //   for (let i = 0; i < allClickBtn.length; i++) {
-  //     //     allClickBtn[i].style.border = '2px solid white';
-  //     //   }
-  //     //   this.style.border = '2px solid black';
-  //     // };
-  //     // const FBClickedHandler = (event: React.MouseEvent<HTMLImageElement>) => {
-  //     //   event.stopPropagation();
-  //     //   const img = event.allClickBtn[this.getAttribute('index')].src;
-  //     //   document.querySelector('.floorplanImg').src = currClickBtn;
-  //     //   for (let i = 0; i < allClickBtn.length; i++) {
-  //     //     allClickBtn[i].style.border = '2px solid white';
-  //     //   }
-  //     //   this.style.border = '2px solid black';
-  //     // };
-  //   }
-  // }, []);
-
   return (
     <section id="features" className={styles.featureContainer}>
-      <h2
-        className={styles.headHtwo}
-        data-aos="fade-down"
-        data-aos-delay="1050"
-      >
-        UNIT FEATURES
-      </h2>
       <Container className={styles.featureList}>
+        <h2
+          className={styles.headHtwo}
+          data-aos="fade-down"
+          data-aos-delay="1050"
+        >
+          UNIT FEATURES
+        </h2>
         <Row className={styles.featureRow}>
-          <Col xs="12" md="6" data-aos="fade-right" data-aos-delay="13500">
+          <Col
+            xs="12"
+            md="6"
+            data-aos="fade-right"
+            data-aos-delay="13500"
+            className={styles.featureListCol}
+          >
             <div className={styles.featureBox}>
               <div className={styles.featureIconBg}>
                 <Image
@@ -860,10 +908,8 @@ function Feature(): JSX.Element {
                 <div className={styles.featureTextOne}>CEILING HEIGHT</div>
                 <div className={styles.featureTextTwo}>
                   • 14’ ceiling clear heights under mezzanine <br /> • 9’
-                  ceiling clear
-                  <br />
-                  heights in warehouse <br /> • 24’ ceiling clear double heights
-                  warehouse
+                  ceiling clear heights in warehouse <br /> • 24’ ceiling clear
+                  double heights warehouse
                 </div>
               </div>
             </div>
@@ -1001,28 +1047,30 @@ function Feature(): JSX.Element {
           </Col>
         </Row>
       </Container>
-      <Row
-        className={styles.zoningText}
-        data-aos="fade-up"
-        data-aos-delay="1550"
-      >
-        <Col xs="12" md="5">
-          <h2 className={styles.headHtwo}>ZONING</h2>
-        </Col>
-        <Col xs="12" md="5">
-          <h3 className={styles.headHthree}>
-            I2 ZONING LIGHT INDUSTRIAL / <br />
-            COMMERCIAL USES
-          </h3>
-        </Col>
-      </Row>
+      <Container className={styles.zoningHeadline}>
+        <Row
+          className={styles.zoningText}
+          data-aos="fade-up"
+          data-aos-delay="1550"
+        >
+          <Col xs="12" md="6" className={styles.zoingTextLeft}>
+            <h2 className={styles.headHtwo}>ZONING</h2>
+          </Col>
+          <Col xs="12" md="6" className={styles.zoingTextRight}>
+            <h3 className={styles.headHthree}>
+              I2 ZONING LIGHT INDUSTRIAL / <br />
+              COMMERCIAL USES
+            </h3>
+          </Col>
+        </Row>
+      </Container>
       <Container
         className={styles.featureList}
         data-aos="fade-up"
         data-aos-delay="1750"
       >
         <Row className={styles.zoningfeatureList}>
-          <Col xs="12" md="5">
+          <Col xs="12" sm="5" className={styles.zoingfeatureLeftCol}>
             <div className={styles.featureBox}>
               <div className={styles.featureTextBox}>
                 <div className={styles.featureTextTwo}>
@@ -1046,7 +1094,7 @@ function Feature(): JSX.Element {
               </div>
             </div>
           </Col>
-          <Col xs="12" md="5" className={styles.zoningfeatureColright}>
+          <Col xs="12" sm="5" className={styles.zoningfeatureColright}>
             <div className={styles.featureBox}>
               <div className={styles.featureTextBox}>
                 <div className={styles.featureTextTwo}>Laboratories</div>
@@ -1081,18 +1129,19 @@ function Feature(): JSX.Element {
           </Col>
         </Row>
       </Container>
-      <h2
-        id="floorplans"
-        className={styles.headHtwo}
-        data-aos="fade-up"
-        data-aos-delay="1850"
-      >
-        FLOORPLANS
-      </h2>
       <Container id="floorplanContainer" className={styles.floorplanContainer}>
+        <h2
+          id="floorplans"
+          className={styles.headHtwo}
+          data-aos="fade-up"
+          data-aos-delay="1850"
+        >
+          FLOORPLANS
+        </h2>
         <Row className={styles.floorplanRow}>
           <Col
             xs="12"
+            md="12"
             lg="8"
             data-aos="fade-right"
             data-aos-delay="2150"
@@ -1221,6 +1270,7 @@ function Feature(): JSX.Element {
           </Col>
           <Col
             xs="12"
+            md="12"
             lg="3"
             className={styles.fbBtnList}
             data-aos="fade-left"
@@ -1375,7 +1425,7 @@ function Feature(): JSX.Element {
 }
 function Ownership(): JSX.Element {
   // eslint-disable-next-line @kyleshevlin/prefer-custom-hooks
-  const [isFinancialAdClick, setFinancialAdClick] = useState(false);
+  const [isFinancialAdClick, setFinancialAdClick] = useState(true);
   function financialAdClickHandler() {
     setFinancialAdClick(!isFinancialAdClick);
   }
@@ -1400,10 +1450,10 @@ function Ownership(): JSX.Element {
     setEquityClick(!isEquityClick);
   }
   return (
-    <section className={styles.hqLocation}>
-      <Container className={styles.locationContainer}>
-        <Row className={styles.locationRow}>
-          <Col xs="12" md="6" className={styles.ownershipLeftCol}>
+    <section className={styles.hqOwnership}>
+      <Container className={styles.ownershipContainer}>
+        <Row className={styles.ownershipRow}>
+          <Col xs="12" md="5" xl="6" className={styles.ownershipLeftCol}>
             <h2
               className={styles.headHtwo}
               data-aos="fade-right"
@@ -1416,14 +1466,15 @@ function Ownership(): JSX.Element {
           </Col>
           <Col
             xs="12"
-            md="6"
+            md="7"
+            xl="6"
             data-aos="fade-left"
             data-aos-delay="2550"
             className={styles.ownershipRightCol}
           >
-            {/* <Accordion
-              className={styles.accordionContainer}
+            <Accordion
               defaultActiveKey="0"
+              className={styles.ownershipAcoordion}
             >
               <Accordion.Item eventKey="0" className={styles.accordionItem}>
                 <Accordion.Header
@@ -1434,17 +1485,12 @@ function Ownership(): JSX.Element {
                       : styles.accordionHeader
                   }
                 >
-                  <div className={styles.locationArrow}></div> REALIZE FINANCIAL
-                  ADVANTAGES
+                  REALIZE FINANCIAL ADVANTAGES
                 </Accordion.Header>
                 <Accordion.Body className={styles.accordionBody}>
-                  <Row>
-                    <div className={styles.locationText}>
-                      Capital investments bring long-term value, operating
-                      expenses and mortgage interest expenses can be written
-                      off, and capital costs allowances provide tax savings.
-                    </div>
-                  </Row>
+                  Capital investments bring long-term value, operating expenses
+                  and mortgage interest expenses can be written off, and capital
+                  costs allowances provide tax savings.
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="1" className={styles.accordionItem}>
@@ -1456,16 +1502,10 @@ function Ownership(): JSX.Element {
                       : styles.accordionHeader
                   }
                 >
-                  <div className={styles.locationArrow}></div> ENJOY FINANCIAL
-                  CERTAINTY
+                  ENJOY FINANCIAL CERTAINTY
                 </Accordion.Header>
                 <Accordion.Body className={styles.accordionBody}>
-                  <Row>
-                    <div className={styles.locationText}>
-                      Fixed interest rates mean you can lock in monthly
-                      payments.
-                    </div>
-                  </Row>
+                  Fixed interest rates mean you can lock in monthly payments.
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="2" className={styles.accordionItem}>
@@ -1477,15 +1517,11 @@ function Ownership(): JSX.Element {
                       : styles.accordionHeader
                   }
                 >
-                  <div className={styles.locationArrow}></div> EXERCISE CONTROL
+                  EXERCISE CONTROL
                 </Accordion.Header>
                 <Accordion.Body className={styles.accordionBody}>
-                  <Row>
-                    <div className={styles.locationText}>
-                      Avoid annual rent escalations and have a say in your
-                      operating expenses.
-                    </div>
-                  </Row>
+                  Avoid annual rent escalations and have a say in your operating
+                  expenses..
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="3" className={styles.accordionItem}>
@@ -1497,15 +1533,11 @@ function Ownership(): JSX.Element {
                       : styles.accordionHeader
                   }
                 >
-                  <div className={styles.locationArrow}></div> GAIN REWARDS
+                  GAIN REWARDS
                 </Accordion.Header>
                 <Accordion.Body className={styles.accordionBody}>
-                  <Row>
-                    <div className={styles.locationText}>
-                      Property ownership means you have a long-term investment
-                      that can be leased or sold.
-                    </div>
-                  </Row>
+                  Property ownership means you have a long-term investment that
+                  can be leased or sold.
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="4" className={styles.accordionItem}>
@@ -1517,56 +1549,6 @@ function Ownership(): JSX.Element {
                       : styles.accordionHeader
                   }
                 >
-                  <div className={styles.locationArrow}></div> BUILD EQUITY
-                </Accordion.Header>
-                <Accordion.Body className={styles.accordionBody}>
-                  <Row>
-                    <div className={styles.locationText}>
-                      As you pay down your principal, your equity grows.
-                    </div>
-                  </Row>
-                </Accordion.Body>
-              </Accordion.Item>
-            </Accordion> */}
-            <Accordion defaultActiveKey="0">
-              <Accordion.Item eventKey="0" className={styles.accordionItem}>
-                <Accordion.Header className={styles.accordionHeader}>
-                  REALIZE FINANCIAL ADVANTAGES
-                </Accordion.Header>
-                <Accordion.Body className={styles.accordionBody}>
-                  Capital investments bring long-term value, operating expenses
-                  and mortgage interest expenses can be written off, and capital
-                  costs allowances provide tax savings.
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="1" className={styles.accordionItem}>
-                <Accordion.Header className={styles.accordionHeader}>
-                  ENJOY FINANCIAL CERTAINTY
-                </Accordion.Header>
-                <Accordion.Body className={styles.accordionBody}>
-                  Fixed interest rates mean you can lock in monthly payments.
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="2" className={styles.accordionItem}>
-                <Accordion.Header className={styles.accordionHeader}>
-                  EXERCISE CONTROL
-                </Accordion.Header>
-                <Accordion.Body className={styles.accordionBody}>
-                  Avoid annual rent escalations and have a say in your operating
-                  expenses..
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="3" className={styles.accordionItem}>
-                <Accordion.Header className={styles.accordionHeader}>
-                  GAIN REWARDS
-                </Accordion.Header>
-                <Accordion.Body className={styles.accordionBody}>
-                  Property ownership means you have a long-term investment that
-                  can be leased or sold.
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="4" className={styles.accordionItem}>
-                <Accordion.Header className={styles.accordionHeader}>
                   BUILD EQUITY
                 </Accordion.Header>
                 <Accordion.Body className={styles.accordionBody}>
@@ -1586,33 +1568,37 @@ function Developer(): JSX.Element {
     <section id="team" className={styles.developerContainer}>
       <Container className={styles.projectRowOne}>
         <Row
-          className={styles.zoningText}
+          className={styles.developerRowText}
           data-aos="fade-up"
           data-aos-delay="2750"
         >
-          <Col xs="12" md="6">
+          <Col xs="12" md="5" xl="6">
             <h2 className={styles.headHtwo}>DEVELOPER</h2>
           </Col>
-          <Col xs="12" md="6">
+          <Col xs="12" md="7" xl="6">
             <h3 className={styles.headHthree}>
               WELCOME TO A NEW WORLD OF CONCRETE, <br />
               GLASS AND STEEL.
             </h3>
           </Col>
         </Row>
+      </Container>
+      <Container className={styles.flicklityDeveloperContainer}>
         <Row
-          className={styles.zoningText}
+          className={styles.developerRowText}
           data-aos="fade-left"
           data-aos-delay="2950"
         >
           <FlickityCarouselDeveloper />
         </Row>
+      </Container>
+      <Container className={styles.projectRowOne}>
         <Row
-          className={styles.zoningText}
+          className={styles.developerRowText}
           data-aos="fade-up"
           data-aos-delay="3150"
         >
-          <Col xs="12" md="6">
+          <Col xs="8" md="3" xl="4">
             <a className={styles.unionLogoBottom} target="_blank">
               <Image
                 src="/images/Union-allied-logo-white-450px.png"
@@ -1625,7 +1611,7 @@ function Developer(): JSX.Element {
               />
             </a>
           </Col>
-          <Col xs="12" md="5">
+          <Col xs="12" md="7" xl="6">
             <p className={styles.paragraph}>
               We are reimagining the possibilities of commercial, industrial and
               residential development with excellent ideas. We identify and
@@ -1986,7 +1972,7 @@ function Footer(): JSX.Element {
     <section className={styles.footer} data-aos="fade-up" data-aos-delay="3550">
       <Container className={styles.footercontainer}>
         <Row className={styles.footerRow}>
-          <Col xs="2" md="3" className={styles.footerRowLeft}>
+          <Col xs="2" md="2" className={styles.footerRowLeft}>
             <Link href="/hq" passHref>
               <Image
                 src="/images/HQ_LOGO_01-White.png"
@@ -1997,8 +1983,12 @@ function Footer(): JSX.Element {
               />
             </Link>
           </Col>
-          <Col xs="10" md="8">
-            <p className={styles.paragraph}>SITE BY A_LAB CREATIVE</p>
+          <Col xs="9" md="10">
+            <Link href="https://www.alabcreative.ca/">
+              <a target="_blank" className={styles.linkALAB}>
+                <p className={styles.paragraph}>SITE BY A_LAB CREATIVE</p>
+              </a>
+            </Link>
             <p className={styles.paragraph}>
               © 2022 Union Allied Capital Corporation. This is not an offering
               for sale. Any such offering can only be made with an information

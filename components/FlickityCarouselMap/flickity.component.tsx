@@ -27,7 +27,7 @@ export default () => {
       />
       <Image
         src="/images/hq-map-spots-2.jpg"
-        width={418}
+        width={680}
         height={507}
         alt="places"
       />

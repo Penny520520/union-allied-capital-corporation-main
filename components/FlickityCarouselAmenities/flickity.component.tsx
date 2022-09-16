@@ -21,7 +21,7 @@ export default () => {
     >
       <Image
         src="/images/hq-amenities-1.jpg"
-        width={1096}
+        width={899}
         height={610}
         alt="amenities"
       />
