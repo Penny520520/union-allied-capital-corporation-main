@@ -1529,7 +1529,22 @@ padding: 10px;
   top: 7px;
   // -webkit-appearance: none;
 }
-.registerFormInput,
+.registerFormInput {
+  font-family: 'GalanoGrotesqueAltDEMO';
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: solid 1px #7CAFFF;
+  margin-bottom: 80.5px;
+  font-size: clamp(16.8px,1.5vw,32px);
+  color: #7CAFFF;
+  opacity: 0.5;
+  border-radius: 0px;
+}
+.registerFormInput::placeholder {
+  color: #7CAFFF;
+  opacity: 0.5;
+
+}
 .registerSelect {
   font-family: 'GalanoGrotesqueAltDEMO';
   font-weight: bold;
@@ -1539,6 +1554,7 @@ padding: 10px;
   font-size: clamp(16.8px,1.5vw,32px);
   color: #7CAFFF;
   opacity: 0.3;
+  border-radius: 0px;
 }
 .iuputActive {
   font-family: 'GalanoGrotesqueAltDEMO';
@@ -1748,6 +1764,9 @@ padding: 10px;
   }
   .registerContainer {
     padding: clamp(75.6px,10vw,120px) 2vw clamp(98px,10vw,199px) 4vw;
+  }
+  .registerRowOne {
+    padding-top: clamp(75.6px,10vw,125px);
   }
 }
 @media (max-width: 1650px) {
@@ -2304,9 +2323,10 @@ padding: 10px;
     .iuputActive {
       margin-bottom: 50.5px;
     }
-    .registerColRight {
-      padding-left: 0;
-      padding-right: 70.5px;
+    .registerColRight,
+    .registerColLeft {
+      padding-left: 5vw;
+      padding-right: 5vw;
     }
     .registerCheckbox {
       width: 66%;

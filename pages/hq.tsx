@@ -189,7 +189,7 @@ function HeroBanner(): JSX.Element {
               <div
                 className={styles.address}
                 data-aos="fade-up"
-                data-aos-delay="550"
+                data-aos-delay="0"
               >
                 8290 ROSS STREET, VANCOUVER, BC
               </div>
@@ -681,15 +681,17 @@ function Amenities(): JSX.Element {
         data-aos-delay="750"
         // eslint-disable-next-line react/jsx-no-comment-textnodes
       />
-      <div className={styles.hqCalloutBtn}>
+      <div
+        className={styles.hqCalloutBtn}
+        data-aos="fade-up"
+        data-aos-delay="1000"
+      >
         <Image
           src="/images/hq-callout-btn.png"
           width={57}
           height={57}
           alt="AMENITIES VIEW"
           className={styles.calloutIcon}
-          data-aos="fade-up"
-          data-aos-delay="1850"
         />
         <div className={styles.calloutItem}>
           <p className={styles.paragraph}>
@@ -698,29 +700,33 @@ function Amenities(): JSX.Element {
           </p>
         </div>
       </div>
-      <div className={styles.hqCalloutBtn}>
+      <div
+        className={styles.hqCalloutBtn}
+        data-aos="fade-up"
+        data-aos-delay="1100"
+      >
         <Image
           src="/images/hq-callout-btn.png"
           width={57}
           height={57}
           alt="AMENITIES VIEW"
           className={styles.calloutIcon}
-          data-aos="fade-up"
-          data-aos-delay="1750"
         />
         <div className={styles.calloutItem}>
           <p className={styles.paragraph}>Generous common cooridor</p>
         </div>
       </div>
-      <div className={styles.hqCalloutBtn}>
+      <div
+        className={styles.hqCalloutBtn}
+        data-aos="fade-up"
+        data-aos-delay="1200"
+      >
         <Image
           src="/images/hq-callout-btn.png"
           width={57}
           height={57}
           alt="AMENITIES VIEW"
           className={styles.calloutIcon}
-          data-aos="fade-up"
-          data-aos-delay="1750"
         />
         <div className={styles.calloutItem}>
           <p className={styles.paragraph}>
@@ -847,14 +853,12 @@ function Feature(): JSX.Element {
         >
           UNIT FEATURES
         </h2>
-        <Row className={styles.featureRow}>
-          <Col
-            xs="12"
-            md="6"
-            data-aos="fade-right"
-            data-aos-delay="13500"
-            className={styles.featureListCol}
-          >
+        <Row
+          className={styles.featureRow}
+          data-aos="fade-right"
+          data-aos-delay="1350"
+        >
+          <Col xs="12" md="6" className={styles.featureListCol}>
             <div className={styles.featureBox}>
               <div className={styles.featureIconBg}>
                 <Image
@@ -953,7 +957,7 @@ function Feature(): JSX.Element {
               </div>
             </div>
           </Col>
-          <Col xs="12" md="6" data-aos="fade-left" data-aos-delay="1350">
+          <Col xs="12" md="6">
             <div className={styles.featureBox}>
               <div className={styles.featureIconBg}>
                 <Image
@@ -1570,7 +1574,7 @@ function Developer(): JSX.Element {
         <Row
           className={styles.developerRowText}
           data-aos="fade-up"
-          data-aos-delay="2750"
+          data-aos-delay="2550"
         >
           <Col xs="12" md="5" xl="6">
             <h2 className={styles.headHtwo}>DEVELOPER</h2>
@@ -1587,7 +1591,7 @@ function Developer(): JSX.Element {
         <Row
           className={styles.developerRowText}
           data-aos="fade-left"
-          data-aos-delay="2950"
+          data-aos-delay="2750"
         >
           <FlickityCarouselDeveloper />
         </Row>
@@ -1607,8 +1611,6 @@ function Developer(): JSX.Element {
                   height={73.83}
                   // className={styles.unionLogoBottom}
                   alt="scroll-icon"
-                  data-aos="fade-left"
-                  data-aos-delay="750"
                 />
               </a>
             </Link>
@@ -1724,16 +1726,21 @@ function Register(): JSX.Element {
     submittingActions.setFalse();
   }
   return (
-    <section
-      id="register"
-      className={styles.registerContainer}
-      data-aos="fade-up"
-      data-aos-delay="3350"
-    >
+    <section id="register" className={styles.registerContainer}>
       <Container className={styles.hqprojectRowOne}>
         <Row className={styles.registerFromHeading}>
-          <h2 className={styles.headHtwo}>REGISTER</h2>
-          <h3 className={styles.headHthree}>
+          <h2
+            className={styles.headHtwo}
+            data-aos="fade-up"
+            data-aos-delay="2550"
+          >
+            REGISTER
+          </h2>
+          <h3
+            className={styles.headHthree}
+            data-aos="fade-up"
+            data-aos-delay="2750"
+          >
             FOR EXCLUSIVE INFO & UPDATES ON HQ.
           </h3>
         </Row>
@@ -1741,6 +1748,8 @@ function Register(): JSX.Element {
           className={styles.contactPageForm}
           ref={form}
           onSubmit={formSubmitHandler}
+          data-aos="fade-up"
+          data-aos-delay="2950"
         >
           <fieldset
             className={styles.contactPageFormFieldset}
@@ -1975,8 +1984,12 @@ function Footer(): JSX.Element {
   return (
     <section className={styles.footer} data-aos="fade-up" data-aos-delay="3550">
       <Container className={styles.footercontainer}>
-        <Row className={styles.footerRow}>
-          <Col xs="2" md="2" className={styles.footerRowLeft}>
+        <Row
+          className={styles.footerRow}
+          data-aos="fade-up"
+          data-aos-delay="2750"
+        >
+          <Col xs="3" md="2" className={styles.footerRowLeft}>
             <Link href="/hq" passHref>
               <Image
                 src="/images/HQ_LOGO_01-White.png"
@@ -1987,7 +2000,7 @@ function Footer(): JSX.Element {
               />
             </Link>
           </Col>
-          <Col xs="9" md="10">
+          <Col xs="8" md="10">
             <p className={styles.paragraph}>
               © 2022 Union Allied Capital Corporation. This is not an offering
               for sale. Any such offering can only be made with an information
