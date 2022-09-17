@@ -189,7 +189,8 @@ function HeroBanner(): JSX.Element {
               <div
                 className={styles.address}
                 data-aos="fade-up"
-                data-aos-delay="0"
+                data-aos-delay="50"
+                data-aos-offset="0"
               >
                 8290 ROSS STREET, VANCOUVER, BC
               </div>
@@ -203,7 +204,7 @@ function HeroBanner(): JSX.Element {
                   className="arrowdown"
                   alt="scroll-icon"
                   data-aos="fade-up"
-                  data-aos-delay="1550"
+                  data-aos-delay="250"
                   data-aos-offset="0"
                 />
               </a>
@@ -218,7 +219,7 @@ function HeroBanner(): JSX.Element {
                   className="arrowdown"
                   alt="scroll-icon"
                   data-aos="fade-up"
-                  data-aos-delay="1550"
+                  data-aos-delay="250"
                   data-aos-offset="0"
                 />
               </a>
@@ -287,14 +288,16 @@ function Opportunity(): JSX.Element {
           alt="OPPORTUNITY"
           className={styles.hqStrataUnits}
           data-aos="fade-right"
-          data-aos-delay="100"
+          data-aos-delay="150"
+          data-aos-offset="0"
         />
       </Container>
       <Container className={styles.opportunityContainer}>
         <Row
           className={styles.opportunityDetail}
           data-aos="fade-up"
-          data-aos-delay="150"
+          data-aos-delay="250"
+          data-aos-offset="0"
         >
           <Col xs="12" md="5" xl="4">
             <h4 className={styles.headH4}>
@@ -541,11 +544,7 @@ function Building(): JSX.Element {
         <FlickityCarouselMap />
       </Container>
       <Container className={styles.hqspaceHtwo}>
-        <h2
-          className={styles.headHtwo}
-          data-aos="fade-down"
-          data-aos-delay="650"
-        >
+        <h2 className={styles.headHtwo} data-aos="fade-up" data-aos-delay="250">
           THE SPACES
         </h2>
       </Container>
@@ -556,7 +555,7 @@ function Building(): JSX.Element {
           prevIcon={prevIcon}
           indicators={false}
           data-aos="fade-left"
-          data-aos-delay="700"
+          data-aos-delay="450"
         >
           <Carousel.Item>
             <Image
@@ -666,7 +665,7 @@ function Amenities(): JSX.Element {
   return (
     <section id="amenitiesfeatures" className={styles.hqAmenities}>
       <Container className={styles.amenitiesHtwo}>
-        <h2 className={styles.headHtwo} data-aos="fade-up" data-aos-delay="650">
+        <h2 className={styles.headHtwo} data-aos="fade-up" data-aos-delay="250">
           AMENITIES
         </h2>
       </Container>
@@ -678,13 +677,13 @@ function Amenities(): JSX.Element {
         alt="AMENITIES VIEW"
         className={styles.hqMap}
         data-aos="fade-right"
-        data-aos-delay="750"
+        data-aos-delay="450"
         // eslint-disable-next-line react/jsx-no-comment-textnodes
       />
       <div
         className={styles.hqCalloutBtn}
         data-aos="fade-up"
-        data-aos-delay="1000"
+        data-aos-delay="650"
       >
         <Image
           src="/images/hq-callout-btn.png"
@@ -703,7 +702,7 @@ function Amenities(): JSX.Element {
       <div
         className={styles.hqCalloutBtn}
         data-aos="fade-up"
-        data-aos-delay="1100"
+        data-aos-delay="750"
       >
         <Image
           src="/images/hq-callout-btn.png"
@@ -719,7 +718,7 @@ function Amenities(): JSX.Element {
       <div
         className={styles.hqCalloutBtn}
         data-aos="fade-up"
-        data-aos-delay="1200"
+        data-aos-delay="850"
       >
         <Image
           src="/images/hq-callout-btn.png"
@@ -738,7 +737,7 @@ function Amenities(): JSX.Element {
       <Container
         className={styles.amenitiesItems}
         data-aos="fade-left"
-        data-aos-delay="250"
+        data-aos-delay="950"
       >
         <FlickityCarousel />
       </Container>
@@ -846,17 +845,13 @@ function Feature(): JSX.Element {
   return (
     <section id="features" className={styles.featureContainer}>
       <Container className={styles.featureList}>
-        <h2
-          className={styles.headHtwo}
-          data-aos="fade-down"
-          data-aos-delay="1050"
-        >
+        <h2 className={styles.headHtwo} data-aos="fade-up" data-aos-delay="250">
           UNIT FEATURES
         </h2>
         <Row
           className={styles.featureRow}
           data-aos="fade-right"
-          data-aos-delay="1350"
+          data-aos-delay="450"
         >
           <Col xs="12" md="6" className={styles.featureListCol}>
             <div className={styles.featureBox}>
@@ -1055,7 +1050,7 @@ function Feature(): JSX.Element {
         <Row
           className={styles.zoningText}
           data-aos="fade-up"
-          data-aos-delay="1550"
+          data-aos-delay="650"
         >
           <Col xs="12" md="6" className={styles.zoingTextLeft}>
             <h2 className={styles.headHtwo}>ZONING</h2>
@@ -1071,7 +1066,7 @@ function Feature(): JSX.Element {
       <Container
         className={styles.featureList}
         data-aos="fade-up"
-        data-aos-delay="1750"
+        data-aos-delay="850"
       >
         <Row className={styles.zoningfeatureList}>
           <Col xs="12" sm="5" className={styles.zoingfeatureLeftCol}>
@@ -1138,7 +1133,7 @@ function Feature(): JSX.Element {
           id="floorplans"
           className={styles.headHtwo}
           data-aos="fade-up"
-          data-aos-delay="1850"
+          data-aos-delay="1050"
         >
           FLOORPLANS
         </h2>
@@ -1148,7 +1143,7 @@ function Feature(): JSX.Element {
             md="12"
             lg="8"
             data-aos="fade-right"
-            data-aos-delay="2150"
+            data-aos-delay="1250"
             className={styles.floorplanLeftCol}
           >
             <div className={styles.floorplanLeftColContainer}>
@@ -1278,7 +1273,7 @@ function Feature(): JSX.Element {
             lg="3"
             className={styles.fbBtnList}
             data-aos="fade-left"
-            data-aos-delay="2150"
+            data-aos-delay="1250"
           >
             <div>
               <button
@@ -1461,7 +1456,7 @@ function Ownership(): JSX.Element {
             <h2
               className={styles.headHtwo}
               data-aos="fade-right"
-              data-aos-delay="2350"
+              data-aos-delay="250"
             >
               <span>OWNERSHIP</span>
               <br />
@@ -1473,7 +1468,7 @@ function Ownership(): JSX.Element {
             md="7"
             xl="6"
             data-aos="fade-left"
-            data-aos-delay="2550"
+            data-aos-delay="250"
             className={styles.ownershipRightCol}
           >
             <Accordion
@@ -1574,7 +1569,7 @@ function Developer(): JSX.Element {
         <Row
           className={styles.developerRowText}
           data-aos="fade-up"
-          data-aos-delay="2550"
+          data-aos-delay="250"
         >
           <Col xs="12" md="5" xl="6">
             <h2 className={styles.headHtwo}>DEVELOPER</h2>
@@ -1591,7 +1586,7 @@ function Developer(): JSX.Element {
         <Row
           className={styles.developerRowText}
           data-aos="fade-left"
-          data-aos-delay="2750"
+          data-aos-delay="450"
         >
           <FlickityCarouselDeveloper />
         </Row>
@@ -1600,9 +1595,9 @@ function Developer(): JSX.Element {
         <Row
           className={styles.developerRowText}
           data-aos="fade-up"
-          data-aos-delay="3150"
+          data-aos-delay="650"
         >
-          <Col xs="8" md="3" xl="4">
+          <Col xs="6" md="3" xl="4">
             <Link href="https://www.unionallied.ca/">
               <a className={styles.unionLogoBottom} target="_blank">
                 <Image
@@ -1732,14 +1727,14 @@ function Register(): JSX.Element {
           <h2
             className={styles.headHtwo}
             data-aos="fade-up"
-            data-aos-delay="2550"
+            data-aos-delay="250"
           >
             REGISTER
           </h2>
           <h3
             className={styles.headHthree}
             data-aos="fade-up"
-            data-aos-delay="2750"
+            data-aos-delay="450"
           >
             FOR EXCLUSIVE INFO & UPDATES ON HQ.
           </h3>
@@ -1749,7 +1744,7 @@ function Register(): JSX.Element {
           ref={form}
           onSubmit={formSubmitHandler}
           data-aos="fade-up"
-          data-aos-delay="2950"
+          data-aos-delay="650"
         >
           <fieldset
             className={styles.contactPageFormFieldset}
@@ -1987,7 +1982,7 @@ function Footer(): JSX.Element {
         <Row
           className={styles.footerRow}
           data-aos="fade-up"
-          data-aos-delay="2750"
+          data-aos-delay="250"
         >
           <Col xs="3" md="2" className={styles.footerRowLeft}>
             <Link href="/hq" passHref>

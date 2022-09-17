@@ -9,7 +9,7 @@ export default () => {
     initialIndex: 1,
     wrapAround: true,
     groupCells: false,
-    // autoPlay: true,
+    autoPlay: true,
   };
   return (
     <Flickity
@@ -20,7 +20,7 @@ export default () => {
       reloadOnUpdate={true} // default false
       static // default false
     >
-      <div>
+      <div className="groupCell" style={{ marginRight: '20px' }}>
         <Image
           src="/images/hq-map-spots-1.jpg"
           width={716}
@@ -28,7 +28,7 @@ export default () => {
           alt="places"
         />
       </div>
-      <div>
+      <div className="groupCell" style={{ marginRight: '20px' }}>
         <Image
           src="/images/hq-map-spots-2.jpg"
           width={680}
@@ -36,7 +36,7 @@ export default () => {
           alt="places"
         />
       </div>
-      <div>
+      <div className="groupCell" style={{ marginRight: '20px' }}>
         <Image
           src="/images/hq-map-spots-3.jpg"
           width={681}
@@ -44,7 +44,7 @@ export default () => {
           alt="places"
         />
       </div>
-      <div>
+      <div className="groupCell" style={{ marginRight: '20px' }}>
         <Image
           src="/images/hq-map-spots-4.jpg"
           width={729}

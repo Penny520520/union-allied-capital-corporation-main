@@ -19,42 +19,54 @@ export default () => {
       reloadOnUpdate={true} // default false
       static // default false
     >
-      <Image
-        src="/images/hq-developer-1.png"
-        width={612}
-        height={439}
-        alt="places"
-      />
-      <Image
-        src="/images/hq-developer-2.png"
-        width={612}
-        height={439}
-        alt="places"
-      />
-      <Image
-        src="/images/hq-developer-3.png"
-        width={612}
-        height={439}
-        alt="places"
-      />
-      <Image
-        src="/images/hq-developer-4.png"
-        width={612}
-        height={439}
-        alt="places"
-      />
-      <Image
-        src="/images/hq-developer-5.png"
-        width={612}
-        height={439}
-        alt="places"
-      />
-      <Image
-        src="/images/hq-developer-6.png"
-        width={612}
-        height={439}
-        alt="places"
-      />
+      <div className="groupCell" style={{ marginRight: '20px' }}>
+        <Image
+          src="/images/hq-developer-1.png"
+          width={612}
+          height={439}
+          alt="places"
+        />
+      </div>
+      <div className="groupCell" style={{ marginRight: '20px' }}>
+        <Image
+          src="/images/hq-developer-2.png"
+          width={612}
+          height={439}
+          alt="places"
+        />
+      </div>
+      <div className="groupCell" style={{ marginRight: '20px' }}>
+        <Image
+          src="/images/hq-developer-3.png"
+          width={612}
+          height={439}
+          alt="places"
+        />
+      </div>
+      <div className="groupCell" style={{ marginRight: '20px' }}>
+        <Image
+          src="/images/hq-developer-4.png"
+          width={612}
+          height={439}
+          alt="places"
+        />
+      </div>
+      <div className="groupCell" style={{ marginRight: '20px' }}>
+        <Image
+          src="/images/hq-developer-5.png"
+          width={612}
+          height={439}
+          alt="places"
+        />
+      </div>
+      <div className="groupCell" style={{ marginRight: '20px' }}>
+        <Image
+          src="/images/hq-developer-6.png"
+          width={612}
+          height={439}
+          alt="places"
+        />
+      </div>
     </Flickity>
   );
 };

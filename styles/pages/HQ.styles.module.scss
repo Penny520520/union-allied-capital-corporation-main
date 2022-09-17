@@ -1702,6 +1702,7 @@ padding: 10px;
   color: #ffffff;
   font-family: "Poppins-Light";
   font-size: 12px;
+  line-height: clamp(20px, 1vw, 33px);
 }
 .linkALAB {
   text-decoration: none;
@@ -1712,6 +1713,7 @@ padding: 10px;
 }
 .footercontainer .linkALAB {
   color: #ffffff;
+  font-family: 'Poppins-Bold';
 }
 /*
 |------------------------------------------------------
@@ -1788,7 +1790,7 @@ padding: 10px;
   // }
   .paragraph {
     font-size: clamp(14px, 2.5vw, 22px);
-  line-height: clamp(20px,1vw, 33px);
+  line-height: clamp(20px,3.5vw, 33px);
   }
   .headerLeftCol > span {
     width: 121px !important;
@@ -2415,6 +2417,7 @@ padding: 10px;
   }
   .headHthree {
     font-size: 16.8px;
+    line-height: clamp(31px, 2vw, 43px);
   }
   // // nav bar
   // // collapse bar
@@ -2517,6 +2520,7 @@ padding: 10px;
   }
   .opportunityHeadRightCol h3 {
     margin-top: 30px;
+    line-height: clamp(31px, 2vw, 43px);
   }
   .opportunity h4 {
     margin-bottom: 50px;
