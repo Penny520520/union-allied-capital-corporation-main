@@ -19,7 +19,7 @@ export default () => {
       disableImagesLoaded={false} // default false
       reloadOnUpdate={true} // default false
       static // default false
-    > 
+    >
       <div className="groupCell" style={{ marginRight: '20px' }}>
         <Image
           src="/images/hq-map-spots-1.jpg"
