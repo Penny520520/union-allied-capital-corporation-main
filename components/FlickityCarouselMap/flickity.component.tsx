@@ -19,20 +19,22 @@ export default () => {
       disableImagesLoaded={false} // default false
       reloadOnUpdate={true} // default false
       static // default false
-    >
+    > 
       <div className="groupCell" style={{ marginRight: '20px' }}>
         <Image
           src="/images/hq-map-spots-1.jpg"
           width={716}
           height={507}
+          layout={'fixed'}
           alt="places"
         />
       </div>
       <div className="groupCell" style={{ marginRight: '20px' }}>
         <Image
           src="/images/hq-map-spots-2.jpg"
-          width={680}
+          width={418}
           height={507}
+          layout={'fixed'}
           alt="places"
         />
       </div>
@@ -41,6 +43,7 @@ export default () => {
           src="/images/hq-map-spots-3.jpg"
           width={681}
           height={507}
+          layout={'fixed'}
           alt="places"
         />
       </div>
@@ -49,6 +52,7 @@ export default () => {
           src="/images/hq-map-spots-4.jpg"
           width={729}
           height={507}
+          layout={'fixed'}
           alt="places"
         />
       </div>
