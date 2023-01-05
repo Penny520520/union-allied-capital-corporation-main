@@ -4,6 +4,16 @@ export interface IStrings {
   /**
    * Subtitle for 1290 Clark
    */
+  highPointParkSubtitle: string;
+
+  /**
+   * Subtitle for 1290 Clark
+   */
+  hqSubtitle: string;
+
+  /**
+   * Subtitle for 1290 Clark
+   */
   _1290ClarkSubtitle: string;
 
   /**
@@ -650,6 +660,8 @@ export interface IStrings {
 
 export const strings = new LocalizedStrings<IStrings>({
   en: {
+    highPointParkSubtitle: `24 light industrial strata units; 4 buildings totalling 81,723 square feet.`,
+    hqSubtitle: `True multi-level building with 30 Light industrial strata units in totalling 120,000 sf in South Vancouver`,
     _1290ClarkSubtitle: `Modern office and light industrial spaces`,
     _1308AdanacSubtitle: `The modern urban industrial buildings in Vancouver`,
     aboutPageFirstParagraph: `We identify and invest in real estate property developments in developed urban centres. By locating areas that exhibit drivers of intensification and a diminished supply of employment-generating real estate, we build valued properties.`,

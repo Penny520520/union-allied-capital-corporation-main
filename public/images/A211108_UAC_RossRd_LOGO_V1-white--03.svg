@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="156" height="97.938" viewBox="0 0 156 97.938">
+  <defs>
+    <filter id="路径_2" x="0" y="0" width="82.621" height="82.621" filterUnits="userSpaceOnUse">
+      <feOffset dx="5" dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feFlood flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="路径_1" x="73.379" y="0" width="82.621" height="97.938" filterUnits="userSpaceOnUse">
+      <feOffset dx="5" dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2.5" result="blur-2"/>
+      <feFlood flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="A211108_UAC_RossRd_LOGO_V1-white--03" transform="translate(2.5 2.5)">
+    <g transform="matrix(1, 0, 0, 1, -2.5, -2.5)" filter="url(#路径_2)">
+      <path id="路径_2-2" data-name="路径 2" d="M51.417,0V15.188L16.211,33.463V0H0V67.621H16.211V51.25L51.417,32.968V67.621h16.2V0Z" transform="translate(2.5 2.5)" fill="#fff"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, -2.5, -2.5)" filter="url(#路径_1)">
+      <path id="路径_1-2" data-name="路径 1" d="M181.691,0H114.07V67.621h41.89l7.951,15.316h17.78L173.74,67.621h7.951ZM156.185,33.811h-17.78l9.141,17.6H130.281v-35.2h35.207V51.417h-.161Z" transform="translate(-38.19 2.5)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

@@ -83,6 +83,14 @@ import Vanguard_Strata_Dining_Space from 'public/Projects/Vanguard_Strata_Dining
 import Vanguard_Strata_Dollhouse from 'public/Projects/Vanguard_Strata_Dollhouse.jpg';
 import Vanguard_Strata_Landscaping from 'public/Projects/Vanguard_Strata_Landscaping.jpg';
 import Vanguard_Strata_Showrooms from 'public/Projects/Vanguard_Strata_Showrooms.jpg';
+import HQ from 'public/images/HQ-strata-units-full.jpg';
+import HQ_1 from 'public/images/hq-spaces-1-l-s.jpg';
+import HQ_2 from 'public/images/hq-spaces-2-l-s.jpg';
+import HQ_3 from 'public/images/hq-amenities-view-s.jpg';
+import HQ_4 from 'public/images/hq-spaces-6-l-s.jpg';
+import HQ_5 from 'public/images/hq-spaces-7-l-s.jpg';
+import HQ_6 from 'public/images/hq-spaces-9-l-s.jpg';
+import HQ_7 from 'public/images/hq-spaces-10-l-s.jpg';
 
 export default function ProjectPage(
   props: InferGetStaticPropsType<typeof getStaticProps>
@@ -129,6 +137,21 @@ function ProjectPageCoverImage({
   projectTitle,
 }: IProjectPageCoverImageProps): JSX.Element {
   switch (projectSlug) {
+    case `HQ`: {
+      return (
+        <CoverImage
+          alt={projectTitle}
+          className={styles.projectPageMainCoverImage}
+          layout="fill"
+          objectFit="cover"
+          placeholder="blur"
+          priority={true}
+          quality={100}
+          src={HQ}
+        />
+      );
+    }
+
     case `1290_Clark`: {
       return (
         <CoverImage
@@ -293,6 +316,9 @@ function ProjectPageSecondSection({
 }: IProjectPageProps): JSX.Element {
   function getProjectAddress(): string {
     switch (projectSlug) {
+      case `HQ`: {
+        return `8290 ROSS STREET, VANCOUVER, BC`;
+      }
       case `1290_Clark`: {
         return `1290 Clark Drive, Vancouver, BC`;
       }
@@ -581,6 +607,81 @@ function ProjectPageInformation({
   slug,
 }: IProjectPageInformationProps): JSX.Element {
   switch (slug) {
+    case `HQ`: {
+      return (
+        <>
+          <section className={styles.projectPageInformationLeft}>
+            <Typography
+              style={{ [`--font-size`]: pxToRem(32) } as CSSProperties}
+              tag="h2"
+            >
+              Take your business to new heights.
+            </Typography>
+            <Typography style={{ [`--font-weight`]: `bold` } as CSSProperties}>
+              True multi-level building with 30 Light industrial strata units in
+              totalling 120,000 sf in South Vancouver.
+            </Typography>
+            <Typography style={{ [`--color`]: `#959595` } as CSSProperties}>
+              HQ is South Vancouver’s newest industrial development, featuring a
+              limited opportunity of 30 light Industrial strata units.
+            </Typography>
+            <Typography style={{ [`--color`]: `#959595` } as CSSProperties}>
+              Take the next step in your business journey with modern light
+              industrial space from 2,800 sf and up, including second floor
+              mezzanine, high ceilings and grade loading. Built to elevate your
+              business, HQ’s modern design and efficient layout provides a rare
+              opportunity to own industrial space in metro Vancouver’s low
+              vacancy landscape.
+            </Typography>
+          </section>
+          <section className={styles.projectPageInformationActions}>
+            <a
+              className={styles.projectPageInformationAction}
+              href="https://www.unionallied.ca/hq"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <ArrowForContent>
+                <Typography>{strings.websiteTitle}</Typography>
+              </ArrowForContent>
+            </a>
+            <a
+              className={styles.projectPageInformationAction}
+              download={true}
+              href="/Projects/HQ_BROCHURE.pdf"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <ArrowForContent>
+                <Typography>{strings.brochureTitle}</Typography>
+              </ArrowForContent>
+            </a>
+            <a
+              className={styles.projectPageInformationAction}
+              download={true}
+              href="/Projects/HQ_SITEPLAN.pdf"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <ArrowForContent>
+                <Typography>{strings.floorplanTitle}</Typography>
+              </ArrowForContent>
+            </a>
+            {/* <a
+              className={styles.projectPageInformationAction}
+              download={true}
+              href="/Projects/Kyle_Kelowna_PricingSheet.pdf"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <ArrowForContent>
+                <Typography>{strings.pricingSheetTitle}</Typography>
+              </ArrowForContent>
+            </a> */}
+          </section>
+        </>
+      );
+    }
     case `1290_Clark`: {
       return (
         <section className={styles.projectPageInformationLeft}>
@@ -876,6 +977,123 @@ interface IProjectPageImagesProps {
 
 function ProjectPageImages({ slug }: IProjectPageImagesProps): JSX.Element {
   switch (slug) {
+    case `HQ`: {
+      return (
+        <section
+          className={mergeClassNames(
+            styles.projectPageImagesContainer,
+            styles.pageItemRow
+          )}
+        >
+          <section className={styles.projectPageImageTwo}>
+            <ContentCard
+              alt="Aerial View"
+              imageClassName={styles.projectPageCoverImageTwo}
+              imageProps={{
+                layout: `fill`,
+                objectFit: `cover`,
+                placeholder: `blur`,
+                priority: true,
+                quality: 100,
+                src: HQ_1,
+              }}
+              title={<Typography>1</Typography>}
+            />
+          </section>
+          <section className={styles.projectPageImageTwo}>
+            <ContentCard
+              alt="2"
+              imageClassName={styles.projectPageCoverImageTwo}
+              imageProps={{
+                layout: `fill`,
+                objectFit: `cover`,
+                placeholder: `blur`,
+                priority: true,
+                quality: 100,
+                src: HQ_2,
+              }}
+              title={<Typography>2</Typography>}
+            />
+          </section>
+          <section className={styles.projectPageImageTwo}>
+            <ContentCard
+              alt="3"
+              imageClassName={styles.projectPageCoverImageTwo}
+              imageProps={{
+                layout: `fill`,
+                objectFit: `cover`,
+                placeholder: `blur`,
+                priority: true,
+                quality: 100,
+                src: HQ_3,
+              }}
+              title={<Typography>3</Typography>}
+            />
+          </section>
+          <section className={styles.projectPageImageTwo}>
+            <ContentCard
+              alt="4"
+              imageClassName={styles.projectPageCoverImageTwo}
+              imageProps={{
+                layout: `fill`,
+                objectFit: `cover`,
+                placeholder: `blur`,
+                priority: true,
+                quality: 100,
+                src: HQ_4,
+              }}
+              title={<Typography>4</Typography>}
+            />
+          </section>
+          <section className={styles.projectPageImageTwo}>
+            <ContentCard
+              alt="5"
+              imageClassName={styles.projectPageCoverImageTwo}
+              imageProps={{
+                layout: `fill`,
+                objectFit: `cover`,
+                placeholder: `blur`,
+                priority: true,
+                quality: 100,
+                src: HQ_5,
+              }}
+              title={<Typography>5</Typography>}
+            />
+          </section>
+          <section className={styles.projectPageImageTwo}>
+            <ContentCard
+              alt="6"
+              imageClassName={styles.projectPageCoverImageTwo}
+              imageProps={{
+                layout: `fill`,
+                objectFit: `cover`,
+                placeholder: `blur`,
+                priority: true,
+                quality: 100,
+                src: HQ_6,
+              }}
+              title={<Typography>6</Typography>}
+            />
+          </section>
+          <section className={styles.projectPageImageTwo}>
+            <ContentCard
+              alt="7"
+              imageClassName={styles.projectPageCoverImageTwo}
+              imageProps={{
+                layout: `fill`,
+                objectFit: `cover`,
+                placeholder: `blur`,
+                priority: true,
+                quality: 100,
+                src: HQ_7,
+              }}
+              title={<Typography>7</Typography>}
+            />
+          </section>
+        </section>
+      );
+    }
+
     case `1290_Clark`: {
       return (
         <section
@@ -1754,6 +1972,11 @@ export function getStaticPaths(): GetStaticPathsResult<IProjectPageParams> {
     paths: [
       {
         params: {
+          projectSlug: 'HQ',
+        },
+      },
+      {
+        params: {
           projectSlug: '1290_Clark',
         },
       },
@@ -1852,6 +2075,20 @@ export function getStaticProps(
     const projectTitle = context.params.projectSlug.replace(/_/g, ` `);
 
     switch (context.params.projectSlug) {
+      case `HQ`: {
+        return {
+          props: {
+            projectAddress: `8290 ROSS STREET, {0} Vancouver, BC`,
+            projectBuilding: `120,000 SQFT {0} 30 LIGHT INDUSTRIAL {0} STRATA UNITS`,
+            projectCompletion: ``,
+            projectSite: `I2 ZONING {0} LIGHT INDUSTRIAL / {0} COMMERCIAL USES`,
+            projectSlug,
+            projectStatus: ``,
+            projectTitle,
+          },
+        };
+      }
+
       case `1290_Clark`: {
         return {
           props: {

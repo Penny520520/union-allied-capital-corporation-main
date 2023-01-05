@@ -20,6 +20,7 @@ import High_Point_Park from 'public/Projects/High_Point_Park.jpg';
 import Impact_Plaza_Development from 'public/Projects/Impact_Plaza_Development.jpg';
 import Morningside from 'public/Projects/Morningside.jpg';
 import Riverside from 'public/Projects/Riverside.jpg';
+import HQ from 'public/images/HQ-strata-units-full-s.jpg';
 
 export default function ProjectsPage() {
   return (
@@ -55,9 +56,24 @@ function ProjectsPageFirstSection(): JSX.Element {
               name={strings.projectsIndustrialSelectLabel}
               options={[
                 {
+                  href: `/projects/HQ`,
+                  name: `HQ`,
+                  value: `HQ`,
+                },
+                {
+                  href: `/projects/High_Point_Park`,
+                  name: `High Point Park`,
+                  value: `High_Point_Park`,
+                },
+                {
                   href: `/projects/1290_Clark`,
                   name: `1290 Clark`,
                   value: `1290_Clark`,
+                },
+                {
+                  href: `/projects/Kyle_Kelowna`,
+                  name: `Kyle Kelowna`,
+                  value: `Kyle_Kelowna`,
                 },
                 {
                   href: `/projects/1308_Adanac`,
@@ -70,9 +86,19 @@ function ProjectsPageFirstSection(): JSX.Element {
                   value: `Vanguard`,
                 },
                 {
-                  href: `/projects/High_Point_Park`,
-                  name: `High Point Park`,
-                  value: `High_Point_Park`,
+                  href: `/projects/Monogram`,
+                  name: `Monogram`,
+                  value: `Monogram`,
+                },
+                {
+                  href: `/projects/Union_Bay`,
+                  name: `Union Bay`,
+                  value: `Union Bay`,
+                },
+                {
+                  href: `/projects/Impact_Plaza_Development`,
+                  name: `Impact Plaza Development`,
+                  value: `Impact Plaza Development`,
                 },
                 {
                   href: `/projects/Riverside`,
@@ -80,19 +106,9 @@ function ProjectsPageFirstSection(): JSX.Element {
                   value: `Riverside`,
                 },
                 {
-                  href: `/projects/Kyle_Kelowna`,
-                  name: `Kyle Kelowna`,
-                  value: `Kyle_Kelowna`,
-                },
-                {
                   href: `/projects/Morningside`,
                   name: `Morningside`,
                   value: `Morningside`,
-                },
-                {
-                  disabled: true,
-                  name: `HQ South Van - Ross Road`,
-                  value: `HQ_South_Van-Ross_Road`,
                 },
               ]}
             />
@@ -172,6 +188,66 @@ function ProjectsPageSecondSection(): JSX.Element {
             } as CSSProperties
           }
         >
+          <section
+            data-row={true}
+            style={
+              {
+                [`--row-first-item-width`]: `50%`,
+                [`--row-last-item-width`]: `35%`,
+              } as CSSProperties
+            }
+          >
+            <ContentCard
+              alt="HQ"
+              href="/projects/HQ"
+              imageClassName={mergeClassNames(
+                styles.projectsPageItemImage,
+                styles.pageItemImage
+              )}
+              imageProps={{
+                layout: `fill`,
+                placeholder: `blur`,
+                priority: true,
+                quality: 100,
+                src: HQ,
+              }}
+              subtitle={
+                <Typography className={styles.projectsPageItemSubtitle}>
+                  {strings.hqSubtitle}
+                </Typography>
+              }
+              title={
+                <Typography className={styles.projectsPageItemTitle} tag="h2">
+                  HQ
+                </Typography>
+              }
+            />
+            <ContentCard
+              alt="High Point Park"
+              href="/projects/High_Point_Park"
+              imageClassName={mergeClassNames(
+                styles.projectsPageItemImage,
+                styles.pageItemImage
+              )}
+              imageProps={{
+                layout: `fill`,
+                placeholder: `blur`,
+                priority: true,
+                quality: 100,
+                src: High_Point_Park,
+              }}
+              subtitle={
+                <Typography className={styles.projectsPageItemSubtitle}>
+                  {strings.highPointParkSubtitle}
+                </Typography>
+              }
+              title={
+                <Typography className={styles.projectsPageItemTitle} tag="h2">
+                  High Point Park
+                </Typography>
+              }
+            />
+          </section>
           <section
             data-row={true}
             style={
@@ -360,26 +436,6 @@ function ProjectsPageSecondSection(): JSX.Element {
             }
           >
             <ContentCard
-              alt="High Point Park"
-              href="/projects/High_Point_Park"
-              imageClassName={mergeClassNames(
-                styles.projectsPageItemImage,
-                styles.pageItemImage
-              )}
-              imageProps={{
-                layout: `fill`,
-                placeholder: `blur`,
-                priority: true,
-                quality: 100,
-                src: High_Point_Park,
-              }}
-              title={
-                <Typography className={styles.projectsPageItemTitle} tag="h2">
-                  High Point Park
-                </Typography>
-              }
-            />
-            <ContentCard
               alt="Impact Plaza Development"
               href="/projects/Impact_Plaza_Development"
               imageClassName={mergeClassNames(
@@ -396,6 +452,26 @@ function ProjectsPageSecondSection(): JSX.Element {
               title={
                 <Typography className={styles.projectsPageItemTitle} tag="h2">
                   Impact Plaza Development
+                </Typography>
+              }
+            />
+            <ContentCard
+              alt="Riverside"
+              href="/projects/Riverside"
+              imageClassName={mergeClassNames(
+                styles.projectsPageItemImage,
+                styles.pageItemImage
+              )}
+              imageProps={{
+                layout: `fill`,
+                placeholder: `blur`,
+                priority: true,
+                quality: 100,
+                src: Riverside,
+              }}
+              title={
+                <Typography className={styles.projectsPageItemTitle} tag="h2">
+                  Riverside
                 </Typography>
               }
             />
@@ -426,26 +502,6 @@ function ProjectsPageSecondSection(): JSX.Element {
               title={
                 <Typography className={styles.projectsPageItemTitle} tag="h2">
                   Morningside
-                </Typography>
-              }
-            />
-            <ContentCard
-              alt="Riverside"
-              href="/projects/Riverside"
-              imageClassName={mergeClassNames(
-                styles.projectsPageItemImage,
-                styles.pageItemImage
-              )}
-              imageProps={{
-                layout: `fill`,
-                placeholder: `blur`,
-                priority: true,
-                quality: 100,
-                src: Riverside,
-              }}
-              title={
-                <Typography className={styles.projectsPageItemTitle} tag="h2">
-                  Riverside
                 </Typography>
               }
             />

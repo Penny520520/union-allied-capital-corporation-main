@@ -45,7 +45,7 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="shortcut icon" href="/UnionAlliedLogo.svg" />
+          {/* <link rel="shortcut icon" href="/UnionAlliedLogo.svg" /> */}
           {this.renderFontLinks(
             [`Helvetica`],
             [`eot`, `ttf`, `woff`, `woff2`],

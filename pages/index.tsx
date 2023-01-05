@@ -44,7 +44,8 @@ import MnMLogo from 'public/Tenants/M&MLogo.png';
 import JadeValleyLogo from 'public/Tenants/JadeValleyLogo.png';
 import Kyle_Kelowna from 'public/Projects/Kyle_Kelowna.jpg';
 import Clark_1290 from 'public/Projects/1290_Clark.jpg';
-import Vanguard_Strata from 'public/Projects/Vanguard_Strata.jpg';
+import High_Point_Park from 'public/Projects/High_Point_Park.jpg';
+import HQ from 'public/images/HQ-strata-units-full-s.jpg';
 import Adanac_1308 from 'public/Projects/1308_Adanac.jpg';
 
 export default function HomePage(
@@ -210,9 +211,9 @@ function ProjectsPageItem(): JSX.Element {
         )}
       >
         <ContentCard
-          alt="Kyle Kelowna"
+          alt="HQ"
           containerClassName={styles.projectsPageItemTopRowLarge}
-          href="/projects/Kyle_Kelowna"
+          href="/projects/HQ"
           imageClassName={mergeClassNames(
             styles.projectsPageItemImage,
             styles.pageItemImage
@@ -220,36 +221,40 @@ function ProjectsPageItem(): JSX.Element {
           imageProps={{
             layout: `fill`,
             placeholder: `blur`,
-            src: Kyle_Kelowna,
+            src: HQ,
           }}
           subtitle={
             <Typography className={styles.projectsPageItemSubtitle}>
-              {strings.kyleKelownaSubtitle}
+              {strings.hqSubtitle}
             </Typography>
           }
           title={
             <Typography className={styles.projectsPageItemTitle} tag="h2">
-              Kyle Kelowna
+              HQ
             </Typography>
           }
         />
         <ContentCard
-          alt="1290 Clark"
+          alt="High Point Park"
           containerClassName={styles.projectsPageItemTopRowSmall}
-          href="/projects/1290_Clark"
-          imageProps={{ layout: `fill`, placeholder: `blur`, src: Clark_1290 }}
+          href="/projects/High_Point_Park"
+          imageProps={{
+            layout: `fill`,
+            placeholder: `blur`,
+            src: High_Point_Park,
+          }}
           imageClassName={mergeClassNames(
             styles.projectsPageItemImage,
             styles.pageItemImage
           )}
           subtitle={
             <Typography className={styles.projectsPageItemSubtitle}>
-              {strings._1290ClarkSubtitle}
+              {strings.highPointParkSubtitle}
             </Typography>
           }
           title={
             <Typography className={styles.projectsPageItemTitle} tag="h2">
-              1290 Clark
+              High Point Park
             </Typography>
           }
         />
@@ -283,32 +288,8 @@ function ProjectsPageItem(): JSX.Element {
         >
           <section data-row={true}>
             <ContentCard
-              alt="Vanguard Strata"
-              containerClassName={styles.projectsPageItemBottomRowSmall}
-              href="/projects/Vanguard_Strata"
-              imageProps={{
-                layout: `fill`,
-                placeholder: `blur`,
-                src: Vanguard_Strata,
-              }}
-              imageClassName={mergeClassNames(
-                styles.projectsPageItemImage,
-                styles.pageItemImage
-              )}
-              subtitle={
-                <Typography className={styles.projectsPageItemSubtitle}>
-                  {strings.vanguardStrataSubtitle}
-                </Typography>
-              }
-              title={
-                <Typography className={styles.projectsPageItemTitle} tag="h2">
-                  Vanguard Strata
-                </Typography>
-              }
-            />
-            <ContentCard
               alt="1308 Adanac"
-              containerClassName={styles.projectsPageItemBottomRowLarge}
+              containerClassName={styles.projectsPageItemBottomRowSmall}
               href="/projects/1308_Adanac"
               imageProps={{
                 layout: `fill`,
@@ -327,6 +308,30 @@ function ProjectsPageItem(): JSX.Element {
               title={
                 <Typography className={styles.projectsPageItemTitle} tag="h2">
                   1308 Adanac
+                </Typography>
+              }
+            />
+            <ContentCard
+              alt="Kyle Kelowna"
+              containerClassName={styles.projectsPageItemBottomRowLarge}
+              href="/projects/Kyle_Kelowna"
+              imageProps={{
+                layout: `fill`,
+                placeholder: `blur`,
+                src: Kyle_Kelowna,
+              }}
+              imageClassName={mergeClassNames(
+                styles.projectsPageItemImage,
+                styles.pageItemImage
+              )}
+              subtitle={
+                <Typography className={styles.projectsPageItemSubtitle}>
+                  {strings.kyleKelownaSubtitle}
+                </Typography>
+              }
+              title={
+                <Typography className={styles.projectsPageItemTitle} tag="h2">
+                  Kyle Kelowna
                 </Typography>
               }
             />
