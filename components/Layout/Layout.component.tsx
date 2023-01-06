@@ -13,7 +13,7 @@ export function Layout({
     return (
       <>
         <Head>
-          <link rel="shortcut icon" href="/UnionAlliedLogo.svg" />
+          <link rel="shortcut icon" href="/UA-logo.jpg" />
         </Head>
         <main>{children}</main>
       </>
@@ -31,7 +31,7 @@ export function Layout({
     return (
       <>
         <Head>
-          <link rel="shortcut icon" href="/UnionAlliedLogo.svg" />
+          <link rel="shortcut icon" href="/UA-logo.jpg" />
         </Head>
         <main>
           <Header />

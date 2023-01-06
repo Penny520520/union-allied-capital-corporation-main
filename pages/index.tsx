@@ -45,7 +45,7 @@ import JadeValleyLogo from 'public/Tenants/JadeValleyLogo.png';
 import Kyle_Kelowna from 'public/Projects/Kyle_Kelowna.jpg';
 import Clark_1290 from 'public/Projects/1290_Clark.jpg';
 import High_Point_Park from 'public/Projects/High_Point_Park.jpg';
-import HQ from 'public/images/HQ-strata-units-full-s.jpg';
+import HQ from 'public/images/hq-cover.jpg';
 import Adanac_1308 from 'public/Projects/1308_Adanac.jpg';
 
 export default function HomePage(

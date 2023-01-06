@@ -20,7 +20,7 @@ import High_Point_Park from 'public/Projects/High_Point_Park.jpg';
 import Impact_Plaza_Development from 'public/Projects/Impact_Plaza_Development.jpg';
 import Morningside from 'public/Projects/Morningside.jpg';
 import Riverside from 'public/Projects/Riverside.jpg';
-import HQ from 'public/images/HQ-strata-units-full-s.jpg';
+import HQ from 'public/images/hq-cover.jpg';
 
 export default function ProjectsPage() {
   return (

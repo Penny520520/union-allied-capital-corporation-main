@@ -83,14 +83,14 @@ import Vanguard_Strata_Dining_Space from 'public/Projects/Vanguard_Strata_Dining
 import Vanguard_Strata_Dollhouse from 'public/Projects/Vanguard_Strata_Dollhouse.jpg';
 import Vanguard_Strata_Landscaping from 'public/Projects/Vanguard_Strata_Landscaping.jpg';
 import Vanguard_Strata_Showrooms from 'public/Projects/Vanguard_Strata_Showrooms.jpg';
-import HQ from 'public/images/HQ-strata-units-full.jpg';
-import HQ_1 from 'public/images/hq-spaces-1-l-s.jpg';
-import HQ_2 from 'public/images/hq-spaces-2-l-s.jpg';
-import HQ_3 from 'public/images/hq-amenities-view-s.jpg';
-import HQ_4 from 'public/images/hq-spaces-6-l-s.jpg';
-import HQ_5 from 'public/images/hq-spaces-7-l-s.jpg';
-import HQ_6 from 'public/images/hq-spaces-9-l-s.jpg';
-import HQ_7 from 'public/images/hq-spaces-10-l-s.jpg';
+import HQ from 'public/images/hq-cover.jpg';
+import HQ_1 from 'public/images/hq-spaces-1-l.jpg';
+import HQ_2 from 'public/images/hq-spaces-2-l.jpg';
+import HQ_3 from 'public/images/hq-amenities-view.jpg';
+import HQ_4 from 'public/images/hq-spaces-6-l.jpg';
+import HQ_5 from 'public/images/hq-spaces-7-l.jpg';
+import HQ_6 from 'public/images/hq-spaces-9-l.jpg';
+import HQ_7 from 'public/images/hq-spaces-10-l.jpg';
 
 export default function ProjectPage(
   props: InferGetStaticPropsType<typeof getStaticProps>
@@ -997,7 +997,7 @@ function ProjectPageImages({ slug }: IProjectPageImagesProps): JSX.Element {
                 quality: 100,
                 src: HQ_1,
               }}
-              title={<Typography>1</Typography>}
+              title={<Typography></Typography>}
             />
           </section>
           <section className={styles.projectPageImageTwo}>
@@ -1012,7 +1012,7 @@ function ProjectPageImages({ slug }: IProjectPageImagesProps): JSX.Element {
                 quality: 100,
                 src: HQ_2,
               }}
-              title={<Typography>2</Typography>}
+              title={<Typography></Typography>}
             />
           </section>
           <section className={styles.projectPageImageTwo}>
@@ -1027,7 +1027,7 @@ function ProjectPageImages({ slug }: IProjectPageImagesProps): JSX.Element {
                 quality: 100,
                 src: HQ_3,
               }}
-              title={<Typography>3</Typography>}
+              title={<Typography></Typography>}
             />
           </section>
           <section className={styles.projectPageImageTwo}>
@@ -1042,7 +1042,7 @@ function ProjectPageImages({ slug }: IProjectPageImagesProps): JSX.Element {
                 quality: 100,
                 src: HQ_4,
               }}
-              title={<Typography>4</Typography>}
+              title={<Typography></Typography>}
             />
           </section>
           <section className={styles.projectPageImageTwo}>
@@ -1057,7 +1057,7 @@ function ProjectPageImages({ slug }: IProjectPageImagesProps): JSX.Element {
                 quality: 100,
                 src: HQ_5,
               }}
-              title={<Typography>5</Typography>}
+              title={<Typography></Typography>}
             />
           </section>
           <section className={styles.projectPageImageTwo}>
@@ -1072,7 +1072,7 @@ function ProjectPageImages({ slug }: IProjectPageImagesProps): JSX.Element {
                 quality: 100,
                 src: HQ_6,
               }}
-              title={<Typography>6</Typography>}
+              title={<Typography></Typography>}
             />
           </section>
           <section className={styles.projectPageImageTwo}>
@@ -1087,7 +1087,7 @@ function ProjectPageImages({ slug }: IProjectPageImagesProps): JSX.Element {
                 quality: 100,
                 src: HQ_7,
               }}
-              title={<Typography>7</Typography>}
+              title={<Typography></Typography>}
             />
           </section>
         </section>
@@ -2078,10 +2078,10 @@ export function getStaticProps(
       case `HQ`: {
         return {
           props: {
-            projectAddress: `8290 ROSS STREET, {0} Vancouver, BC`,
-            projectBuilding: `120,000 SQFT {0} 30 LIGHT INDUSTRIAL {0} STRATA UNITS`,
+            projectAddress: `8290 ROSS STREET, Vancouver, BC`,
+            projectBuilding: `120,000 SQFT, 30 LIGHT INDUSTRIAL STRATA UNITS`,
             projectCompletion: ``,
-            projectSite: `I2 ZONING {0} LIGHT INDUSTRIAL / {0} COMMERCIAL USES`,
+            projectSite: `I2 ZONING, LIGHT INDUSTRIAL / COMMERCIAL USES`,
             projectSlug,
             projectStatus: ``,
             projectTitle,
